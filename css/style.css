@@ -392,6 +392,7 @@ p {
   align-items: center;
   overflow: hidden;
   background: var(--primary);
+  padding-bottom: 10px;
 }
 
 .hero-bg {
@@ -553,6 +554,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   filter: saturate(0.85);
   transition: var(--transition-slow);
 }
@@ -1541,6 +1543,12 @@ p {
 .stagger-item-left.revealed {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* --- Legal Pages (Impressum, Datenschutz) --- */
+.legal-page .section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  word-break: break-word;
 }
 
 /* --- Responsive --- */
