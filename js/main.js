@@ -2,7 +2,8 @@
    RG Tiefbau — Main JavaScript
    ============================================ */
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = window.location.origin + '/api';
+const WS_BASE = (window.location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + window.location.host + '/api';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -288,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function connectChat() {
     try {
-      ws = new WebSocket(`ws://localhost:8000/api/chat/ws`);
+      ws = new WebSocket(`${WS_BASE}/chat/ws`);
 
       ws.onopen = () => {
         console.log('Chat connected');

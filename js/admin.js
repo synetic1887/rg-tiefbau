@@ -2,7 +2,8 @@
    RG Tiefbau — Admin Panel JavaScript
    ============================================ */
 
-const API = 'http://localhost:8000/api';
+const API = window.location.origin + '/api';
+const WS_BASE = (window.location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + window.location.host + '/api';
 let token = localStorage.getItem('rg_token') || '';
 let adminWs = null;
 let activeChat = null;
@@ -280,7 +281,7 @@ async function deleteTicket(id) {
 // =============================================
 function connectAdminWs() {
   try {
-    adminWs = new WebSocket('ws://localhost:8000/api/chat/admin/ws');
+    adminWs = new WebSocket(`${WS_BASE}/chat/admin/ws`);
 
     adminWs.onmessage = (event) => {
       const data = JSON.parse(event.data);
