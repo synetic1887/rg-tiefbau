@@ -623,6 +623,16 @@ app.mount("/assets", StaticFiles(directory=os.path.join(FRONTEND_DIR, "assets"))
 async def serve_admin():
     return FileResponse(os.path.join(FRONTEND_DIR, "admin.html"))
 
+@app.get("/impressum.html")
+@app.get("/impressum")
+async def serve_impressum():
+    return FileResponse(os.path.join(FRONTEND_DIR, "impressum.html"))
+
+@app.get("/datenschutz.html")
+@app.get("/datenschutz")
+async def serve_datenschutz():
+    return FileResponse(os.path.join(FRONTEND_DIR, "datenschutz.html"))
+
 @app.get("/")
 async def serve_index():
     return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
