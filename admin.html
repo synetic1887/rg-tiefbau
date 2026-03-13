@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RG Tiefbau — Admin Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-logo">RG<span>Tiefbau</span></div>
+      <h2>Admin-Bereich</h2>
+      <p>Melden Sie sich an, um das CMS zu verwalten.</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginUser">Benutzername</label>
+          <input type="text" id="loginUser" value="admin" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPass">Passwort</label>
+          <input type="password" id="loginPass" value="admin123" required>
+        </div>
+        <button type="submit" class="btn-primary">Anmelden</button>
+        <p class="login-error" id="loginError"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD -->
+  <div class="admin-layout" id="adminLayout" style="display:none;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">RG<span>Tiefbau</span></div>
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-link active" data-section="dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a>
+        <a href="#" class="sidebar-link" data-section="tickets">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Anfragen
+          <span class="sidebar-badge" id="ticketBadge">0</span>
+        </a>
+        <a href="#" class="sidebar-link" data-section="chat">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Live-Chat
+          <span class="sidebar-badge" id="chatBadge">0</span>
+        </a>
+        <a href="#" class="sidebar-link" data-section="content">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Inhalte bearbeiten
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Abmelden
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- DASHBOARD -->
+      <section class="admin-section" id="sectionDashboard">
+        <h1>Dashboard</h1>
+        <div class="stats-cards">
+          <div class="stat-card">
+            <div class="stat-card-icon blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="stat-card-value" id="statTotal">0</p>
+              <p class="stat-card-label">Anfragen gesamt</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon orange">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div>
+              <p class="stat-card-value" id="statNeu">0</p>
+              <p class="stat-card-label">Neue Anfragen</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon yellow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p class="stat-card-value" id="statBearbeitung">0</p>
+              <p class="stat-card-label">In Bearbeitung</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon green">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <p class="stat-card-value" id="statErledigt">0</p>
+              <p class="stat-card-label">Erledigt</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Neueste Anfragen</h2>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Leistung</th>
+                <th>Status</th>
+                <th>Datum</th>
+                <th>Aktion</th>
+              </tr>
+            </thead>
+            <tbody id="dashboardTickets"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TICKETS -->
+      <section class="admin-section" id="sectionTickets" style="display:none;">
+        <div class="section-top">
+          <h1>Kundenanfragen</h1>
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">Alle</button>
+            <button class="filter-tab" data-filter="neu">Neu</button>
+            <button class="filter-tab" data-filter="in_bearbeitung">In Bearbeitung</button>
+            <button class="filter-tab" data-filter="erledigt">Erledigt</button>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Firma</th>
+                <th>Leistung</th>
+                <th>Ort</th>
+                <th>Status</th>
+                <th>Datum</th>
+                <th>Aktion</th>
+              </tr>
+            </thead>
+            <tbody id="ticketsList"></tbody>
+          </table>
+        </div>
+
+        <!-- Ticket Detail Modal -->
+        <div class="modal-overlay" id="ticketModal" style="display:none;">
+          <div class="modal">
+            <div class="modal-header">
+              <h2>Anfrage Details</h2>
+              <button class="modal-close" id="closeTicketModal">&times;</button>
+            </div>
+            <div class="modal-body" id="ticketModalBody"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAT -->
+      <section class="admin-section" id="sectionChat" style="display:none;">
+        <h1>Live-Chat</h1>
+        <div class="chat-admin-layout">
+          <div class="chat-sessions-list">
+            <h3>Aktive Chats</h3>
+            <div id="chatSessionsList"></div>
+          </div>
+          <div class="chat-admin-panel">
+            <div class="chat-admin-messages" id="adminChatMessages">
+              <p class="chat-placeholder">Wählen Sie einen Chat aus der Liste.</p>
+            </div>
+            <div class="chat-admin-input" id="adminChatInput" style="display:none;">
+              <input type="text" id="adminMsgInput" placeholder="Antwort schreiben...">
+              <button id="adminMsgSend" class="btn-primary">Senden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTENT CMS -->
+      <section class="admin-section" id="sectionContent" style="display:none;">
+        <h1>Website-Inhalte bearbeiten</h1>
+        <p class="section-desc">Bearbeiten Sie die Texte Ihrer Website. Änderungen werden sofort gespeichert.</p>
+        <div id="contentEditor"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

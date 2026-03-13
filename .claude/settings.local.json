@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip3 install pandas openpyxl)",
+      "Bash(python3:*)",
+      "Bash(pip3 --version)",
+      "Bash(pip3 list)",
+      "Bash(pip3 install -r requirements.txt)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(pip3 install reportlab)",
+      "Bash(curl -s -X POST http://localhost:8000/api/analyze -F \"pdf=@/Users/manuelgeis/Documents/LV-Kalkulator/test_lv.pdf\")",
+      "Bash(curl -s http://localhost:8000/api/status/09fc3dfb-2ca9-43e5-9503-ee252d3c7e51/poll)",
+      "Bash(curl -s http://localhost:8000/api/status/3c5ac89e-5f83-43b6-8c00-1afcd6900e0a/poll)",
+      "Bash(curl -s -o /Users/manuelgeis/Documents/LV-Kalkulator/test_output.xlsx http://localhost:8000/api/download/3c5ac89e-5f83-43b6-8c00-1afcd6900e0a)",
+      "WebFetch(domain:encore-analytics.de)",
+      "Bash(curl -sL \"https://encore-analytics.de/Symbol%20-%20In%20Schwarz.png\" -o /Users/manuelgeis/Documents/LV-Kalkulator/frontend/assets/logo-black.png)",
+      "Bash(git init)",
+      "Bash(git add -A)",
+      "Bash(git commit:*)",
+      "Bash(gh auth status)",
+      "Bash(pkill -f \"uvicorn backend.main\")",
+      "WebFetch(domain:themeearth.com)",
+      "Bash(pip3 install greenlet)",
+      "Bash(pip3 install:*)",
+      "Bash(pip install:*)",
+      "Bash(ls -la /Users/manuelgeis/Documents/Vertragsmanager/img/about*)",
+      "Bash(find /Users/manuelgeis/Documents/RG-Tiefbau -type f -exec ls -lh {})"
+    ]
+  }
+}
