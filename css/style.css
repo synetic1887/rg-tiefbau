@@ -749,12 +749,8 @@ p {
   padding: 160px 0;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-top: 64px;
-  align-items: stretch;
+.projects .section-header {
+  margin-bottom: 64px;
 }
 
 .project-card {
@@ -763,8 +759,9 @@ p {
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
 }
 
 .project-card:hover {
@@ -774,15 +771,16 @@ p {
 
 .project-image {
   position: relative;
-  aspect-ratio: 1/1;
   overflow: hidden;
   background: #0D1117;
+  min-height: 480px;
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   transition: var(--transition-slow);
 }
 
@@ -792,8 +790,8 @@ p {
 
 .project-badge {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 24px;
+  left: 24px;
   background: var(--accent);
   color: #fff;
   font-family: 'Syne', sans-serif;
@@ -808,17 +806,17 @@ p {
 }
 
 .project-body {
-  padding: 40px 44px 44px;
+  padding: 56px 56px 56px 48px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  flex: 1;
+  gap: 22px;
+  justify-content: center;
 }
 
 .project-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
+  gap: 10px 28px;
   font-family: 'Syne', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
@@ -843,7 +841,7 @@ p {
 }
 
 .project-body h3 {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   line-height: 1.25;
   color: var(--text);
 }
@@ -874,11 +872,14 @@ p {
 }
 
 .project-cta {
+  margin-top: 48px;
   background: var(--primary);
   color: #fff;
   border-radius: var(--radius-md);
-  padding: 48px 40px;
-  display: flex;
+  padding: 56px 64px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
   align-items: center;
   position: relative;
   overflow: hidden;
@@ -889,34 +890,35 @@ p {
   position: absolute;
   top: 0;
   right: 0;
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   background: linear-gradient(135deg, transparent 50%, rgba(200,144,46,0.12) 50%);
   pointer-events: none;
 }
 
-.project-cta-inner {
+.project-cta-text {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .project-cta h3 {
   color: #fff;
   font-size: 1.65rem;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .project-cta p {
   color: rgba(255,255,255,0.6);
   line-height: 1.75;
-  font-size: 0.975rem;
+  font-size: 1rem;
+  max-width: 640px;
 }
 
-.project-cta .btn {
-  margin-top: 12px;
-  align-self: flex-start;
+.project-cta-btn {
+  position: relative;
+  white-space: nowrap;
 }
 
 /* --- Why Us Section --- */
@@ -1733,14 +1735,36 @@ p {
   .about-grid,
   .map-grid,
   .contact-grid,
-  .why-us-grid,
-  .projects-grid {
+  .why-us-grid {
     grid-template-columns: 1fr;
     gap: 56px;
   }
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    aspect-ratio: 4/3;
+    min-height: 0;
+  }
+
+  .project-body {
+    padding: 40px 36px;
+  }
+
+  .project-cta {
+    grid-template-columns: 1fr;
+    padding: 44px 40px;
+    gap: 28px;
+  }
+
+  .project-cta-btn {
+    justify-self: flex-start;
   }
 
   .projects {
@@ -1841,12 +1865,24 @@ p {
     padding: 90px 0;
   }
 
+  .project-image {
+    aspect-ratio: 1/1;
+  }
+
   .project-body {
-    padding: 28px 24px 32px;
+    padding: 32px 24px 36px;
+  }
+
+  .project-body h3 {
+    font-size: 1.4rem;
   }
 
   .project-cta {
     padding: 36px 28px;
+  }
+
+  .project-cta h3 {
+    font-size: 1.35rem;
   }
 
   .stats-grid {
