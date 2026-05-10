@@ -746,11 +746,11 @@ p {
 /* --- Projects Section --- */
 .projects {
   background: var(--bg-warm);
-  padding: 160px 0;
+  padding: 140px 0 110px;
 }
 
 .projects .section-header {
-  margin-bottom: 64px;
+  margin-bottom: 56px;
 }
 
 .project-card {
@@ -760,7 +760,7 @@ p {
   box-shadow: var(--shadow-md);
   transition: var(--transition);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: stretch;
 }
 
@@ -773,10 +773,12 @@ p {
   position: relative;
   overflow: hidden;
   background: #0D1117;
-  min-height: 480px;
+  aspect-ratio: 1/1;
 }
 
 .project-image img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -806,10 +808,10 @@ p {
 }
 
 .project-body {
-  padding: 56px 56px 56px 48px;
+  padding: 48px 52px 48px 48px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
   justify-content: center;
 }
 
@@ -872,7 +874,7 @@ p {
 }
 
 .project-cta {
-  margin-top: 48px;
+  margin-top: 32px;
   background: var(--primary);
   color: #fff;
   border-radius: var(--radius-md);
@@ -924,7 +926,7 @@ p {
 /* --- Why Us Section --- */
 .why-us {
   background: var(--bg-white);
-  padding: 160px 0;
+  padding: 130px 0;
 }
 
 .why-us-grid {
