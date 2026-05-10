@@ -754,7 +754,7 @@ p {
 }
 
 .project-card {
-  max-width: 1080px;
+  max-width: 960px;
   margin: 0 auto;
   background: var(--bg-white);
   border-radius: var(--radius-md);
@@ -763,7 +763,7 @@ p {
   transition: var(--transition);
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  height: 320px;
 }
 
 .project-card:hover {
@@ -772,8 +772,9 @@ p {
 }
 
 .project-image {
-  flex: 0 0 380px;
-  width: 380px;
+  flex: 0 0 320px;
+  width: 320px;
+  height: 100%;
   position: relative;
   overflow: hidden;
   background: #0D1117;
@@ -810,13 +811,15 @@ p {
 }
 
 .project-body {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 0;
-  padding: 44px 48px;
+  height: 100%;
+  padding: 28px 36px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
   justify-content: center;
+  overflow: hidden;
 }
 
 .project-meta {
@@ -847,15 +850,15 @@ p {
 }
 
 .project-body h3 {
-  font-size: 1.5rem;
-  line-height: 1.3;
+  font-size: 1.3rem;
+  line-height: 1.25;
   color: var(--text);
 }
 
 .project-body p {
   color: var(--text-light);
-  line-height: 1.75;
-  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 0.92rem;
 }
 
 .project-tags {
@@ -1753,16 +1756,20 @@ p {
 
   .project-card {
     flex-direction: column;
+    height: auto;
   }
 
   .project-image {
     flex: 0 0 auto;
     width: 100%;
+    height: auto;
     aspect-ratio: 16/10;
   }
 
   .project-body {
-    padding: 40px 36px;
+    height: auto;
+    padding: 36px 32px;
+    overflow: visible;
   }
 
   .project-cta {
