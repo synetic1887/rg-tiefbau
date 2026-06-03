@@ -1,0 +1,101 @@
+---
+import Icon from "./Icon.astro";
+import Blueprint from "./Blueprint.astro";
+
+interface Props {
+  variant?: "dark" | "sand";
+  label?: string;
+  sublabel?: string;
+  status?: string;
+  ratio?: string; // tailwind aspect class e.g. "aspect-[4/5]"
+  class?: string;
+  pinIcon?: string;
+  motif?: "hochbau" | "tiefbau" | "site";
+}
+const {
+  variant = "dark",
+  label,
+  sublabel,
+  status,
+  ratio = "aspect-[4/5]",
+  class: className = "",
+  pinIcon = "excavator",
+  motif = "hochbau",
+} = Astro.props;
+
+const isDark = variant === "dark";
+---
+<div
+  class:list={[
+    "relative overflow-hidden rounded-3xl",
+    ratio,
+    className,
+    isDark ? "bg-ink" : "bg-sand ring-1 ring-line",
+  ]}
+>
+  <!-- gradient base -->
+  {
+    isDark ? (
+      <div class="absolute inset-0" style="background:radial-gradient(120% 90% at 80% 0%, #34332f 0%, #1c1c1b 55%, #121211 100%);" />
+    ) : (
+      <div class="absolute inset-0" style="background:linear-gradient(160deg,#ffffff 0%,#f6f5f3 60%,#fdeede 100%);" />
+    )
+  }
+
+  <!-- blueprint grid -->
+  <div
+    class="absolute inset-0"
+    style={`opacity:${isDark ? 0.1 : 0.45};background-image:linear-gradient(to right,${isDark ? "rgba(255,255,255,0.5)" : "rgba(28,28,27,0.12)"} 1px,transparent 1px),linear-gradient(to bottom,${isDark ? "rgba(255,255,255,0.5)" : "rgba(28,28,27,0.12)"} 1px,transparent 1px);background-size:40px 40px;`}
+  >
+  </div>
+
+  <!-- orange glow -->
+  <div class="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-brand/25 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-20 -left-12 h-56 w-56 rounded-full bg-brand/10 blur-3xl"></div>
+
+  <!-- technical blueprint motif -->
+  <Blueprint
+    name={motif}
+    class:list={[
+      "pointer-events-none absolute left-1/2 top-[44%] w-[88%] max-w-[26rem] -translate-x-1/2 -translate-y-1/2",
+      isDark ? "text-white/22" : "text-ink/20",
+    ]}
+  />
+
+  <!-- R-icon brand badge -->
+  <img
+    src={isDark ? "/brand/icon-white.png" : "/brand/icon.png"}
+    alt=""
+    class:list={["pointer-events-none absolute right-6 top-6 w-12 select-none", isDark ? "opacity-30" : "opacity-50"]}
+  />
+
+  <!-- orange accent corner -->
+  <div class="absolute left-0 top-0 h-1.5 w-28 rounded-br-lg bg-brand"></div>
+
+  <!-- caption -->
+  {
+    (label || status) && (
+      <div class="absolute inset-x-6 bottom-6">
+        {status && (
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/12 px-3 py-1 text-xs font-700 uppercase tracking-wider text-brand backdrop-blur">
+            <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-brand" />
+            {status}
+          </span>
+        )}
+        {label && (
+          <div class="mt-3 flex items-center gap-3">
+            <span class={`flex h-11 w-11 items-center justify-center rounded-xl ${isDark ? "bg-white/10 text-brand" : "bg-brand-soft text-brand-dark"}`}>
+              <Icon name={pinIcon} class="h-6 w-6" stroke={1.5} />
+            </span>
+            <div>
+              <p class={`font-display text-lg font-800 leading-tight ${isDark ? "text-white" : "text-ink"}`}>{label}</p>
+              {sublabel && <p class={`text-sm ${isDark ? "text-white/55" : "text-muted"}`}>{sublabel}</p>}
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  <slot />
+</div>

@@ -1,0 +1,91 @@
+---
+import { company, nav, services } from "../data/site";
+import Icon from "./Icon.astro";
+const year = 2026;
+---
+
+<footer class="mt-24 bg-ink text-white/70">
+  <div class="container-rg grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+    <!-- Brand -->
+    <div class="lg:col-span-4">
+      <a href="/" class="flex items-center gap-3" aria-label={company.name}>
+        <img src="/brand/icon.png" alt="" width="200" height="90" class="h-9 w-auto" />
+        <span class="font-display text-lg font-800 leading-none tracking-tight text-white">
+          RG <span class="text-white/55 font-600">Hochbau &amp; Tiefbau</span>
+        </span>
+      </a>
+      <p class="mt-5 max-w-xs text-[0.97rem] leading-relaxed">
+        Ihr zuverlässiger Partner für Hochbau, Tiefbau und Stahlbetonbau.
+        Hauptsitz in {company.city}, deutschlandweit im Einsatz.
+      </p>
+      <p class="mt-5 text-sm uppercase tracking-[0.18em] text-brand">{company.tagline}</p>
+    </div>
+
+    <!-- Leistungen -->
+    <div class="lg:col-span-3">
+      <h3 class="font-display text-sm font-700 uppercase tracking-[0.14em] text-white">Leistungen</h3>
+      <ul class="mt-5 space-y-2.5 text-[0.97rem]">
+        {
+          services.map((s) => (
+            <li>
+              <a href={`/leistungen#${s.slug}`} class="transition-colors hover:text-brand">
+                {s.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Unternehmen -->
+    <div class="lg:col-span-2">
+      <h3 class="font-display text-sm font-700 uppercase tracking-[0.14em] text-white">Unternehmen</h3>
+      <ul class="mt-5 space-y-2.5 text-[0.97rem]">
+        {
+          nav
+            .filter((n) => n.href !== "/")
+            .map((n) => (
+              <li>
+                <a href={n.href} class="transition-colors hover:text-brand">
+                  {n.label}
+                </a>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+
+    <!-- Kontakt -->
+    <div class="lg:col-span-3">
+      <h3 class="font-display text-sm font-700 uppercase tracking-[0.14em] text-white">Kontakt</h3>
+      <ul class="mt-5 space-y-3.5 text-[0.97rem]">
+        <li class="flex items-start gap-3">
+          <Icon name="map-pin" class="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+          <span>{company.street}<br />{company.zip} {company.city}</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <Icon name="phone" class="h-5 w-5 shrink-0 text-brand" />
+          <a href={`tel:${company.phoneHref}`} class="transition-colors hover:text-brand">{company.phone}</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <Icon name="mail" class="h-5 w-5 shrink-0 text-brand" />
+          <a href={`mailto:${company.email}`} class="transition-colors hover:text-brand">{company.email}</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <Icon name="clock" class="h-5 w-5 shrink-0 text-brand" />
+          <span>{company.hours}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-rg flex flex-col items-center justify-between gap-3 py-6 text-sm md:flex-row">
+      <p>© {year} {company.legalName}. Alle Rechte vorbehalten.</p>
+      <div class="flex items-center gap-6">
+        <a href="/impressum" class="transition-colors hover:text-brand">Impressum</a>
+        <a href="/datenschutz" class="transition-colors hover:text-brand">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>

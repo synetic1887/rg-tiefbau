@@ -1,0 +1,219 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Icon from "../components/Icon.astro";
+import { company, services } from "../data/site";
+
+const contactItems = [
+  { icon: "phone", label: "Telefon", value: company.phone, href: `tel:${company.phoneHref}` },
+  { icon: "mail", label: "E-Mail", value: company.email, href: `mailto:${company.email}` },
+  { icon: "map-pin", label: "Adresse", value: `${company.street}, ${company.zip} ${company.city}`, href: null },
+  { icon: "clock", label: "Erreichbarkeit", value: company.hours, href: null },
+];
+---
+
+<Layout
+  title="Kontakt – RG Hochbau & Tiefbau"
+  description="Kontaktieren Sie RG Hochbau & Tiefbau aus Butzbach für ein unverbindliches Angebot. Wir melden uns innerhalb von 24 Stunden."
+>
+  <PageHero
+    eyebrow="Kontakt"
+    title="Ihr Projekt besprechen."
+    subtitle="Sie planen ein Bauvorhaben? Kontaktieren Sie uns für ein unverbindliches Angebot – wir melden uns innerhalb von 24 Stunden bei Ihnen."
+    crumbs={[
+      { label: "Start", href: "/" },
+      { label: "Kontakt", href: "/kontakt" },
+    ]}
+  />
+
+  <section class="container-rg py-20 md:py-28">
+    <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+      <!-- Left: contact info -->
+      <div class="reveal">
+        <h2 class="text-2xl font-800">So erreichen Sie uns</h2>
+        <p class="mt-3 leading-relaxed text-muted">
+          Am schnellsten geht's per Telefon. Lieber schreiben? Nutzen Sie das Formular –
+          wir kümmern uns umgehend um Ihre Anfrage.
+        </p>
+
+        <ul class="mt-8 space-y-4">
+          {
+            contactItems.map((c) => (
+              <li class="flex items-start gap-4 rounded-2xl border border-line bg-white p-5">
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand-dark">
+                  <Icon name={c.icon} class="h-5.5 w-5.5" />
+                </span>
+                <div>
+                  <p class="text-sm font-600 uppercase tracking-wide text-muted">{c.label}</p>
+                  {c.href ? (
+                    <a href={c.href} class="font-display text-lg font-700 text-ink transition-colors hover:text-brand-dark">
+                      {c.value}
+                    </a>
+                  ) : (
+                    <p class="font-display text-lg font-700 text-ink">{c.value}</p>
+                  )}
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-8 rounded-2xl bg-ink p-6 text-white">
+          <p class="font-display text-lg font-700">Lieber direkt anrufen?</p>
+          <p class="mt-1 text-sm text-white/60">Wir nehmen uns Zeit für Ihr Anliegen.</p>
+          <a href={`tel:${company.phoneHref}`} class="btn btn-primary mt-4 w-full">
+            <Icon name="phone" class="h-5 w-5" />
+            {company.phone}
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal">
+        <form
+          id="contact-form"
+          class="rounded-3xl border border-line bg-white p-7 shadow-[0_30px_70px_-50px_rgba(28,28,27,0.5)] md:p-9"
+          novalidate
+        >
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div class="flex flex-col gap-2">
+              <label for="name" class="text-sm font-600 text-anthracite">Name *</label>
+              <input id="name" name="name" type="text" required placeholder="Ihr vollständiger Name" class="rg-input" />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="company" class="text-sm font-600 text-anthracite">Firma</label>
+              <input id="company" name="company" type="text" placeholder="optional" class="rg-input" />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="email" class="text-sm font-600 text-anthracite">E-Mail *</label>
+              <input id="email" name="email" type="email" required placeholder="ihre@email.de" class="rg-input" />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="phone" class="text-sm font-600 text-anthracite">Telefon *</label>
+              <input id="phone" name="phone" type="tel" required placeholder="+49 …" class="rg-input" />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="service" class="text-sm font-600 text-anthracite">Leistung *</label>
+              <select id="service" name="service" required class="rg-input">
+                <option value="" disabled selected>Bitte wählen …</option>
+                {services.map((s) => <option value={s.slug}>{s.title}</option>)}
+                <option value="sonstiges">Sonstiges</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="location" class="text-sm font-600 text-anthracite">Standort / PLZ</label>
+              <input id="location" name="location" type="text" placeholder="PLZ / Ort" class="rg-input" />
+            </div>
+          </div>
+
+          <div class="mt-5 flex flex-col gap-2">
+            <label for="message" class="text-sm font-600 text-anthracite">Ihr Projekt *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Beschreiben Sie Ihr Projekt: Umfang, geplanter Zeitraum, besondere Anforderungen …" class="rg-input resize-y"></textarea>
+          </div>
+
+          <!-- honeypot -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+          <p class="mt-4 text-xs leading-relaxed text-muted">
+            Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Bearbeitung Ihrer Anfrage
+            verarbeiten. Details in unserer <a href="/datenschutz" class="text-brand-dark underline">Datenschutzerklärung</a>.
+          </p>
+
+          <button type="submit" id="submit-btn" class="btn btn-primary mt-6 w-full !py-4 text-base">
+            <span class="btn-label">Anfrage absenden</span>
+            <Icon name="arrow-right" class="btn-icon h-5 w-5" />
+          </button>
+
+          <div id="form-status" class="mt-4 hidden rounded-xl px-4 py-3 text-sm font-600" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .rg-input {
+      width: 100%;
+      border: 1.5px solid var(--color-line);
+      border-radius: 11px;
+      background: var(--color-sand);
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      color: var(--color-ink);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .rg-input::placeholder { color: #a8a6a2; }
+    .rg-input:focus {
+      outline: none;
+      background: #fff;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 4px rgba(239, 124, 0, 0.12);
+    }
+    .rg-input.invalid {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+    }
+  </style>
+
+  <script>
+    // Endpoint des FastAPI-Ticket-Backends. Im Produktivbetrieb auf die
+    // Render-URL setzen, z. B. https://rg-tiefbau.onrender.com/api/tickets
+    const ENDPOINT = (import.meta.env.PUBLIC_FORM_ENDPOINT as string) || "/api/tickets";
+
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    const status = document.getElementById("form-status") as HTMLElement | null;
+    const btn = document.getElementById("submit-btn") as HTMLButtonElement | null;
+
+    const setStatus = (msg: string, ok: boolean) => {
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.remove("hidden");
+      status.style.background = ok ? "#ecfdf3" : "#fef2f2";
+      status.style.color = ok ? "#15803d" : "#b91c1c";
+    };
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!form) return;
+
+      // Honeypot
+      if ((form.elements.namedItem("website") as HTMLInputElement)?.value) return;
+
+      // Validierung
+      let valid = true;
+      form.querySelectorAll<HTMLInputElement>("[required]").forEach((el) => {
+        const bad = !el.value.trim() || (el.type === "email" && !/^[^@]+@[^@]+\.[^@]+$/.test(el.value));
+        el.classList.toggle("invalid", bad);
+        if (bad) valid = false;
+      });
+      if (!valid) {
+        setStatus("Bitte füllen Sie alle Pflichtfelder korrekt aus.", false);
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      btn?.setAttribute("disabled", "true");
+      if (btn) btn.querySelector(".btn-label")!.textContent = "Wird gesendet …";
+
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        setStatus("Vielen Dank! Ihre Anfrage ist eingegangen – wir melden uns innerhalb von 24 Stunden.", true);
+      } catch {
+        setStatus(
+          "Senden momentan nicht möglich. Bitte rufen Sie uns an unter " +
+            (form.dataset.phone || "") +
+            " oder schreiben Sie an info@rg-tiefbau.de.",
+          false
+        );
+      } finally {
+        btn?.removeAttribute("disabled");
+        if (btn) btn.querySelector(".btn-label")!.textContent = "Anfrage absenden";
+      }
+    });
+  </script>
+</Layout>

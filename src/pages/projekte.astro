@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Icon from "../components/Icon.astro";
+import CtaBand from "../components/CtaBand.astro";
+import BrandPanel from "../components/BrandPanel.astro";
+import { projects } from "../data/site";
+---
+
+<Layout
+  title="Projekte & Referenzen – RG Hochbau & Tiefbau"
+  description="Ein Einblick in unsere laufenden Baustellen – von Grundleitungen über Nahwärmeversorgung bis zum kompletten Rohbau. Deutschlandweit im Einsatz."
+>
+  <PageHero
+    eyebrow="Referenzen"
+    title="Das bewegen wir gerade."
+    subtitle="Ein Einblick in unsere laufenden Baustellen – von Grundleitungen über Nahwärmeversorgung bis zum kompletten Rohbau. Deutschlandweit im Einsatz."
+    crumbs={[
+      { label: "Start", href: "/" },
+      { label: "Projekte", href: "/projekte" },
+    ]}
+  />
+
+  <section class="container-rg py-20 md:py-28">
+    <div class="space-y-16">
+      {
+        projects.map((p, i) => (
+          <article class="reveal grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div class:list={["relative", i % 2 === 1 && "lg:order-2"]}>
+              <BrandPanel
+                ratio="aspect-[4/3]"
+                label={p.location}
+                sublabel={p.client}
+                pinIcon="pipe"
+                motif="tiefbau"
+                class="shadow-[0_30px_70px_-45px_rgba(28,28,27,0.55)]"
+              />
+              <span class="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-sm font-700 text-brand-dark shadow backdrop-blur">
+                <span class="h-2 w-2 animate-pulse rounded-full bg-brand" />
+                {p.status}
+              </span>
+            </div>
+
+            <div class:list={[i % 2 === 1 && "lg:order-1"]}>
+              <div class="flex items-center gap-2 text-sm font-600 text-muted">
+                <Icon name="map-pin" class="h-4.5 w-4.5 text-brand" />
+                {p.location}
+              </div>
+              <h2 class="mt-3 text-3xl font-800 leading-tight md:text-[2.5rem]">{p.title}</h2>
+              <p class="mt-3 font-600 text-graphite">Auftraggeber: {p.client}</p>
+              <p class="mt-5 text-lg leading-relaxed text-muted">{p.summary}</p>
+              <p class="mt-3 leading-relaxed text-muted">{p.description}</p>
+              <div class="mt-6 flex flex-wrap gap-2">
+                {p.tags.map((tag) => (
+                  <span class="rounded-full bg-brand-soft px-3.5 py-1.5 text-sm font-600 text-brand-dark">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Coming soon / pipeline note -->
+    <div class="reveal mt-20 rounded-3xl border border-dashed border-line bg-sand p-10 text-center">
+      <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-soft text-brand-dark">
+        <Icon name="compass" class="h-7 w-7" />
+      </span>
+      <h3 class="mt-5 text-2xl font-800">Hier entsteht mehr.</h3>
+      <p class="mx-auto mt-3 max-w-xl text-muted">
+        Als junges Unternehmen wächst unsere Referenzliste mit jedem Projekt. Werden Sie Teil davon –
+        wir freuen uns auf Ihr Bauvorhaben.
+      </p>
+      <a href="/kontakt" class="btn btn-primary mt-7 !px-7 !py-3.5">
+        Projekt anfragen
+        <Icon name="arrow-right" class="h-5 w-5" />
+      </a>
+    </div>
+  </section>
+
+  <div class="pb-20 md:pb-24">
+    <CtaBand />
+  </div>
+</Layout>

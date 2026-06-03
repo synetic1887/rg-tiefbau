@@ -1,0 +1,36 @@
+---
+import Icon from "./Icon.astro";
+import { company } from "../data/site";
+
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = "Sie planen ein Bauvorhaben?",
+  text = "Ob Grundleitungen, Rohbau, Stahlbetonbau oder schlüsselfertiger Hochbau – wir realisieren Ihr Projekt mit über 35 Jahren Branchenerfahrung in der Geschäftsführung. Deutschlandweit.",
+} = Astro.props;
+---
+<section class="container-rg">
+  <div class="grain reveal relative overflow-hidden rounded-3xl bg-ink px-7 py-14 text-center md:px-16 md:py-20">
+    <!-- Decorative orange glow -->
+    <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand/20 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-brand/10 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-2xl">
+      <p class="eyebrow justify-center !text-brand">Ihr Projekt</p>
+      <h2 class="mt-4 text-balance text-3xl font-800 text-white md:text-[2.6rem]">{title}</h2>
+      <p class="mx-auto mt-5 max-w-xl text-[1.05rem] leading-relaxed text-white/65">{text}</p>
+      <div class="mt-9 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
+        <a href="/kontakt" class="btn btn-primary !px-7 !py-3.5">
+          Projekt anfragen
+          <Icon name="arrow-right" class="h-5 w-5" />
+        </a>
+        <a href={`tel:${company.phoneHref}`} class="btn !px-7 !py-3.5 !bg-white/10 !text-white hover:!bg-white/20">
+          <Icon name="phone" class="h-5 w-5" />
+          {company.phone}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

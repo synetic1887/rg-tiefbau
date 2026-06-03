@@ -1,0 +1,48 @@
+---
+import { stats } from "../data/site";
+---
+<section class="grain relative bg-ink py-16 md:py-20" data-stats>
+  <div class="container-rg grid grid-cols-2 gap-8 lg:grid-cols-4">
+    {
+      stats.map((s) => (
+        <div class="reveal text-center">
+          <div class="font-display text-5xl font-900 leading-none text-white md:text-6xl">
+            <span class="counter" data-target={s.value}>0</span><span class="text-brand">{s.suffix}</span>
+          </div>
+          <p class="mx-auto mt-3 max-w-[14rem] text-sm leading-snug text-white/55">{s.label}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  const animate = (el: HTMLElement) => {
+    const target = parseInt(el.dataset.target || "0", 10);
+    const dur = 1600;
+    const start = performance.now();
+    const step = (now: number) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(eased * target));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const section = document.querySelector("[data-stats]");
+  if (section) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            section.querySelectorAll<HTMLElement>(".counter").forEach(animate);
+            io.disconnect();
+          }
+        }
+      },
+      { threshold: 0.4 }
+    );
+    io.observe(section);
+  }
+</script>

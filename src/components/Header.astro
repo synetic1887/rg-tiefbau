@@ -1,0 +1,143 @@
+---
+import { nav, company } from "../data/site";
+import Icon from "./Icon.astro";
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<header id="site-header" class="sticky top-0 z-50 w-full transition-all duration-300">
+  <div class="border-b border-transparent bg-white/85 backdrop-blur-md transition-all duration-300" id="header-bar">
+    <div class="container-rg flex items-center justify-between gap-6 py-3">
+      <!-- Logo -->
+      <a href="/" class="flex shrink-0 items-center" aria-label={`${company.name} – Startseite`}>
+        <img
+          src="/brand/logo.png"
+          srcset="/brand/logo.png 1x, /brand/logo@2x.png 2x"
+          alt={company.name}
+          width="1698"
+          height="730"
+          class="h-10 w-auto md:h-12"
+        />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                "relative rounded-md px-3.5 py-2 font-display text-[0.96rem] font-600 transition-colors",
+                isActive(item.href)
+                  ? "text-brand-dark"
+                  : "text-graphite hover:text-ink",
+              ]}
+            >
+              {item.label}
+              {isActive(item.href) && (
+                <span class="absolute inset-x-3.5 -bottom-0.5 h-0.5 rounded-full bg-brand" />
+              )}
+            </a>
+          ))
+        }
+      </nav>
+
+      <!-- Right: phone + CTA -->
+      <div class="hidden items-center gap-3 lg:flex">
+        <a
+          href={`tel:${company.phoneHref}`}
+          class="flex items-center gap-2 font-display text-[0.95rem] font-600 text-ink transition-colors hover:text-brand-dark"
+        >
+          <Icon name="phone" class="h-4.5 w-4.5 text-brand" />
+          {company.phone}
+        </a>
+        <a href="/kontakt" class="btn btn-primary !px-5 !py-2.5 text-[0.92rem]">
+          Projekt anfragen
+        </a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button
+        id="menu-toggle"
+        class="flex h-11 w-11 items-center justify-center rounded-lg border border-line text-ink lg:hidden"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+      >
+        <Icon name="menu" id="menu-icon" class="h-6 w-6" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-x-0 top-[var(--header-h,64px)] z-40 hidden origin-top border-b border-line bg-white shadow-xl lg:hidden"
+  >
+    <nav class="container-rg flex flex-col py-4" aria-label="Mobile Navigation">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "border-b border-line/70 py-3.5 font-display text-lg font-600",
+              isActive(item.href) ? "text-brand-dark" : "text-ink",
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <div class="mt-4 flex flex-col gap-3">
+        <a href={`tel:${company.phoneHref}`} class="btn btn-ghost">
+          <Icon name="phone" class="h-4.5 w-4.5" /> {company.phone}
+        </a>
+        <a href="/kontakt" class="btn btn-primary">Projekt anfragen</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("site-header");
+  const bar = document.getElementById("header-bar");
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+
+  // Shadow/border on scroll
+  const onScroll = () => {
+    if (window.scrollY > 8) {
+      bar?.classList.add("!border-line", "shadow-[0_4px_20px_-12px_rgba(0,0,0,0.25)]");
+    } else {
+      bar?.classList.remove("!border-line", "shadow-[0_4px_20px_-12px_rgba(0,0,0,0.25)]");
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Keep mobile menu offset correct
+  const setHeaderH = () => {
+    const h = bar?.getBoundingClientRect().height ?? 64;
+    document.documentElement.style.setProperty("--header-h", `${h}px`);
+  };
+  setHeaderH();
+  window.addEventListener("resize", setHeaderH);
+
+  // Mobile toggle
+  let open = false;
+  toggle?.addEventListener("click", () => {
+    open = !open;
+    menu?.classList.toggle("hidden", !open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  menu?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      open = false;
+      menu?.classList.add("hidden");
+      document.body.style.overflow = "";
+    })
+  );
+</script>

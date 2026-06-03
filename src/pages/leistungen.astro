@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Icon from "../components/Icon.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { services } from "../data/site";
+
+const process = [
+  { no: "01", title: "Erstgespräch & Beratung", text: "Wir hören zu, schauen uns Ihr Vorhaben an und beraten ehrlich – kostenlos und unverbindlich." },
+  { no: "02", title: "Angebot & Planung", text: "Sie erhalten eine detaillierte, transparente Kostenaufstellung und einen klaren Zeitplan." },
+  { no: "03", title: "Ausführung", text: "Fachgerechte Umsetzung mit erfahrenem Team und modernem Maschinenpark – termintreu." },
+  { no: "04", title: "Übergabe", text: "Saubere Abnahme und Übergabe. Wir bleiben Ihr Ansprechpartner – auch danach." },
+];
+---
+
+<Layout
+  title="Leistungen – RG Hochbau & Tiefbau"
+  description="Erd- & Tiefbau, Grundleitungen & Nahwärme, Rohbau, Stahlbetonbau, Industriebau und Garten- & Landschaftsbau – alle Bauleistungen aus einer Hand."
+>
+  <PageHero
+    eyebrow="Unser Leistungsspektrum"
+    title="Sechs Gewerke. Ein Ansprechpartner."
+    subtitle="Von der ersten Erdbewegung bis zum schlüsselfertigen Hochbau – RG bündelt alle Bauleistungen unter einem Dach. Das spart Schnittstellen, Zeit und Nerven."
+    crumbs={[
+      { label: "Start", href: "/" },
+      { label: "Leistungen", href: "/leistungen" },
+    ]}
+  />
+
+  <!-- Detailed services -->
+  <div class="container-rg space-y-6 py-20 md:space-y-7 md:py-28">
+    {
+      services.map((s, i) => (
+        <article
+          id={s.slug}
+          class="reveal scroll-mt-28 grid gap-8 rounded-3xl border border-line bg-white p-7 md:grid-cols-[auto_1fr] md:gap-10 md:p-10"
+        >
+          <div class="flex md:flex-col md:items-center">
+            <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-brand-soft text-brand-dark">
+              <Icon name={s.icon} class="h-10 w-10" stroke={1.4} />
+            </div>
+            <span class="ml-auto font-mono text-4xl font-600 text-line md:ml-0 md:mt-4">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-800 md:text-3xl">{s.title}</h2>
+            <p class="mt-3 max-w-2xl text-lg leading-relaxed text-muted">{s.description}</p>
+            <ul class="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+              {s.bullets.map((b) => (
+                <li class="flex items-center gap-3 font-600 text-anthracite">
+                  <Icon name="check-circle" class="h-5.5 w-5.5 shrink-0 text-brand" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <!-- Process -->
+  <section class="bg-cloud py-20 md:py-28">
+    <div class="container-rg">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="eyebrow justify-center">So arbeiten wir</p>
+        <h2 class="section-title mt-4">Von der Idee zur fertigen Baustelle</h2>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          Ein klarer Ablauf, transparent kommuniziert – Sie wissen jederzeit, woran Sie sind.
+        </p>
+      </div>
+      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          process.map((p) => (
+            <div class="reveal relative rounded-2xl bg-white p-7">
+              <span class="font-mono text-3xl font-600 text-brand">{p.no}</span>
+              <h3 class="mt-3 text-lg font-700">{p.title}</h3>
+              <p class="mt-2 text-[0.96rem] leading-relaxed text-muted">{p.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <div class="py-20 md:py-24">
+    <CtaBand title="Welche Leistung brauchen Sie?" />
+  </div>
+</Layout>

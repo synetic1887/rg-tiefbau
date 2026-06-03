@@ -1,0 +1,245 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import Stats from "../components/Stats.astro";
+import CtaBand from "../components/CtaBand.astro";
+import BrandPanel from "../components/BrandPanel.astro";
+import { services, advantages, projects, company } from "../data/site";
+
+const trust = [
+  { icon: "shield", label: "Qualität & Termintreue" },
+  { icon: "layers", label: "Alles aus einer Hand" },
+  { icon: "compass", label: "Deutschlandweit im Einsatz" },
+];
+const featured = projects[0];
+---
+
+<Layout>
+  <!-- ================= HERO ================= -->
+  <section class="relative overflow-hidden bg-sand">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-60"
+      style="background-image:linear-gradient(to right,rgba(28,28,27,0.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(28,28,27,0.035) 1px,transparent 1px);background-size:52px 52px;"
+    >
+    </div>
+    <div class="pointer-events-none absolute -right-32 -top-20 h-[30rem] w-[30rem] rounded-full bg-brand/12 blur-3xl"></div>
+
+    <div class="container-rg relative grid items-center gap-14 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+      <!-- Left -->
+      <div data-stagger>
+        <p class="eyebrow">Hochbau &amp; Tiefbau aus {company.city}</p>
+        <h1 class="mt-5 text-[2.6rem] font-900 leading-[1.02] sm:text-6xl lg:text-[4.1rem]">
+          Wir bauen –<br />
+          <span class="text-brand">vom Fundament</span><br />
+          bis zum Dach.
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+          RG Hochbau &amp; Tiefbau ist Ihr verlässlicher Partner für Erd- und Tiefbau,
+          Rohbau, Stahlbetonbau und Grundleitungen – geführt von einer Geschäftsführung
+          mit über {company.experience} Jahren Branchenerfahrung. Deutschlandweit.
+        </p>
+        <div class="mt-9 flex flex-col gap-3.5 sm:flex-row">
+          <a href="/kontakt" class="btn btn-primary !px-7 !py-3.5 text-base">
+            Projekt anfragen
+            <Icon name="arrow-right" class="h-5 w-5" />
+          </a>
+          <a href="/leistungen" class="btn btn-ghost !px-7 !py-3.5 text-base">
+            Unsere Leistungen
+          </a>
+        </div>
+
+        <!-- trust row -->
+        <div class="mt-11 flex flex-wrap gap-x-7 gap-y-3">
+          {
+            trust.map((t) => (
+              <div class="flex items-center gap-2.5 text-[0.95rem] font-600 text-graphite">
+                <Icon name={t.icon} class="h-5 w-5 text-brand" />
+                {t.label}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Right: branded panel + floating badges -->
+      <div class="reveal relative">
+        <BrandPanel
+          class="shadow-[0_40px_80px_-40px_rgba(28,28,27,0.5)]"
+          status={featured.status}
+          label={featured.location}
+          sublabel="Münsterer Straße"
+          pinIcon="pipe"
+          motif="tiefbau"
+        />
+
+        <!-- floating experience badge -->
+        <div class="absolute -left-4 -top-5 hidden rounded-2xl bg-white p-4 shadow-xl ring-1 ring-line sm:block">
+          <div class="flex items-center gap-3">
+            <span class="font-display text-4xl font-900 text-brand">35<span class="text-2xl">+</span></span>
+            <span class="text-sm font-600 leading-tight text-graphite">Jahre<br />Erfahrung</span>
+          </div>
+        </div>
+        <!-- floating one-hand badge -->
+        <div class="absolute -bottom-5 -right-3 hidden rounded-2xl bg-brand px-5 py-4 text-white shadow-xl md:block">
+          <p class="font-display text-sm font-800">6 Gewerke</p>
+          <p class="text-xs text-white/80">aus einer Hand</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEISTUNGEN ================= -->
+  <section class="container-rg py-20 md:py-28">
+    <div class="reveal flex flex-col items-end justify-between gap-6 md:flex-row">
+      <div class="max-w-2xl">
+        <p class="eyebrow">Leistungen</p>
+        <h2 class="section-title mt-4">Alles aus einer Hand</h2>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          Von Erdarbeiten und Tiefbau über Rohbau, Stahlbetonbau und Hochbau bis zum
+          Garten- und Landschaftsbau – ein Ansprechpartner für Ihr gesamtes Projekt.
+        </p>
+      </div>
+      <a href="/leistungen" class="link-arrow shrink-0">
+        Alle Leistungen
+        <Icon name="arrow-right" class="h-4.5 w-4.5" />
+      </a>
+    </div>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        services.map((s) => (
+          <div class="reveal">
+            <ServiceCard service={s} href={`/leistungen#${s.slug}`} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ================= ÜBER UNS TEASER ================= -->
+  <section class="bg-cloud py-20 md:py-28">
+    <div class="container-rg grid items-center gap-14 lg:grid-cols-2">
+      <div class="reveal relative order-2 lg:order-1">
+        <BrandPanel
+          variant="sand"
+          ratio="aspect-[5/4]"
+          label="Hauptsitz Butzbach"
+          sublabel="Deutschlandweit im Einsatz"
+          pinIcon="map-pin"
+          motif="site"
+          class="shadow-[0_30px_60px_-35px_rgba(28,28,27,0.4)]"
+        />
+        <div class="absolute -bottom-6 left-6 rounded-2xl bg-brand px-6 py-5 text-white shadow-lg">
+          <p class="font-display text-3xl font-900 leading-none">Rudolf · Geis</p>
+          <p class="mt-1 text-sm text-white/85">Geschäftsführung mit Handschlag-Qualität</p>
+        </div>
+      </div>
+
+      <div class="reveal order-1 lg:order-2">
+        <p class="eyebrow">Über RG</p>
+        <h2 class="section-title mt-4">Frisch gegründet –<br />erfahren geführt.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-muted">
+          RG Hochbau &amp; Tiefbau ist ein neu gegründetes Unternehmen mit Sitz in
+          {company.city}. Unsere Geschäftsführung bringt über {company.experience} Jahre
+          Erfahrung im Bauwesen mit und kennt die Branche in- und auswendig.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          Wir verbinden die Agilität eines jungen Unternehmens mit der Kompetenz erfahrener
+          Profis – verlässlich, transparent und deutschlandweit einsatzbereit.
+        </p>
+        <ul class="mt-7 grid gap-3 sm:grid-cols-2">
+          {
+            [
+              "Erfahrene Geschäftsführung",
+              "Faire & transparente Preise",
+              "Höchste Qualitätsstandards",
+              "Garantierte Termintreue",
+            ].map((t) => (
+              <li class="flex items-center gap-3 font-600 text-anthracite">
+                <Icon name="check-circle" class="h-5.5 w-5.5 shrink-0 text-brand" />
+                {t}
+              </li>
+            ))
+          }
+        </ul>
+        <a href="/ueber-uns" class="btn btn-dark mt-9 !px-7 !py-3.5">
+          Mehr über uns
+          <Icon name="arrow-right" class="h-5 w-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS ================= -->
+  <Stats />
+
+  <!-- ================= WARUM WIR ================= -->
+  <section class="container-rg py-20 md:py-28">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <p class="eyebrow justify-center">Warum RG</p>
+      <h2 class="section-title mt-4">Was uns von anderen unterscheidet</h2>
+      <p class="mt-4 text-lg leading-relaxed text-muted">
+        Wir sind neu am Markt, aber alles andere als unerfahren. Über {company.experience}
+        Jahre Branchenerfahrung in der Führung machen den Unterschied.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        advantages.map((a) => (
+          <div class="reveal group relative overflow-hidden rounded-2xl border border-line bg-white p-7 transition-all hover:border-brand-tint hover:shadow-[0_20px_45px_-25px_rgba(28,28,27,0.4)]">
+            <span class="font-mono text-4xl font-600 text-brand-tint transition-colors group-hover:text-brand">
+              {a.no}
+            </span>
+            <h3 class="mt-4 text-lg font-700">{a.title}</h3>
+            <p class="mt-2.5 text-[0.97rem] leading-relaxed text-muted">{a.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ================= REFERENZ ================= -->
+  <section class="bg-cloud py-20 md:py-28">
+    <div class="container-rg">
+      <div class="reveal grid items-stretch gap-0 overflow-hidden rounded-3xl bg-white shadow-[0_30px_70px_-45px_rgba(28,28,27,0.5)] lg:grid-cols-2">
+        <div class="relative min-h-[20rem]">
+          <BrandPanel
+            class="absolute inset-0 h-full w-full !rounded-none"
+            ratio=""
+            status={featured.status}
+            label={featured.location}
+            sublabel={featured.client}
+            pinIcon="pipe"
+            motif="tiefbau"
+          />
+        </div>
+        <div class="flex flex-col justify-center p-8 md:p-12">
+          <p class="eyebrow">Aktuelles Projekt</p>
+          <h2 class="mt-4 text-3xl font-800 leading-tight md:text-[2.4rem]">{featured.title}</h2>
+          <p class="mt-2 font-600 text-graphite">Auftraggeber: {featured.client}</p>
+          <p class="mt-5 leading-relaxed text-muted">{featured.summary} {featured.description}</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            {
+              featured.tags.map((tag) => (
+                <span class="rounded-full bg-brand-soft px-3.5 py-1.5 text-sm font-600 text-brand-dark">
+                  {tag}
+                </span>
+              ))
+            }
+          </div>
+          <a href="/projekte" class="btn btn-ghost mt-9 self-start !px-6 !py-3">
+            Alle Projekte ansehen
+            <Icon name="arrow-right" class="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <div class="py-20 md:py-24">
+    <CtaBand />
+  </div>
+</Layout>

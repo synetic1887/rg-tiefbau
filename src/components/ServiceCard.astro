@@ -1,0 +1,31 @@
+---
+import Icon from "./Icon.astro";
+import type { Service } from "../data/site";
+
+interface Props {
+  service: Service;
+  href?: string;
+}
+const { service, href } = Astro.props;
+const Tag = href ? "a" : "div";
+---
+<Tag
+  href={href}
+  class="card group flex flex-col gap-4 p-7"
+>
+  <span class="flex h-13 w-13 items-center justify-center rounded-xl bg-brand-soft text-brand-dark transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+    <Icon name={service.icon} class="h-6.5 w-6.5" stroke={1.5} />
+  </span>
+  <div>
+    <h3 class="text-xl font-700">{service.title}</h3>
+    <p class="mt-2 text-[0.98rem] leading-relaxed text-muted">{service.short}</p>
+  </div>
+  {
+    href && (
+      <span class="link-arrow mt-auto pt-1 text-[0.92rem]">
+        Mehr erfahren
+        <Icon name="arrow-right" class="h-4 w-4" />
+      </span>
+    )
+  }
+</Tag>
