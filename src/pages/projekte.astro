@@ -8,13 +8,13 @@ import { projects } from "../data/site";
 ---
 
 <Layout
-  title="Projekte & Referenzen – RG Hochbau & Tiefbau"
-  description="Ein Einblick in unsere laufenden Baustellen – von Grundleitungen über Nahwärmeversorgung bis zum kompletten Rohbau. Deutschlandweit im Einsatz."
+  title="Projekte und Referenzen | RG Hochbau und Tiefbau"
+  description="Ein Einblick in unsere laufenden Baustellen. Von Grundleitungen über Nahwärmeversorgung bis zum kompletten Rohbau. Deutschlandweit im Einsatz."
 >
   <PageHero
     eyebrow="Referenzen"
     title="Das bewegen wir gerade."
-    subtitle="Ein Einblick in unsere laufenden Baustellen – von Grundleitungen über Nahwärmeversorgung bis zum kompletten Rohbau. Deutschlandweit im Einsatz."
+    subtitle="Ein Einblick in unsere laufenden Baustellen. Von Grundleitungen über Nahwärmeversorgung bis zum kompletten Rohbau. Deutschlandweit im Einsatz."
     crumbs={[
       { label: "Start", href: "/" },
       { label: "Projekte", href: "/projekte" },
@@ -25,20 +25,43 @@ import { projects } from "../data/site";
     <div class="space-y-16">
       {
         projects.map((p, i) => (
-          <article class="reveal grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <article class="reveal grid items-start gap-10 lg:grid-cols-2 lg:gap-14" data-project-gallery>
             <div class:list={["relative", i % 2 === 1 && "lg:order-2"]}>
               <BrandPanel
                 ratio="aspect-[4/3]"
+                photo={p.image}
+                photoAlt={p.title}
                 label={p.location}
                 sublabel={p.client}
                 pinIcon="pipe"
-                motif="tiefbau"
                 class="shadow-[0_30px_70px_-45px_rgba(28,28,27,0.55)]"
               />
               <span class="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-sm font-700 text-brand-dark shadow backdrop-blur">
                 <span class="h-2 w-2 animate-pulse rounded-full bg-brand" />
                 {p.status}
               </span>
+
+              {p.images.length > 1 && (
+                <div class="mt-4 grid gap-2.5" style={`grid-template-columns:repeat(${Math.min(p.images.length, 5)}, minmax(0, 1fr));`}>
+                  {p.images.map((img, ix) => (
+                    <button
+                      type="button"
+                      data-thumb-src={img}
+                      data-thumb-active={ix === 0 ? "true" : "false"}
+                      aria-label={`Bild ${ix + 1} anzeigen`}
+                      class="group relative block overflow-hidden rounded-xl ring-1 ring-line transition data-[thumb-active=true]:ring-2 data-[thumb-active=true]:ring-brand data-[thumb-active=true]:ring-offset-2 data-[thumb-active=true]:ring-offset-cloud"
+                    >
+                      <img
+                        src={img}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div class:list={[i % 2 === 1 && "lg:order-1"]}>
@@ -48,6 +71,9 @@ import { projects } from "../data/site";
               </div>
               <h2 class="mt-3 text-3xl font-800 leading-tight md:text-[2.5rem]">{p.title}</h2>
               <p class="mt-3 font-600 text-graphite">Auftraggeber: {p.client}</p>
+              {p.period && (
+                <p class="mt-1 text-sm font-600 text-brand-dark">{p.period}</p>
+              )}
               <p class="mt-5 text-lg leading-relaxed text-muted">{p.summary}</p>
               <p class="mt-3 leading-relaxed text-muted">{p.description}</p>
               <div class="mt-6 flex flex-wrap gap-2">
@@ -70,8 +96,8 @@ import { projects } from "../data/site";
       </span>
       <h3 class="mt-5 text-2xl font-800">Hier entsteht mehr.</h3>
       <p class="mx-auto mt-3 max-w-xl text-muted">
-        Als junges Unternehmen wächst unsere Referenzliste mit jedem Projekt. Werden Sie Teil davon –
-        wir freuen uns auf Ihr Bauvorhaben.
+        Als junges Unternehmen wächst unsere Referenzliste mit jedem Projekt. Werden Sie Teil davon.
+        Wir freuen uns auf Ihr Bauvorhaben.
       </p>
       <a href="/kontakt" class="btn btn-primary mt-7 !px-7 !py-3.5">
         Projekt anfragen
@@ -84,3 +110,32 @@ import { projects } from "../data/site";
     <CtaBand />
   </div>
 </Layout>
+
+<script>
+  // Projekt-Galerie: Thumbnail-Klick tauscht das Hauptbild mit kurzem Fade
+  document.querySelectorAll<HTMLElement>("[data-project-gallery]").forEach((gallery) => {
+    const main = gallery.querySelector<HTMLImageElement>("[data-main-photo]");
+    const thumbs = gallery.querySelectorAll<HTMLButtonElement>("[data-thumb-src]");
+    if (!main || thumbs.length === 0) return;
+
+    thumbs.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const src = btn.getAttribute("data-thumb-src");
+        if (!src || main.getAttribute("src") === src) return;
+
+        main.style.opacity = "0";
+        const preload = new Image();
+        preload.onload = () => {
+          main.setAttribute("src", src);
+          requestAnimationFrame(() => {
+            main.style.opacity = "1";
+          });
+        };
+        preload.src = src;
+
+        thumbs.forEach((t) => t.setAttribute("data-thumb-active", "false"));
+        btn.setAttribute("data-thumb-active", "true");
+      });
+    });
+  });
+</script>

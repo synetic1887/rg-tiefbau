@@ -8,7 +8,7 @@ import BrandPanel from "../components/BrandPanel.astro";
 import { company, advantages } from "../data/site";
 
 const values = [
-  { icon: "handshake", title: "Verlässlichkeit", text: "Ein Wort, ein Handschlag. Was wir zusagen, halten wir – termintreu und ohne Ausreden." },
+  { icon: "handshake", title: "Verlässlichkeit", text: "Ein Wort, ein Handschlag. Was wir zusagen, halten wir. Termintreu und ohne Ausreden." },
   { icon: "shield", title: "Qualität", text: "Höchste Standards bei Material und Ausführung. Wir bauen, als wäre es unser eigenes Projekt." },
   { icon: "euro", title: "Transparenz", text: "Faire Preise und nachvollziehbare Kostenaufstellungen. Keine versteckten Posten." },
   { icon: "compass", title: "Flexibilität", text: "Hauptsitz in Butzbach, deutschlandweit einsatzbereit. Kurze Reaktionszeiten inklusive." },
@@ -16,11 +16,11 @@ const values = [
 ---
 
 <Layout
-  title="Über uns – RG Hochbau & Tiefbau"
-  description="RG Hochbau & Tiefbau aus Butzbach: ein neu gegründetes Unternehmen, geführt von einer Geschäftsführung mit über 35 Jahren Branchenerfahrung."
+  title="Über uns | RG Hochbau und Tiefbau"
+  description="RG Hochbau und Tiefbau aus Butzbach. Ein neu gegründetes Unternehmen, geführt von einer Geschäftsführung mit über 35 Jahren Branchenerfahrung."
 >
   <PageHero
-    eyebrow="Über RG Hochbau & Tiefbau"
+    eyebrow="Über RG Hochbau und Tiefbau"
     title="Neu am Markt. Nicht neu im Geschäft."
     subtitle="Wir verbinden die Agilität eines jungen Unternehmens mit der Erfahrung einer Geschäftsführung, die seit über 35 Jahren auf dem Bau zu Hause ist."
     crumbs={[
@@ -34,9 +34,10 @@ const values = [
     <div class="grid items-center gap-14 lg:grid-cols-2">
       <div class="reveal relative">
         <BrandPanel
-          variant="dark"
-          ratio="aspect-[5/4]"
-          label="RG Hochbau & Tiefbau"
+          ratio="aspect-[16/11]"
+          photo="/brand/brand-deutschlandweit.jpg"
+          photoAlt="RG Hochbau und Tiefbau deutschlandweit"
+          label="RG Hochbau und Tiefbau"
           sublabel="Rudolf · Geis"
           pinIcon="building"
           class="shadow-[0_30px_60px_-35px_rgba(28,28,27,0.5)]"
@@ -51,22 +52,22 @@ const values = [
         <p class="eyebrow">Unsere Geschichte</p>
         <h2 class="section-title mt-4">Erfahrung, die man spürt.</h2>
         <p class="mt-5 text-lg leading-relaxed text-muted">
-          RG Hochbau &amp; Tiefbau ist ein neu gegründetes Unternehmen mit Sitz in
+          RG Hochbau und Tiefbau ist ein neu gegründetes Unternehmen mit Sitz in
           {company.city} im Herzen Hessens. Hinter dem Namen RG steht die Familie
-          Rudolf · Geis – und eine Geschäftsführung, die über {company.experience} Jahre
+          Rudolf · Geis und eine Geschäftsführung, die über {company.experience} Jahre
           Erfahrung im Bauwesen mitbringt.
         </p>
         <p class="mt-4 text-lg leading-relaxed text-muted">
           Diese Erfahrung ist unser Fundament. Wir wissen, worauf es auf der Baustelle
           ankommt: saubere Planung, ehrliche Kommunikation und ein Ergebnis, das hält.
-          Vom kleinen Erdaushub bis zum kompletten Rohbau – wir packen an.
+          Vom kleinen Erdaushub bis zum schlüsselfertigen Hochbau. Wir packen an.
         </p>
         <div class="mt-8 flex items-center gap-4 rounded-2xl border border-line bg-sand p-5">
           <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white">
             <Icon name="check" class="h-6 w-6" />
           </span>
           <p class="font-600 text-anthracite">
-            Geschäftsführer <span class="text-brand-dark">{company.managingDirector}</span> –
+            Geschäftsführer <span class="text-brand-dark">{company.managingDirector}</span>.
             Ihr direkter Ansprechpartner von der Anfrage bis zur Übergabe.
           </p>
         </div>
@@ -103,7 +104,7 @@ const values = [
   <section class="container-rg py-20 md:py-28">
     <div class="reveal mx-auto max-w-2xl text-center">
       <p class="eyebrow justify-center">Ihre Vorteile</p>
-      <h2 class="section-title mt-4">Darum RG Hochbau &amp; Tiefbau</h2>
+      <h2 class="section-title mt-4">Darum RG Hochbau und Tiefbau</h2>
     </div>
     <div class="mt-14 grid gap-6 sm:grid-cols-2">
       {

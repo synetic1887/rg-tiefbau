@@ -17,3 +17,13 @@ pnpm-debug.log*
 
 # dev helpers
 shots*.mjs
+
+# local source material (originals — optimized copies live in public/)
+Baustellenbilder/
+Werbefotos/
+
+# legacy FastAPI backend (not used in Astro deploy)
+backend/
+
+# vercel local
+.vercel/

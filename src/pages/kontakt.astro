@@ -13,13 +13,13 @@ const contactItems = [
 ---
 
 <Layout
-  title="Kontakt – RG Hochbau & Tiefbau"
-  description="Kontaktieren Sie RG Hochbau & Tiefbau aus Butzbach für ein unverbindliches Angebot. Wir melden uns innerhalb von 24 Stunden."
+  title="Kontakt | RG Hochbau und Tiefbau"
+  description="Kontaktieren Sie RG Hochbau und Tiefbau aus Butzbach für ein unverbindliches Angebot. Wir melden uns innerhalb von 24 Stunden."
 >
   <PageHero
     eyebrow="Kontakt"
     title="Ihr Projekt besprechen."
-    subtitle="Sie planen ein Bauvorhaben? Kontaktieren Sie uns für ein unverbindliches Angebot – wir melden uns innerhalb von 24 Stunden bei Ihnen."
+    subtitle="Sie planen ein Bauvorhaben? Kontaktieren Sie uns für ein unverbindliches Angebot. Wir melden uns innerhalb von 24 Stunden bei Ihnen."
     crumbs={[
       { label: "Start", href: "/" },
       { label: "Kontakt", href: "/kontakt" },
@@ -32,8 +32,8 @@ const contactItems = [
       <div class="reveal">
         <h2 class="text-2xl font-800">So erreichen Sie uns</h2>
         <p class="mt-3 leading-relaxed text-muted">
-          Am schnellsten geht's per Telefon. Lieber schreiben? Nutzen Sie das Formular –
-          wir kümmern uns umgehend um Ihre Anfrage.
+          Am schnellsten geht es per Telefon. Lieber schreiben? Nutzen Sie das Formular.
+          Wir kümmern uns umgehend um Ihre Anfrage.
         </p>
 
         <ul class="mt-8 space-y-4">
@@ -95,7 +95,7 @@ const contactItems = [
             <div class="flex flex-col gap-2">
               <label for="service" class="text-sm font-600 text-anthracite">Leistung *</label>
               <select id="service" name="service" required class="rg-input">
-                <option value="" disabled selected>Bitte wählen …</option>
+                <option value="" disabled selected>Bitte wählen</option>
                 {services.map((s) => <option value={s.slug}>{s.title}</option>)}
                 <option value="sonstiges">Sonstiges</option>
               </select>
@@ -108,7 +108,7 @@ const contactItems = [
 
           <div class="mt-5 flex flex-col gap-2">
             <label for="message" class="text-sm font-600 text-anthracite">Ihr Projekt *</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Beschreiben Sie Ihr Projekt: Umfang, geplanter Zeitraum, besondere Anforderungen …" class="rg-input resize-y"></textarea>
+            <textarea id="message" name="message" rows="5" required placeholder="Beschreiben Sie Ihr Projekt: Umfang, geplanter Zeitraum, besondere Anforderungen" class="rg-input resize-y"></textarea>
           </div>
 
           <!-- honeypot -->
@@ -192,7 +192,7 @@ const contactItems = [
 
       const data = Object.fromEntries(new FormData(form).entries());
       btn?.setAttribute("disabled", "true");
-      if (btn) btn.querySelector(".btn-label")!.textContent = "Wird gesendet …";
+      if (btn) btn.querySelector(".btn-label")!.textContent = "Wird gesendet";
 
       try {
         const res = await fetch(ENDPOINT, {
@@ -202,7 +202,7 @@ const contactItems = [
         });
         if (!res.ok) throw new Error(String(res.status));
         form.reset();
-        setStatus("Vielen Dank! Ihre Anfrage ist eingegangen – wir melden uns innerhalb von 24 Stunden.", true);
+        setStatus("Vielen Dank! Ihre Anfrage ist eingegangen. Wir melden uns innerhalb von 24 Stunden.", true);
       } catch {
         setStatus(
           "Senden momentan nicht möglich. Bitte rufen Sie uns an unter " +

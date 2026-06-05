@@ -11,6 +11,9 @@ interface Props {
   class?: string;
   pinIcon?: string;
   motif?: "hochbau" | "tiefbau" | "site";
+  photo?: string;
+  photoAlt?: string;
+  photoPosition?: string;
 }
 const {
   variant = "dark",
@@ -21,9 +24,13 @@ const {
   class: className = "",
   pinIcon = "excavator",
   motif = "hochbau",
+  photo,
+  photoAlt = "",
+  photoPosition = "center",
 } = Astro.props;
 
 const isDark = variant === "dark";
+const hasPhoto = !!photo;
 ---
 <div
   class:list={[
@@ -33,41 +40,64 @@ const isDark = variant === "dark";
     isDark ? "bg-ink" : "bg-sand ring-1 ring-line",
   ]}
 >
-  <!-- gradient base -->
   {
-    isDark ? (
-      <div class="absolute inset-0" style="background:radial-gradient(120% 90% at 80% 0%, #34332f 0%, #1c1c1b 55%, #121211 100%);" />
+    hasPhoto ? (
+      <>
+        {/* photo background */}
+        <img
+          src={photo}
+          alt={photoAlt}
+          loading="lazy"
+          decoding="async"
+          data-main-photo
+          class="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
+          style={`object-position:${photoPosition};`}
+        />
+        {/* dark gradient overlay for caption legibility */}
+        <div
+          class="pointer-events-none absolute inset-0"
+          style="background:linear-gradient(180deg, rgba(18,18,17,0) 35%, rgba(18,18,17,0.45) 75%, rgba(18,18,17,0.75) 100%);"
+        />
+        {/* subtle orange accent corner */}
+        <div class="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand/20 blur-3xl"></div>
+      </>
     ) : (
-      <div class="absolute inset-0" style="background:linear-gradient(160deg,#ffffff 0%,#f6f5f3 60%,#fdeede 100%);" />
+      <>
+        {/* gradient base */}
+        {isDark ? (
+          <div class="absolute inset-0" style="background:radial-gradient(120% 90% at 80% 0%, #34332f 0%, #1c1c1b 55%, #121211 100%);" />
+        ) : (
+          <div class="absolute inset-0" style="background:linear-gradient(160deg,#ffffff 0%,#f6f5f3 60%,#fdeede 100%);" />
+        )}
+
+        {/* blueprint grid */}
+        <div
+          class="absolute inset-0"
+          style={`opacity:${isDark ? 0.1 : 0.45};background-image:linear-gradient(to right,${isDark ? "rgba(255,255,255,0.5)" : "rgba(28,28,27,0.12)"} 1px,transparent 1px),linear-gradient(to bottom,${isDark ? "rgba(255,255,255,0.5)" : "rgba(28,28,27,0.12)"} 1px,transparent 1px);background-size:40px 40px;`}
+        />
+
+        {/* orange glow */}
+        <div class="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-brand/25 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-20 -left-12 h-56 w-56 rounded-full bg-brand/10 blur-3xl"></div>
+
+        {/* technical blueprint motif */}
+        <Blueprint
+          name={motif}
+          class:list={[
+            "pointer-events-none absolute left-1/2 top-[44%] w-[88%] max-w-[26rem] -translate-x-1/2 -translate-y-1/2",
+            isDark ? "text-white/22" : "text-ink/20",
+          ]}
+        />
+
+        {/* R-icon brand badge */}
+        <img
+          src={isDark ? "/brand/icon-white.png" : "/brand/icon.png"}
+          alt=""
+          class:list={["pointer-events-none absolute right-6 top-6 w-12 select-none", isDark ? "opacity-30" : "opacity-50"]}
+        />
+      </>
     )
   }
-
-  <!-- blueprint grid -->
-  <div
-    class="absolute inset-0"
-    style={`opacity:${isDark ? 0.1 : 0.45};background-image:linear-gradient(to right,${isDark ? "rgba(255,255,255,0.5)" : "rgba(28,28,27,0.12)"} 1px,transparent 1px),linear-gradient(to bottom,${isDark ? "rgba(255,255,255,0.5)" : "rgba(28,28,27,0.12)"} 1px,transparent 1px);background-size:40px 40px;`}
-  >
-  </div>
-
-  <!-- orange glow -->
-  <div class="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-brand/25 blur-3xl"></div>
-  <div class="pointer-events-none absolute -bottom-20 -left-12 h-56 w-56 rounded-full bg-brand/10 blur-3xl"></div>
-
-  <!-- technical blueprint motif -->
-  <Blueprint
-    name={motif}
-    class:list={[
-      "pointer-events-none absolute left-1/2 top-[44%] w-[88%] max-w-[26rem] -translate-x-1/2 -translate-y-1/2",
-      isDark ? "text-white/22" : "text-ink/20",
-    ]}
-  />
-
-  <!-- R-icon brand badge -->
-  <img
-    src={isDark ? "/brand/icon-white.png" : "/brand/icon.png"}
-    alt=""
-    class:list={["pointer-events-none absolute right-6 top-6 w-12 select-none", isDark ? "opacity-30" : "opacity-50"]}
-  />
 
   <!-- orange accent corner -->
   <div class="absolute left-0 top-0 h-1.5 w-28 rounded-br-lg bg-brand"></div>
