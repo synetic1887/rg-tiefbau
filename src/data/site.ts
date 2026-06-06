@@ -153,6 +153,54 @@ export const advantages = [
   },
 ];
 
+export type Partner = {
+  name: string;
+  trade: string;
+  description: string;
+  logo: string;
+  logoBg: "light" | "dark";
+  street: string;
+  zip: string;
+  city: string;
+  phone: string;
+  phoneHref: string;
+  website: string;
+  websiteLabel: string;
+};
+
+export const partners: Partner[] = [
+  {
+    name: "Schulze-Steinen Elektrotechnik",
+    trade: "Elektrotechnik",
+    description:
+      "Verlässlicher Partner für sämtliche elektrotechnische Gewerke unserer Bauvorhaben. Von der Erstinstallation bis zur kompletten Gebäudetechnik.",
+    logo: "/partner/schulze-steinen.png",
+    logoBg: "dark",
+    street: "Pleistermühlenweg 278",
+    zip: "48157",
+    city: "Münster",
+    phone: "+49 251 311599",
+    phoneHref: "+49251311599",
+    website: "https://schulze-steinen.de",
+    websiteLabel: "schulze-steinen.de",
+  },
+  {
+    name: "Grant Immobilien GmbH",
+    trade: "Immobilien und Projektentwicklung",
+    description:
+      "Unser Partner für Immobilien und Projektentwicklung. Gemeinsam realisieren wir Bauvorhaben für private und gewerbliche Auftraggeber.",
+    logo: "/partner/grant4you.png",
+    logoBg: "light",
+    street: "Pleistermühlenweg 278",
+    zip: "48157",
+    city: "Münster",
+    phone: "+49 251 374076-10",
+    phoneHref: "+4925137407610",
+    website: "https://www.grant4you.de",
+    websiteLabel: "grant4you.de",
+  },
+];
+
 export type Project = {
   slug: string;
   status: string;
