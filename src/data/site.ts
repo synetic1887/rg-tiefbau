@@ -211,8 +211,6 @@ export const partners: Partner[] = [
     street: "Hans-Böckler-Straße 5",
     zip: "63128",
     city: "Dietzenbach",
-    phone: "+49 152 27747089",
-    phoneHref: "+4915227747089",
     website: "https://triatic-bau.de",
     websiteLabel: "triatic-bau.de",
   },
