@@ -225,6 +225,7 @@ const featured = projects[0];
                 "flex h-28 items-center justify-center rounded-xl p-5",
                 p.logoBg === "dark" ? "bg-ink" : "bg-white",
               ]}
+              style={p.logoBgColor ? `background-color:${p.logoBgColor};` : ""}
             >
               <img
                 src={p.logo}

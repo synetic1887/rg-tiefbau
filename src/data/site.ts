@@ -159,6 +159,7 @@ export type Partner = {
   description: string;
   logo: string;
   logoBg: "light" | "dark";
+  logoBgColor?: string;
   street: string;
   zip: string;
   city: string;
@@ -176,6 +177,7 @@ export const partners: Partner[] = [
       "Verlässlicher Partner für sämtliche elektrotechnische Gewerke unserer Bauvorhaben. Von der Erstinstallation bis zur kompletten Gebäudetechnik.",
     logo: "/partner/schulze-steinen.png",
     logoBg: "dark",
+    logoBgColor: "#091a2d",
     street: "Pleistermühlenweg 278",
     zip: "48157",
     city: "Münster",
