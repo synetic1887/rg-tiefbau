@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import NewsCard from "../../components/NewsCard.astro";
+
+const posts = (await getCollection("news"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Layout
+  title="Aktuelles | RG Hochbau und Tiefbau"
+  description="Aktuelle Nachrichten von unseren Baustellen. Bautagebuch, Referenzen und Einblicke in unsere Projekte."
+>
+  <PageHero
+    eyebrow="Aktuelles"
+    title="Bautagebuch und News."
+    subtitle="Was bei uns gerade los ist. Aktuelle Baustellen, neue Projekte und Einblicke hinter die Kulissen."
+    crumbs={[
+      { label: "Start", href: "/" },
+      { label: "Aktuelles", href: "/aktuelles" },
+    ]}
+  />
+
+  <section class="container-rg py-20 md:py-28">
+    {
+      posts.length === 0 ? (
+        <p class="mx-auto max-w-md text-center text-lg leading-relaxed text-muted">
+          Aktuell sind keine Beiträge veröffentlicht. Schauen Sie bald wieder vorbei.
+        </p>
+      ) : (
+        <div class="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((p) => <NewsCard post={p} />)}
+        </div>
+      )
+    }
+  </section>
+
+  <div class="pb-20 md:pb-24">
+    <CtaBand title="Ein Projekt für uns?" />
+  </div>
+</Layout>

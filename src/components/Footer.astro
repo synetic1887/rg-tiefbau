@@ -1,5 +1,5 @@
 ---
-import { company, nav, services } from "../data/site";
+import { company, nav, services, social } from "../data/site";
 import Icon from "./Icon.astro";
 const year = 2026;
 ---
@@ -19,6 +19,16 @@ const year = 2026;
         Hauptsitz in {company.city}, deutschlandweit im Einsatz.
       </p>
       <p class="mt-5 text-sm uppercase tracking-[0.18em] text-brand">{company.tagline}</p>
+      <a
+        href={social.instagram}
+        target="_blank"
+        rel="noopener"
+        aria-label={`Instagram ${social.instagramHandle}`}
+        class="mt-6 inline-flex items-center gap-2.5 rounded-xl border border-white/15 px-4 py-2.5 text-sm font-600 text-white transition-colors hover:border-brand hover:bg-brand/10"
+      >
+        <Icon name="instagram" class="h-5 w-5 text-brand" />
+        {social.instagramHandle}
+      </a>
     </div>
 
     <!-- Leistungen -->

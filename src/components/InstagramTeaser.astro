@@ -1,0 +1,71 @@
+---
+import Icon from "./Icon.astro";
+import { social } from "../data/site";
+
+// Sechs Bilder als Vorschau-Grid. Hier mit echten Baustellenbildern befüllt –
+// jederzeit austauschbar in src/data/site.ts oder direkt hier.
+const tiles = [
+  { src: "/projekte/rewe/02.jpg", alt: "Bewehrungskörbe Rewe" },
+  { src: "/projekte/koester/03.jpg", alt: "Bagger Düsseldorf" },
+  { src: "/projekte/bottrop/03.jpg", alt: "Kalksandsteinbüro Bottrop" },
+  { src: "/projekte/rewe/01.jpg", alt: "Köcherfundamente Rewe" },
+  { src: "/projekte/koester/01.jpg", alt: "Nahwärmeleitung Düsseldorf" },
+  { src: "/projekte/koester/05.jpg", alt: "Baugrube Düsseldorf" },
+];
+---
+
+<section class="bg-ink py-20 text-white md:py-24">
+  <div class="container-rg grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <div>
+      <p class="eyebrow !text-brand">Folge uns auf Instagram</p>
+      <h2 class="mt-4 text-balance text-3xl font-800 leading-tight text-white md:text-[2.4rem]">
+        Live von der Baustelle.
+      </h2>
+      <p class="mt-5 max-w-md text-[1.05rem] leading-relaxed text-white/70">
+        Bautagebuch, Maschinenpark, fertige Projekte. Auf Instagram zeigen wir,
+        was wir gerade bewegen. Schau rein und folge uns.
+      </p>
+      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+        <a
+          href={social.instagram}
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary !px-7 !py-3.5"
+        >
+          <Icon name="instagram" class="h-5 w-5" />
+          {social.instagramHandle}
+        </a>
+        <a
+          href="/aktuelles"
+          class="btn !px-7 !py-3.5 !bg-white/10 !text-white hover:!bg-white/20"
+        >
+          <Icon name="newspaper" class="h-5 w-5" />
+          Bautagebuch lesen
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-2.5">
+      {
+        tiles.map((t) => (
+          <a
+            href={social.instagram}
+            target="_blank"
+            rel="noopener"
+            class="group relative aspect-square overflow-hidden rounded-xl"
+          >
+            <img
+              src={t.src}
+              alt={t.alt}
+              loading="lazy"
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <span class="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-all group-hover:bg-ink/55 group-hover:opacity-100">
+              <Icon name="instagram" class="h-8 w-8 text-white" />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

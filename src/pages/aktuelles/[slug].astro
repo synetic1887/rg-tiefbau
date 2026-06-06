@@ -1,0 +1,218 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/Icon.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import NewsCard from "../../components/NewsCard.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("news", (p) => !p.data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"news">;
+}
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formatted = post.data.date.toLocaleDateString("de-DE", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+});
+
+const url = new URL(Astro.url.pathname, "https://rg-tiefbau.de").href;
+const shareText = encodeURIComponent(`${post.data.title} – RG Hochbau und Tiefbau`);
+const shareUrl = encodeURIComponent(url);
+
+const related = (await getCollection("news", (p) => !p.data.draft && p.slug !== post.slug))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<Layout title={`${post.data.title} | RG Hochbau und Tiefbau`} description={post.data.summary}>
+  <article>
+    <!-- Hero -->
+    <div class="relative h-[55vh] min-h-[24rem] w-full overflow-hidden bg-ink">
+      <img
+        src={post.data.cover}
+        alt={post.data.coverAlt ?? post.data.title}
+        class="absolute inset-0 h-full w-full object-cover opacity-80"
+      />
+      <div
+        class="absolute inset-0"
+        style="background:linear-gradient(180deg, rgba(18,18,17,0.2) 0%, rgba(18,18,17,0.4) 50%, rgba(18,18,17,0.85) 100%);"
+      ></div>
+      <div class="container-rg relative flex h-full flex-col justify-end pb-12">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="rounded-full bg-brand px-3.5 py-1.5 text-xs font-700 uppercase tracking-wider text-white">
+            {post.data.category}
+          </span>
+          <span class="font-display text-sm font-600 uppercase tracking-wider text-white/85">
+            {formatted}
+          </span>
+        </div>
+        <h1 class="mt-5 max-w-3xl text-balance text-3xl font-900 leading-tight text-white md:text-5xl">
+          {post.data.title}
+        </h1>
+        {post.data.project && (
+          <p class="mt-4 font-600 text-white/75">Projekt: {post.data.project}</p>
+        )}
+      </div>
+    </div>
+
+    <!-- Body + Sidebar -->
+    <div class="container-rg grid gap-12 py-16 md:py-20 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
+      <div class="legal prose-news max-w-none">
+        <p class="text-xl font-600 leading-relaxed text-graphite">{post.data.summary}</p>
+        <Content />
+      </div>
+
+      <aside class="space-y-8 lg:sticky lg:top-32 lg:self-start">
+        <div class="rounded-2xl border border-line bg-white p-6">
+          <h3 class="font-display text-sm font-700 uppercase tracking-wider text-muted">
+            Beitrag teilen
+          </h3>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a
+              href={`https://wa.me/?text=${shareText}%20${shareUrl}`}
+              target="_blank"
+              rel="noopener"
+              aria-label="Auf WhatsApp teilen"
+              class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand-dark transition-colors hover:bg-brand hover:text-white"
+            >
+              <Icon name="whatsapp" class="h-5 w-5" />
+            </a>
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+              target="_blank"
+              rel="noopener"
+              aria-label="Auf LinkedIn teilen"
+              class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand-dark transition-colors hover:bg-brand hover:text-white"
+            >
+              <Icon name="linkedin" class="h-5 w-5" />
+            </a>
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+              target="_blank"
+              rel="noopener"
+              aria-label="Auf Facebook teilen"
+              class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand-dark transition-colors hover:bg-brand hover:text-white"
+            >
+              <Icon name="facebook" class="h-5 w-5" />
+            </a>
+            <button
+              type="button"
+              data-copy-link
+              data-link={url}
+              aria-label="Link kopieren"
+              class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand-dark transition-colors hover:bg-brand hover:text-white"
+            >
+              <Icon name="link" class="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+
+        {post.data.instagram && (
+          <a
+            href={post.data.instagram}
+            target="_blank"
+            rel="noopener"
+            class="flex items-center justify-between gap-4 rounded-2xl border border-line bg-white p-6 transition-colors hover:border-brand-tint"
+          >
+            <div>
+              <p class="font-display text-sm font-700 uppercase tracking-wider text-brand">
+                Auf Instagram
+              </p>
+              <p class="mt-1 font-700 text-ink">Original-Post ansehen</p>
+            </div>
+            <Icon name="instagram" class="h-7 w-7 text-brand" />
+          </a>
+        )}
+
+        <a href="/aktuelles" class="link-arrow text-[0.95rem]">
+          Zurück zu allen Beiträgen
+          <Icon name="arrow-right" class="h-4 w-4" />
+        </a>
+      </aside>
+    </div>
+
+    {
+      related.length > 0 && (
+        <section class="bg-cloud py-16 md:py-24">
+          <div class="container-rg">
+            <h2 class="section-title">Weitere Beiträge</h2>
+            <div class="mt-10 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+              {related.map((p) => (
+                <NewsCard post={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <div class="py-16 md:py-20">
+      <CtaBand />
+    </div>
+  </article>
+</Layout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-copy-link]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const link = btn.dataset.link;
+      if (!link) return;
+      try {
+        await navigator.clipboard.writeText(link);
+        btn.setAttribute("aria-label", "Link kopiert");
+        btn.classList.add("!bg-brand", "!text-white");
+        setTimeout(() => {
+          btn.classList.remove("!bg-brand", "!text-white");
+          btn.setAttribute("aria-label", "Link kopieren");
+        }, 1500);
+      } catch {
+        window.prompt("Link kopieren:", link);
+      }
+    });
+  });
+</script>
+
+<style>
+  .prose-news :global(h2) {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-ink);
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .prose-news :global(p) {
+    margin-top: 1.1rem;
+    line-height: 1.75;
+    color: var(--color-graphite);
+  }
+  .prose-news :global(ul) {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    color: var(--color-graphite);
+    line-height: 1.7;
+  }
+  .prose-news :global(ul li) {
+    margin-top: 0.4rem;
+  }
+  .prose-news :global(strong) {
+    color: var(--color-ink);
+  }
+  .prose-news :global(a) {
+    color: var(--color-brand-dark);
+    text-decoration: underline;
+    text-decoration-color: var(--color-brand-tint);
+    text-underline-offset: 3px;
+  }
+</style>

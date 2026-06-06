@@ -1,11 +1,19 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import Stats from "../components/Stats.astro";
 import CtaBand from "../components/CtaBand.astro";
 import BrandPanel from "../components/BrandPanel.astro";
+import NewsCard from "../components/NewsCard.astro";
+import InstagramTeaser from "../components/InstagramTeaser.astro";
 import { services, advantages, projects, partners, company } from "../data/site";
+
+const latestNews = (await getCollection("news"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 
 const trust = [
   { icon: "shield", label: "Qualität und Termintreue" },
@@ -271,6 +279,40 @@ const featured = projects[0];
       }
     </div>
   </section>
+
+  {
+    latestNews.length > 0 && (
+      <section class="bg-cloud py-20 md:py-28">
+        <div class="container-rg">
+          <div class="reveal flex flex-col items-end justify-between gap-6 md:flex-row">
+            <div class="max-w-2xl">
+              <p class="eyebrow">Aktuelles</p>
+              <h2 class="section-title mt-4">Frisch aus dem Bautagebuch</h2>
+              <p class="mt-4 text-lg leading-relaxed text-muted">
+                Was bei uns gerade auf der Baustelle passiert. Aktuelle Einblicke,
+                neue Projekte und Referenzen.
+              </p>
+            </div>
+            <a href="/aktuelles" class="link-arrow shrink-0">
+              Alle Beiträge
+              <Icon name="arrow-right" class="h-4.5 w-4.5" />
+            </a>
+          </div>
+
+          <div class="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+            {latestNews.map((p) => (
+              <div class="reveal h-full">
+                <NewsCard post={p} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- ================= INSTAGRAM ================= -->
+  <InstagramTeaser />
 
   <!-- ================= REFERENZ ================= -->
   <section class="bg-cloud py-20 md:py-28">

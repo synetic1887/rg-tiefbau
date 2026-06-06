@@ -23,9 +23,15 @@ export const nav = [
   { label: "Start", href: "/" },
   { label: "Leistungen", href: "/leistungen" },
   { label: "Projekte", href: "/projekte" },
+  { label: "Aktuelles", href: "/aktuelles" },
   { label: "Über uns", href: "/ueber-uns" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;
+
+export const social = {
+  instagram: "https://www.instagram.com/rg.tiefbau/",
+  instagramHandle: "@rg.tiefbau",
+};
 
 export type Service = {
   slug: string;
