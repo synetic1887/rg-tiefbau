@@ -163,8 +163,8 @@ export type Partner = {
   street: string;
   zip: string;
   city: string;
-  phone: string;
-  phoneHref: string;
+  phone?: string;
+  phoneHref?: string;
   website: string;
   websiteLabel: string;
 };
@@ -200,6 +200,35 @@ export const partners: Partner[] = [
     phoneHref: "+4925137407610",
     website: "https://www.grant4you.de",
     websiteLabel: "grant4you.de",
+  },
+  {
+    name: "Triatic Bau GmbH",
+    trade: "Rohbau · Lohnleistung",
+    description:
+      "Verlässlicher Partner im Rohbau. Unterstützt uns bei Lohnleistungen auf unseren Baustellen mit erfahrenen Teams.",
+    logo: "/partner/triatic.png",
+    logoBg: "light",
+    street: "Hans-Böckler-Straße 5",
+    zip: "63128",
+    city: "Dietzenbach",
+    phone: "+49 152 27747089",
+    phoneHref: "+4915227747089",
+    website: "https://triatic-bau.de",
+    websiteLabel: "triatic-bau.de",
+  },
+  {
+    name: "OmniProjekt GmbH",
+    trade: "Rohbau · Lohnleistung",
+    description:
+      "Partner für Rohbauarbeiten im Bereich Lohnleistung. Gemeinsam stemmen wir größere Bauvorhaben mit eingespielten Teams.",
+    logo: "/partner/omni.jpg",
+    logoBg: "light",
+    logoBgColor: "#fdfcfa",
+    street: "Heimatstraße 18",
+    zip: "63533",
+    city: "Mainhausen",
+    website: "https://www.omniprojekt.net",
+    websiteLabel: "omniprojekt.net",
   },
 ];
 

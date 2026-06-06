@@ -216,7 +216,7 @@ const featured = projects[0];
       </p>
     </div>
 
-    <div class="mt-14 grid gap-6 sm:grid-cols-2">
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
       {
         partners.map((p) => (
           <article class="reveal flex h-full flex-col rounded-2xl border border-line bg-white p-7 transition-all hover:border-brand-tint hover:shadow-[0_20px_45px_-25px_rgba(28,28,27,0.4)]">
@@ -245,19 +245,21 @@ const featured = projects[0];
                 <Icon name="map-pin" class="mt-0.5 h-5 w-5 shrink-0 text-brand" />
                 <span class="text-graphite">{p.street}, {p.zip} {p.city}</span>
               </li>
-              <li class="flex items-center gap-3">
-                <Icon name="phone" class="h-5 w-5 shrink-0 text-brand" />
-                <a href={`tel:${p.phoneHref}`} class="text-graphite transition-colors hover:text-brand-dark">
-                  {p.phone}
-                </a>
-              </li>
+              {p.phone && (
+                <li class="flex items-center gap-3">
+                  <Icon name="phone" class="h-5 w-5 shrink-0 text-brand" />
+                  <a href={`tel:${p.phoneHref}`} class="text-graphite transition-colors hover:text-brand-dark">
+                    {p.phone}
+                  </a>
+                </li>
+              )}
             </ul>
 
             <a
               href={p.website}
               target="_blank"
               rel="noopener"
-              class="link-arrow mt-6 self-start text-[0.95rem]"
+              class="link-arrow mt-auto pt-6 self-start text-[0.95rem]"
             >
               {p.websiteLabel} besuchen
               <Icon name="arrow-right" class="h-4 w-4" />
