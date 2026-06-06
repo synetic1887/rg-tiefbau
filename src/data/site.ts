@@ -165,8 +165,8 @@ export type Partner = {
   city: string;
   phone?: string;
   phoneHref?: string;
-  website: string;
-  websiteLabel: string;
+  website?: string;
+  websiteLabel?: string;
 };
 
 export const partners: Partner[] = [
@@ -221,12 +221,9 @@ export const partners: Partner[] = [
       "Partner für Rohbauarbeiten im Bereich Lohnleistung. Gemeinsam stemmen wir größere Bauvorhaben mit eingespielten Teams.",
     logo: "/partner/omni.jpg",
     logoBg: "light",
-    logoBgColor: "#fdfcfa",
     street: "Heimatstraße 18",
     zip: "63533",
     city: "Mainhausen",
-    website: "https://www.omniprojekt.net",
-    websiteLabel: "omniprojekt.net",
   },
 ];
 

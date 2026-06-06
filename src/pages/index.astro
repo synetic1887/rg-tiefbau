@@ -255,15 +255,17 @@ const featured = projects[0];
               )}
             </ul>
 
-            <a
-              href={p.website}
-              target="_blank"
-              rel="noopener"
-              class="link-arrow mt-auto pt-6 self-start text-[0.95rem]"
-            >
-              {p.websiteLabel} besuchen
-              <Icon name="arrow-right" class="h-4 w-4" />
-            </a>
+            {p.website && (
+              <a
+                href={p.website}
+                target="_blank"
+                rel="noopener"
+                class="link-arrow mt-auto pt-6 self-start text-[0.95rem]"
+              >
+                {p.websiteLabel} besuchen
+                <Icon name="arrow-right" class="h-4 w-4" />
+              </a>
+            )}
           </article>
         ))
       }
