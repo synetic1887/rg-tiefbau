@@ -3,7 +3,7 @@ title: "Spatenstich Fertigteilhalle: Köcherfundamente in Reihe"
 summary: "Wir haben mit den Köcherfundamenten für eine neue Fertigteilhalle begonnen. Bewehrungskörbe bis zwei Meter Höhe sind bereit."
 date: 2026-06-01
 category: "Baustelle"
-cover: "/projekte/rewe/02.jpg"
+cover: "/projekte/fertigteilhalle/02.jpg"
 coverAlt: "Bewehrungskörbe für die Köcherfundamente"
 project: "Erweiterung Fertigteilhalle"
 ---

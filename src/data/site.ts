@@ -265,11 +265,11 @@ export const projects: Project[] = [
     client: "Klebl GmbH",
     location: "Fertigteilhalle",
     period: "Seit 01.06. · Fertigstellung Ende Juli geplant",
-    image: "/projekte/rewe/02.jpg",
+    image: "/projekte/fertigteilhalle/02.jpg",
     images: [
-      "/projekte/rewe/01.jpg",
-      "/projekte/rewe/02.jpg",
-      "/projekte/rewe/03.jpg",
+      "/projekte/fertigteilhalle/01.jpg",
+      "/projekte/fertigteilhalle/02.jpg",
+      "/projekte/fertigteilhalle/03.jpg",
     ],
     summary:
       "Großflächige Fundamentierung für die Erweiterung einer Fertigteilhalle eines Handelsstandorts.",
