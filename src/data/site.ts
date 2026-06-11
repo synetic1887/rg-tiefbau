@@ -2,8 +2,8 @@
 
 export const company = {
   brand: "RG",
-  name: "RG Hochbau & Tiefbau",
-  legalName: "RG Tiefbau GmbH",
+  name: "RG Hoch-&Tiefbau GmbH",
+  legalName: "RG Hoch-&Tiefbau GmbH",
   tagline: "Rudolf · Geis",
   city: "Butzbach",
   street: "Große Jahnstraße 11",
@@ -166,9 +166,9 @@ export type Partner = {
   logo: string;
   logoBg: "light" | "dark";
   logoBgColor?: string;
-  street: string;
-  zip: string;
-  city: string;
+  street?: string;
+  zip?: string;
+  city?: string;
   phone?: string;
   phoneHref?: string;
   website?: string;
@@ -230,6 +230,14 @@ export const partners: Partner[] = [
     street: "Heimatstraße 18",
     zip: "63533",
     city: "Mainhausen",
+  },
+  {
+    name: "EDA Encore Data Analytics",
+    trade: "KI-Lösungen · Prozessoptimierung",
+    description:
+      "Unser Dienstleister für KI-Lösungen und Prozessoptimierung in der Industrie. Entwickelt automatisierte Kalkulations- und Controlling-Systeme, mit denen wir unsere Abläufe effizient halten.",
+    logo: "/partner/eda.png",
+    logoBg: "light",
   },
 ];
 

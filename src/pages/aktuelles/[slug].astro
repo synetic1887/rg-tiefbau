@@ -26,7 +26,7 @@ const formatted = post.data.date.toLocaleDateString("de-DE", {
 });
 
 const url = new URL(Astro.url.pathname, "https://rg-tiefbau.de").href;
-const shareText = encodeURIComponent(`${post.data.title} – RG Hochbau und Tiefbau`);
+const shareText = encodeURIComponent(`${post.data.title} – RG Hoch-&Tiefbau GmbH`);
 const shareUrl = encodeURIComponent(url);
 
 const related = (await getCollection("news", (p) => !p.data.draft && p.slug !== post.slug))
@@ -34,7 +34,7 @@ const related = (await getCollection("news", (p) => !p.data.draft && p.slug !== 
   .slice(0, 3);
 ---
 
-<Layout title={`${post.data.title} | RG Hochbau und Tiefbau`} description={post.data.summary}>
+<Layout title={`${post.data.title} | RG Hoch-&Tiefbau GmbH`} description={post.data.summary}>
   <article>
     <!-- Hero -->
     <div class="relative h-[55vh] min-h-[24rem] w-full overflow-hidden bg-ink">

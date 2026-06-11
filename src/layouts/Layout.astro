@@ -14,7 +14,7 @@ const SITE_ORIGIN = "https://rg-tiefbau.de";
 
 const {
   title = `${company.name}: Hochbau, Tiefbau und Stahlbetonbau aus Butzbach`,
-  description = "RG Hochbau und Tiefbau aus Butzbach. Ihr Partner für Erdbau, Tiefbau, Rohbau, Stahlbetonbau, Grundleitungen und schlüsselfertige Hochbauten. Planung und Ausführung aus einer Hand. Deutschlandweit im Einsatz, geführt von einer Geschäftsführung mit über 35 Jahren Branchenerfahrung.",
+  description = "RG Hoch-&Tiefbau GmbH aus Butzbach. Ihr Partner für Erdbau, Tiefbau, Rohbau, Stahlbetonbau, Grundleitungen und schlüsselfertige Hochbauten. Planung und Ausführung aus einer Hand. Deutschlandweit im Einsatz, geführt von einer Geschäftsführung mit über 35 Jahren Branchenerfahrung.",
   image = "/brand/hero-skyline.jpg",
 } = Astro.props;
 
@@ -69,7 +69,7 @@ const logoAbsolute = new URL("/brand/logo.png", Astro.site ?? SITE_ORIGIN).href;
         "@type": "GeneralContractor",
         "@id": "https://rg-tiefbau.de/#organization",
         name: company.name,
-        alternateName: ["RG Tiefbau", "RG Hochbau und Tiefbau", company.legalName],
+        alternateName: ["RG Tiefbau", "RG Hoch-&Tiefbau GmbH", company.legalName],
         legalName: company.legalName,
         description,
         url: "https://rg-tiefbau.de",
