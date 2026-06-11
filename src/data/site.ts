@@ -238,6 +238,8 @@ export const partners: Partner[] = [
       "Unser Dienstleister für KI-Lösungen und Prozessoptimierung in der Industrie. Entwickelt automatisierte Kalkulations- und Controlling-Systeme, mit denen wir unsere Abläufe effizient halten.",
     logo: "/partner/eda.png",
     logoBg: "light",
+    website: "https://encore-analytics.de",
+    websiteLabel: "encore-analytics.de",
   },
 ];
 

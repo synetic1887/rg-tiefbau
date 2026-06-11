@@ -71,7 +71,17 @@ const year = 2026;
       <ul class="mt-5 space-y-3.5 text-[0.97rem]">
         <li class="flex items-start gap-3">
           <Icon name="map-pin" class="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-          <span>{company.street}<br />{company.zip} {company.city}</span>
+          <span>
+            <span class="block text-xs font-700 uppercase tracking-wider text-white/55">Hauptsitz</span>
+            {company.street}<br />{company.zip} {company.city}
+          </span>
+        </li>
+        <li class="flex items-start gap-3">
+          <Icon name="map-pin" class="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+          <span>
+            <span class="block text-xs font-700 uppercase tracking-wider text-white/55">Niederlassung Münster</span>
+            Pleistermühlenweg 278<br />48157 Münster
+          </span>
         </li>
         <li class="flex items-center gap-3">
           <Icon name="phone" class="h-5 w-5 shrink-0 text-brand" />
