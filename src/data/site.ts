@@ -249,11 +249,11 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "rewe-erweiterung-fundamentierung",
+    slug: "fertigteilhalle-fundamentierung",
     status: "Laufendes Projekt",
-    title: "Rewe Erweiterung: Fundamentierung Fertigteilhalle",
+    title: "Erweiterung Fertigteilhalle: Köcherfundamente",
     client: "Klebl GmbH",
-    location: "Rewe-Standort",
+    location: "Fertigteilhalle",
     period: "Seit 01.06. · Fertigstellung Ende Juli geplant",
     image: "/projekte/rewe/02.jpg",
     images: [
@@ -262,7 +262,7 @@ export const projects: Project[] = [
       "/projekte/rewe/03.jpg",
     ],
     summary:
-      "Großflächige Fundamentierung für die Erweiterung einer Fertigteilhalle am Rewe-Standort.",
+      "Großflächige Fundamentierung für die Erweiterung einer Fertigteilhalle eines Handelsstandorts.",
     description:
       "Wir setzen die kompletten Köcherfundamente mit großen Bewehrungskörben um, teilweise zwei Meter hoch. Stahlbetonbau in Reihen entlang der Halle, präzise vorbereitet und termintreu in enger Abstimmung mit dem Generalunternehmer.",
     tags: ["Stahlbetonbau", "Köcherfundamente", "Bewehrung", "Industriebau"],
