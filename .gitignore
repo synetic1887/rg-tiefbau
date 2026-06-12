@@ -27,3 +27,4 @@ backend/
 
 # vercel local
 .vercel/
+.vercel
