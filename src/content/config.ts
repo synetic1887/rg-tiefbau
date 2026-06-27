@@ -10,6 +10,7 @@ const news = defineCollection({
       category: z.string().default("Baustelle"),
       cover: z.string(),
       coverAlt: z.string().optional(),
+      coverContain: z.boolean().default(false),
       project: z.string().optional(),
       draft: z.boolean().default(false),
       instagram: z.string().url().optional(),

@@ -37,33 +37,66 @@ const related = (await getCollection("news", (p) => !p.data.draft && p.slug !== 
 <Layout title={`${post.data.title} | RG Hoch-&Tiefbau GmbH`} description={post.data.summary}>
   <article>
     <!-- Hero -->
-    <div class="relative h-[55vh] min-h-[24rem] w-full overflow-hidden bg-ink">
-      <img
-        src={post.data.cover}
-        alt={post.data.coverAlt ?? post.data.title}
-        class="absolute inset-0 h-full w-full object-cover opacity-80"
-      />
-      <div
-        class="absolute inset-0"
-        style="background:linear-gradient(180deg, rgba(18,18,17,0.2) 0%, rgba(18,18,17,0.4) 50%, rgba(18,18,17,0.85) 100%);"
-      ></div>
-      <div class="container-rg relative flex h-full flex-col justify-end pb-12">
-        <div class="flex flex-wrap items-center gap-3">
-          <span class="rounded-full bg-brand px-3.5 py-1.5 text-xs font-700 uppercase tracking-wider text-white">
-            {post.data.category}
-          </span>
-          <span class="font-display text-sm font-600 uppercase tracking-wider text-white/85">
-            {formatted}
-          </span>
+    {post.data.coverContain ? (
+      <>
+        <!-- Plakat-/Banner-Titelbild: vollständig zeigen, Titel darunter -->
+        <div class="bg-ink">
+          <div class="container-rg flex justify-center px-4 py-6 md:py-9">
+            <img
+              src={post.data.cover}
+              alt={post.data.coverAlt ?? post.data.title}
+              class="max-h-[44vh] w-auto max-w-full rounded-xl shadow-[0_30px_60px_-30px_rgba(0,0,0,0.75)]"
+            />
+          </div>
         </div>
-        <h1 class="mt-5 max-w-3xl text-balance text-3xl font-900 leading-tight text-white md:text-5xl">
-          {post.data.title}
-        </h1>
-        {post.data.project && (
-          <p class="mt-4 font-600 text-white/75">Projekt: {post.data.project}</p>
-        )}
+        <header class="border-b border-line bg-sand">
+          <div class="container-rg py-9 md:py-12">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="rounded-full bg-brand px-3.5 py-1.5 text-xs font-700 uppercase tracking-wider text-white">
+                {post.data.category}
+              </span>
+              <span class="font-display text-sm font-600 uppercase tracking-wider text-muted">
+                {formatted}
+              </span>
+            </div>
+            <h1 class="mt-5 max-w-3xl text-balance text-3xl font-900 leading-tight text-ink md:text-5xl">
+              {post.data.title}
+            </h1>
+            {post.data.project && (
+              <p class="mt-4 font-600 text-muted">Projekt: {post.data.project}</p>
+            )}
+          </div>
+        </header>
+      </>
+    ) : (
+      <div class="relative h-[55vh] min-h-[24rem] w-full overflow-hidden bg-ink">
+        <img
+          src={post.data.cover}
+          alt={post.data.coverAlt ?? post.data.title}
+          class="absolute inset-0 h-full w-full object-cover opacity-80"
+        />
+        <div
+          class="absolute inset-0"
+          style="background:linear-gradient(180deg, rgba(18,18,17,0.2) 0%, rgba(18,18,17,0.4) 50%, rgba(18,18,17,0.85) 100%);"
+        ></div>
+        <div class="container-rg relative flex h-full flex-col justify-end pb-12">
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="rounded-full bg-brand px-3.5 py-1.5 text-xs font-700 uppercase tracking-wider text-white">
+              {post.data.category}
+            </span>
+            <span class="font-display text-sm font-600 uppercase tracking-wider text-white/85">
+              {formatted}
+            </span>
+          </div>
+          <h1 class="mt-5 max-w-3xl text-balance text-3xl font-900 leading-tight text-white md:text-5xl">
+            {post.data.title}
+          </h1>
+          {post.data.project && (
+            <p class="mt-4 font-600 text-white/75">Projekt: {post.data.project}</p>
+          )}
+        </div>
       </div>
-    </div>
+    )}
 
     <!-- Body + Sidebar -->
     <div class="container-rg grid gap-12 py-16 md:py-20 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
@@ -214,5 +247,67 @@ const related = (await getCollection("news", (p) => !p.data.draft && p.slug !== 
     text-decoration: underline;
     text-decoration-color: var(--color-brand-tint);
     text-underline-offset: 3px;
+  }
+  .prose-news :global(figure) {
+    margin: 2.75rem 0;
+  }
+  .prose-news :global(figure img) {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+  }
+  .prose-news :global(figcaption) {
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
+  .prose-news :global(.media-video) {
+    max-width: 400px;
+    margin-inline: auto;
+  }
+  .prose-news :global(.media-video video) {
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+    background: #000;
+    box-shadow: 0 30px 60px -28px rgba(28, 28, 27, 0.55);
+  }
+  /* Kinoprogramm: zwei Seiten als Raster */
+  .prose-news :global(.kino-programm) {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    margin: 2rem 0;
+  }
+  @media (min-width: 640px) {
+    .prose-news :global(.kino-programm) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .prose-news :global(.kino-programm img) {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid var(--color-line);
+    box-shadow: 0 18px 40px -28px rgba(28, 28, 27, 0.4);
+  }
+  /* PDF-Button: prose-Link-Stil zurücksetzen */
+  .prose-news :global(.pdf-cta) {
+    text-align: center;
+    margin: 1.75rem 0 0.5rem;
+  }
+  .prose-news :global(a.btn) {
+    text-decoration: none;
+    color: #fff;
+  }
+  /* Bilder im Fließtext (z. B. Programm-Seiten) */
+  .prose-news :global(p img) {
+    width: 100%;
+    display: block;
+    margin-top: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-line);
+    box-shadow: 0 18px 40px -28px rgba(28, 28, 27, 0.4);
   }
 </style>

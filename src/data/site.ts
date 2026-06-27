@@ -250,6 +250,7 @@ export type Project = {
   client: string;
   location: string;
   period?: string;
+  motif?: "hochbau" | "tiefbau" | "site";
   image: string;
   images: string[];
   summary: string;
@@ -276,6 +277,22 @@ export const projects: Project[] = [
     description:
       "Wir setzen die kompletten Köcherfundamente mit großen Bewehrungskörben um, teilweise zwei Meter hoch. Stahlbetonbau in Reihen entlang der Halle, präzise vorbereitet und termintreu in enger Abstimmung mit dem Generalunternehmer.",
     tags: ["Stahlbetonbau", "Köcherfundamente", "Bewehrung", "Industriebau"],
+  },
+  {
+    slug: "rs-immo-duesseldorf-wohnanlage",
+    status: "Neuer Auftrag",
+    title: "Wohnanlage Düsseldorf: Grundleitungen, Rigolen und Schachtbauwerke",
+    client: "RS Immo GmbH",
+    location: "Düsseldorf",
+    period: "Baustart voraussichtlich August 2026",
+    motif: "tiefbau",
+    image: "",
+    images: [],
+    summary:
+      "Direktauftrag der Bauherrschaft für eine große Wohnanlage in mehreren Bauabschnitten – Grundleitungen, Rigolen, Schachtbauwerke und erweiterte Anfüllarbeiten.",
+    description:
+      "Für unser bereits laufendes Düsseldorfer Projekt haben wir von der RS Immo GmbH einen Direktauftrag erhalten. Die Leistungen umfassen Grundleitungsarbeiten, Versickerungsrigolen, Schachtbauwerke sowie erweiterte Anfüllarbeiten – über mehrere Bauabschnitte für eine große Wohnanlage. Damit arbeiten wir in Düsseldorf neben der Köster GmbH nun auch im direkten Auftragsverhältnis mit der Bauherrschaft.",
+    tags: ["Tiefbau", "Grundleitungen", "Rigolen", "Schachtbauwerke", "Anfüllarbeiten"],
   },
   {
     slug: "koester-duesseldorf-nahwaerme",
