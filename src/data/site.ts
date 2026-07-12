@@ -243,6 +243,30 @@ export const partners: Partner[] = [
   },
 ];
 
+export type Membership = {
+  name: string;
+  short: string;
+  logo: string;
+};
+
+export const memberships: Membership[] = [
+  {
+    name: "BVMW – Der Mittelstand",
+    short: "Bundesverband mittelständische Wirtschaft",
+    logo: "/verbaende/bvmw.png",
+  },
+  {
+    name: "Das Handwerk",
+    short: "Die Wirtschaftsmacht. Von nebenan.",
+    logo: "/verbaende/das-handwerk.jpg",
+  },
+  {
+    name: "Verband baugewerblicher Unternehmer Hessen e.V.",
+    short: "Bauverband Hessen",
+    logo: "/verbaende/vbu-hessen.png",
+  },
+];
+
 export type Project = {
   slug: string;
   status: string;
