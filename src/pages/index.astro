@@ -184,6 +184,56 @@ const featured = projects[0];
     </div>
   </section>
 
+  <!-- ================= IMAGEFILM ================= -->
+  <section class="bg-ink py-20 md:py-28">
+    <div class="container-rg">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="eyebrow justify-center !text-brand">Imagefilm</p>
+        <h2 class="section-title mt-4 text-white">Wir bauen. Sehen Sie selbst.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-white/70">
+          Ein Blick auf unsere Baustellen und darauf, wie wir arbeiten.
+        </p>
+      </div>
+
+      <div class="reveal mx-auto mt-12 max-w-4xl">
+        <div
+          class="relative aspect-video overflow-hidden rounded-3xl shadow-[0_40px_80px_-40px_rgba(0,0,0,0.7)] ring-1 ring-white/10"
+          data-yt-embed
+          data-video-id="82Iscjjclrs"
+        >
+          <button
+            type="button"
+            data-yt-play
+            aria-label="Imagefilm abspielen (öffnet YouTube)"
+            class="group absolute inset-0 h-full w-full cursor-pointer"
+          >
+            <img
+              src="/imagefilm/poster.jpg"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div
+              class="absolute inset-0"
+              style="background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.65) 100%);"
+            ></div>
+            <span
+              class="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand text-white shadow-[0_12px_40px_-10px_rgba(239,124,0,0.75)] transition-transform duration-300 group-hover:scale-110 md:h-24 md:w-24"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ml-1 h-9 w-9 md:h-11 md:w-11" aria-hidden="true">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <p class="mt-4 text-center text-sm text-white/50">
+          Beim Klick werden Daten an YouTube (Google Ireland Ltd.) übertragen.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= STATS ================= -->
   <Stats />
 
@@ -382,3 +432,20 @@ const featured = projects[0];
     <CtaBand />
   </div>
 </Layout>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-yt-embed]").forEach((box) => {
+    const btn = box.querySelector<HTMLButtonElement>("[data-yt-play]");
+    const id = box.dataset.videoId;
+    if (!btn || !id) return;
+    btn.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.title = "Imagefilm RG Hoch- & Tiefbau";
+      iframe.allow = "autoplay; encrypted-media; picture-in-picture";
+      iframe.allowFullscreen = true;
+      iframe.className = "absolute inset-0 h-full w-full border-0";
+      box.replaceChildren(iframe);
+    });
+  });
+</script>
