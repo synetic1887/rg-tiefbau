@@ -408,8 +408,13 @@ export const projects: Project[] = [
     location: "Alsfeld, Karl-Zeiss-Straße",
     period: "September 2026 bis Dezember 2026",
     motif: "hochbau",
-    image: "",
-    images: [],
+    image: "/projekte/alsfeld/01.jpg",
+    images: [
+      "/projekte/alsfeld/01.jpg",
+      "/projekte/alsfeld/02.jpg",
+      "/projekte/alsfeld/03.jpg",
+      "/projekte/alsfeld/04.jpg",
+    ],
     summary:
       "Fundamentierung, Mauerwerk aus Kalksandstein und Fertigteildecken für die Erweiterung einer Lagerhalle in Alsfeld.",
     description:
