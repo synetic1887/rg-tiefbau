@@ -327,10 +327,10 @@ export const projects: Project[] = [
   },
   {
     slug: "rewe-erweiterung",
-    status: "Laufendes Projekt",
+    status: "Abgeschlossen",
     title: "Neu-Isenburg: Neubau REWE-Markt mit Erweiterung Hochregallager",
     client: "Klebl GmbH",
-    location: "Neu-Isenburg (Gspitz 30)",
+    location: "Neu-Isenburg (An der Gehspitz 30)",
     period: "Juni 2026 bis August 2026",
     image: "/projekte/rewe-erweiterung/09.jpg",
     images: [
@@ -343,6 +343,8 @@ export const projects: Project[] = [
       "/projekte/rewe-erweiterung/07.jpg",
       "/projekte/rewe-erweiterung/08.jpg",
       "/projekte/rewe-erweiterung/09.jpg",
+      "/projekte/rewe-erweiterung/10.jpg",
+      "/projekte/rewe-erweiterung/11.jpg",
     ],
     summary:
       "Erdarbeiten, Köcherfundamente und Bodenplatten für den Neubau eines REWE-Markts inklusive Erweiterung des angrenzenden Hochregallagers.",
