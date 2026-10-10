@@ -318,6 +318,11 @@ export const projects: Project[] = [
       "/projekte/koester/03.jpg",
       "/projekte/koester/04.jpg",
       "/projekte/koester/05.jpg",
+      "/projekte/koester/06.jpg",
+      "/projekte/koester/07.jpg",
+      "/projekte/koester/08.jpg",
+      "/projekte/koester/09.jpg",
+      "/projekte/koester/10.jpg",
     ],
     summary:
       "Nahwärmeversorgungsleitung und Grundleitungsarbeiten für ein neues Studentenwohnheim am Vogelsanger Weg.",
