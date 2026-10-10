@@ -386,7 +386,7 @@ export const projects: Project[] = [
   },
   {
     slug: "bitterfeld-antennenfeld-gruendung",
-    status: "In Vorbereitung",
+    status: "Abgeschlossen",
     title: "Bitterfeld: Gründungs- und Erdarbeiten für Antennenfeld",
     client: "Weltweit tätiges Telekommunikationsunternehmen",
     location: "Bitterfeld",
