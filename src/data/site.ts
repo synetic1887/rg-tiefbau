@@ -369,7 +369,6 @@ export const projects: Project[] = [
       "/projekte/koenigstein/04.jpg",
       "/projekte/koenigstein/05.jpg",
       "/projekte/koenigstein/06.jpg",
-      "/projekte/koenigstein/07.jpg",
       "/projekte/koenigstein/08.jpg",
       "/projekte/koenigstein/09.jpg",
       "/projekte/koenigstein/01.jpg",
