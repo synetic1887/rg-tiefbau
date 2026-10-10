@@ -332,8 +332,9 @@ export const projects: Project[] = [
     client: "Klebl GmbH",
     location: "Neu-Isenburg (An der Gehspitz 30)",
     period: "Juni 2026 bis August 2026",
-    image: "/projekte/rewe-erweiterung/09.jpg",
+    image: "/projekte/rewe-erweiterung/11.jpg",
     images: [
+      "/projekte/rewe-erweiterung/11.jpg",
       "/projekte/rewe-erweiterung/01.jpg",
       "/projekte/rewe-erweiterung/02.jpg",
       "/projekte/rewe-erweiterung/03.jpg",
@@ -344,12 +345,11 @@ export const projects: Project[] = [
       "/projekte/rewe-erweiterung/08.jpg",
       "/projekte/rewe-erweiterung/09.jpg",
       "/projekte/rewe-erweiterung/10.jpg",
-      "/projekte/rewe-erweiterung/11.jpg",
     ],
     summary:
       "Erdarbeiten, Köcherfundamente und Bodenplatten für den Neubau eines REWE-Markts inklusive Erweiterung des angrenzenden Hochregallagers.",
     description:
-      "Für den Neubau eines REWE-Marktes mit Erweiterung des angrenzenden Hochregallagers in Neu-Isenburg übernehmen wir die kompletten Erdarbeiten – Aushub- und Anfüllerarbeiten – sowie die Herstellung der Köcherfundamente, Bodenplatten und das Anarbeiten der Fertigteilelemente. Auftraggeber ist die Klebl GmbH, Bauherr die REWE Group. Auftragsvolumen rund 250.000 Euro. Bauzeit Juni bis August 2026.",
+      "Für den Neubau eines REWE-Marktes mit Erweiterung des angrenzenden Hochregallagers in Neu-Isenburg haben wir die kompletten Erdarbeiten – Aushub- und Anfüllarbeiten – sowie die Herstellung der Köcherfundamente, Bodenplatten und das Anarbeiten der Fertigteilelemente ausgeführt. Auftraggeber war die Klebl GmbH, Bauherr die REWE Group. Auftragsvolumen rund 250.000 Euro. Bauzeit Juni bis August 2026.",
     tags: ["REWE", "Erdarbeiten", "Köcherfundamente", "Bodenplatten", "Fertigteile", "Handelsimmobilie"],
   },
   {
@@ -404,7 +404,7 @@ export const projects: Project[] = [
     summary:
       "Gründung, Fundamentierung der Antennen und Erdungsanlage für ein neues Antennenfeld in Bitterfeld.",
     description:
-      "Für ein neues Antennenfeld eines weltweit tätigen Telekommunikationsunternehmens in Bitterfeld übernehmen wir die kompletten Erd- und Gründungsarbeiten. Umfang: Herstellung von Schottertragschichten, Bodenbewegungen von rund 1.000 m², Fundamentierung der Antennenmasten sowie Aufbau der Erdungsanlage. Ausführung im August 2026.",
+      "Für ein neues Antennenfeld eines weltweit tätigen Telekommunikationsunternehmens in Bitterfeld haben wir die kompletten Erd- und Gründungsarbeiten ausgeführt. Umfang: Herstellung von Schottertragschichten, Bodenbewegungen von rund 1.000 m², Fundamentierung der Antennenmasten sowie Aufbau der Erdungsanlage. Ausführung im August 2026.",
     tags: ["Erdarbeiten", "Gründung", "Antennenfundamente", "Erdungsanlage", "Schottertragschicht", "Telekommunikation"],
   },
   {
