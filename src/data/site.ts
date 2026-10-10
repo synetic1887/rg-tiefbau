@@ -387,6 +387,21 @@ export const projects: Project[] = [
     tags: ["Tiefbau", "Grundleitungen", "Rigolen", "Schachtbauwerke", "Anfüllarbeiten"],
   },
   {
+    slug: "kronberg-aufstockung-sanierung",
+    status: "Neuer Auftrag",
+    title: "Kronberg: Aufstockung und Sanierung Wohnhaus",
+    client: "Privater Bauherr",
+    location: "Kronberg im Taunus",
+    motif: "hochbau",
+    image: "/projekte/kronberg/01.jpg",
+    images: ["/projekte/kronberg/01.jpg"],
+    summary:
+      "Aufstockung eines Bestandsgebäudes mit statischer Ertüchtigung der vorhandenen Tragstruktur in Kronberg im Taunus.",
+    description:
+      "In Kronberg im Taunus wird ein bestehendes Wohnhaus um ein weiteres Geschoss aufgestockt und dabei grundlegend saniert. Bevor die neue Etage entstehen kann, ertüchtigen wir die vorhandene Tragstruktur: Der Bestand wird gezielt dort verstärkt, wo die zusätzlichen Lasten der Aufstockung es erfordern. Bauen im Bestand verlangt saubere Planung, Erfahrung mit älterer Bausubstanz und eine sorgfältige Ausführung – genau das bringen wir mit. So entsteht zusätzlicher Wohnraum auf vorhandener Fläche, ohne neuen Boden zu versiegeln. Abbildung: Visualisierung des geplanten Zustands.",
+    tags: ["Aufstockung", "Sanierung", "Statische Ertüchtigung", "Bauen im Bestand", "Rohbau", "Wohnungsbau"],
+  },
+  {
     slug: "bitterfeld-antennenfeld-gruendung",
     status: "Abgeschlossen",
     title: "Bitterfeld: Gründungs- und Erdarbeiten für Antennenfeld",
