@@ -388,8 +388,19 @@ export const projects: Project[] = [
     location: "Düsseldorf",
     period: "Baustart voraussichtlich August 2026",
     motif: "tiefbau",
-    image: "",
-    images: [],
+    image: "/projekte/rs-immo/09.jpg",
+    images: [
+      "/projekte/rs-immo/09.jpg",
+      "/projekte/rs-immo/01.jpg",
+      "/projekte/rs-immo/07.jpg",
+      "/projekte/rs-immo/10.jpg",
+      "/projekte/rs-immo/02.jpg",
+      "/projekte/rs-immo/06.jpg",
+      "/projekte/rs-immo/08.jpg",
+      "/projekte/rs-immo/05.jpg",
+      "/projekte/rs-immo/03.jpg",
+      "/projekte/rs-immo/04.jpg",
+    ],
     summary:
       "Direktauftrag der Bauherrschaft für eine große Wohnanlage in mehreren Bauabschnitten – Grundleitungen, Rigolen, Schachtbauwerke und erweiterte Anfüllarbeiten.",
     description:
