@@ -402,7 +402,7 @@ export const projects: Project[] = [
   },
   {
     slug: "alsfeld-lagerhalle-erweiterung",
-    status: "In Vorbereitung",
+    status: "Laufendes Projekt",
     title: "Alsfeld: Erweiterung Lagerhalle für B&P Projektentwicklung",
     client: "B&P Projektentwicklung GmbH",
     location: "Alsfeld, Karl-Zeiss-Straße",
