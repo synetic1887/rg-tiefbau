@@ -392,8 +392,13 @@ export const projects: Project[] = [
     location: "Bitterfeld",
     period: "Ausführung August 2026",
     motif: "tiefbau",
-    image: "",
-    images: [],
+    image: "/projekte/bitterfeld/01.jpg",
+    images: [
+      "/projekte/bitterfeld/01.jpg",
+      "/projekte/bitterfeld/02.jpg",
+      "/projekte/bitterfeld/03.jpg",
+      "/projekte/bitterfeld/04.jpg",
+    ],
     summary:
       "Gründung, Fundamentierung der Antennen und Erdungsanlage für ein neues Antennenfeld in Bitterfeld.",
     description:
