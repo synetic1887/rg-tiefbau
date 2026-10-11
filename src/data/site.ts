@@ -275,6 +275,11 @@ export const memberships: Membership[] = [
     short: "Bauverband Hessen",
     logo: "/verbaende/vbu-hessen.png",
   },
+  {
+    name: "butzbach aktiv Wirtschaftsförderung e.V.",
+    short: "Wirtschaftsförderung Butzbach",
+    logo: "/verbaende/butzbach-aktiv.png",
+  },
 ];
 
 export type Project = {
