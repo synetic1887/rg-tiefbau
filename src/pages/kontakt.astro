@@ -155,9 +155,16 @@ const contactItems = [
   </style>
 
   <script>
-    // Endpoint des FastAPI-Ticket-Backends. Im Produktivbetrieb auf die
-    // Render-URL setzen, z. B. https://rg-tiefbau.onrender.com/api/tickets
-    const ENDPOINT = (import.meta.env.PUBLIC_FORM_ENDPOINT as string) || "/api/tickets";
+    // Versand über FormSubmit (kostenlos, ohne eigenen Server). Die erste Anfrage löst eine
+    // Bestätigungs-Mail an info@rg-tiefbau.de aus; danach kommen alle Anfragen per E-Mail an.
+    // Optional über PUBLIC_FORM_ENDPOINT auf ein eigenes Backend umstellbar.
+    const ENDPOINT =
+      (import.meta.env.PUBLIC_FORM_ENDPOINT as string) || "https://formsubmit.co/ajax/info@rg-tiefbau.de";
+    const PHONE = "+49 176 62315466";
+    const SERVICE_LABELS: Record<string, string> = {};
+    document.querySelectorAll<HTMLOptionElement>("#service option").forEach((o) => {
+      if (o.value) SERVICE_LABELS[o.value] = o.textContent?.trim() || o.value;
+    });
 
     const form = document.getElementById("contact-form") as HTMLFormElement | null;
     const status = document.getElementById("form-status") as HTMLElement | null;
@@ -190,23 +197,36 @@ const contactItems = [
         return;
       }
 
-      const data = Object.fromEntries(new FormData(form).entries());
+      const raw = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+      const data = {
+        _subject: `Neue Anfrage über rg-tiefbau.com: ${raw.name}${raw.company ? " (" + raw.company + ")" : ""}`,
+        _template: "table",
+        _replyto: raw.email,
+        Name: raw.name,
+        Firma: raw.company || "–",
+        "E-Mail": raw.email,
+        Telefon: raw.phone,
+        Leistung: SERVICE_LABELS[raw.service] || raw.service,
+        "Standort / PLZ": raw.location || "–",
+        Projekt: raw.message,
+      };
       btn?.setAttribute("disabled", "true");
       if (btn) btn.querySelector(".btn-label")!.textContent = "Wird gesendet";
 
       try {
         const res = await fetch(ENDPOINT, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify(data),
         });
-        if (!res.ok) throw new Error(String(res.status));
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || json.success === false || json.success === "false") throw new Error(String(res.status));
         form.reset();
         setStatus("Vielen Dank! Ihre Anfrage ist eingegangen. Wir melden uns innerhalb von 24 Stunden.", true);
       } catch {
         setStatus(
           "Senden momentan nicht möglich. Bitte rufen Sie uns an unter " +
-            (form.dataset.phone || "") +
+            PHONE +
             " oder schreiben Sie an info@rg-tiefbau.de.",
           false
         );
