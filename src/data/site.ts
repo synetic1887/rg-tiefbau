@@ -232,6 +232,16 @@ export const partners: Partner[] = [
     city: "Mainhausen",
   },
   {
+    name: "PERI",
+    trade: "Schalung · Gerüst",
+    description:
+      "Unser Partner für Schalungs- und Gerüsttechnik. Mit PERI-Systemen arbeiten wir auf unseren Baustellen sicher, schnell und wirtschaftlich – vom Fundament bis zur Aufstockung.",
+    logo: "/partner/peri.png",
+    logoBg: "light",
+    website: "https://www.peri.de",
+    websiteLabel: "peri.de",
+  },
+  {
     name: "EDA Encore Data Analytics",
     trade: "KI-Lösungen · Prozessoptimierung",
     description:
