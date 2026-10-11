@@ -382,11 +382,10 @@ export const projects: Project[] = [
   },
   {
     slug: "rs-immo-duesseldorf-wohnanlage",
-    status: "Neuer Auftrag",
+    status: "Laufendes Projekt",
     title: "Wohnanlage Düsseldorf: Grundleitungen, Rigolen und Schachtbauwerke",
     client: "RS Immo GmbH",
     location: "Düsseldorf",
-    period: "Baustart voraussichtlich August 2026",
     motif: "tiefbau",
     image: "/projekte/rs-immo/09.jpg",
     images: [
@@ -399,7 +398,6 @@ export const projects: Project[] = [
       "/projekte/rs-immo/08.jpg",
       "/projekte/rs-immo/05.jpg",
       "/projekte/rs-immo/03.jpg",
-      "/projekte/rs-immo/04.jpg",
     ],
     summary:
       "Direktauftrag der Bauherrschaft für eine große Wohnanlage in mehreren Bauabschnitten – Grundleitungen, Rigolen, Schachtbauwerke und erweiterte Anfüllarbeiten.",
