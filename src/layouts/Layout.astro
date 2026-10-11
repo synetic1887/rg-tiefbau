@@ -10,11 +10,11 @@ interface Props {
   image?: string;
 }
 
-const SITE_ORIGIN = "https://rg-tiefbau.de";
+const SITE_ORIGIN = "https://www.rg-tiefbau.com";
 
 const {
-  title = `${company.name}: Hochbau, Tiefbau und Stahlbetonbau aus Butzbach`,
-  description = "RG Hoch-&Tiefbau GmbH aus Butzbach. Ihr Partner für Erdbau, Tiefbau, Rohbau, Stahlbetonbau, Grundleitungen und schlüsselfertige Hochbauten. Planung und Ausführung aus einer Hand. Deutschlandweit im Einsatz, geführt von einer Geschäftsführung mit über 35 Jahren Branchenerfahrung.",
+  title = `${company.name} | Bauunternehmen aus Butzbach`,
+  description = "Familiengeführtes Bauunternehmen aus Butzbach: Erdbau, Tiefbau, Grundleitungen, Rohbau, Stahlbetonbau und Schlüsselfertigbau.",
   image = "/brand/og-card-2026.jpg",
 } = Astro.props;
 
@@ -69,22 +69,22 @@ const logoAbsolute = new URL("/brand/logo.png", Astro.site ?? SITE_ORIGIN).href;
         "@graph": [
           {
             "@type": ["Organization", "GeneralContractor"],
-            "@id": "https://rg-tiefbau.de/#organization",
+            "@id": "https://www.rg-tiefbau.com/#organization",
             name: company.name,
             alternateName: ["RG Tiefbau", "RG Hochbau und Tiefbau", "RG Hoch-&Tiefbau"],
             legalName: company.legalName,
             description,
-            url: "https://rg-tiefbau.de",
+            url: "https://www.rg-tiefbau.com",
             logo: {
               "@type": "ImageObject",
-              "@id": "https://rg-tiefbau.de/#logo",
+              "@id": "https://www.rg-tiefbau.com/#logo",
               url: logoAbsolute,
               contentUrl: logoAbsolute,
               caption: company.name,
               width: 1698,
               height: 730,
             },
-            image: { "@id": "https://rg-tiefbau.de/#logo" },
+            image: { "@id": "https://www.rg-tiefbau.com/#logo" },
             telephone: company.phone,
             email: company.email,
             foundingDate: "2026",
@@ -122,24 +122,25 @@ const logoAbsolute = new URL("/brand/logo.png", Astro.site ?? SITE_ORIGIN).href;
           },
           {
             "@type": "WebSite",
-            "@id": "https://rg-tiefbau.de/#website",
-            url: "https://rg-tiefbau.de",
+            "@id": "https://www.rg-tiefbau.com/#website",
+            url: "https://www.rg-tiefbau.com",
             name: company.name,
             description,
-            publisher: { "@id": "https://rg-tiefbau.de/#organization" },
+            publisher: { "@id": "https://www.rg-tiefbau.com/#organization" },
             inLanguage: "de-DE",
           },
           {
             "@type": "SiteNavigationElement",
-            "@id": "https://rg-tiefbau.de/#sitenav",
-            name: ["Start", "Leistungen", "Projekte", "Aktuelles", "Über uns", "Kontakt"],
+            "@id": "https://www.rg-tiefbau.com/#sitenav",
+            name: ["Start", "Leistungen", "Projekte", "Aktuelles", "Über uns", "Karriere", "Kontakt"],
             url: [
-              "https://rg-tiefbau.de/",
-              "https://rg-tiefbau.de/leistungen/",
-              "https://rg-tiefbau.de/projekte/",
-              "https://rg-tiefbau.de/aktuelles/",
-              "https://rg-tiefbau.de/ueber-uns/",
-              "https://rg-tiefbau.de/kontakt/",
+              "https://www.rg-tiefbau.com/",
+              "https://www.rg-tiefbau.com/leistungen/",
+              "https://www.rg-tiefbau.com/projekte/",
+              "https://www.rg-tiefbau.com/aktuelles/",
+              "https://www.rg-tiefbau.com/ueber-uns/",
+              "https://www.rg-tiefbau.com/karriere/",
+              "https://www.rg-tiefbau.com/kontakt/",
             ],
           },
         ],

@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://rg-tiefbau.de',
+  site: 'https://www.rg-tiefbau.com',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

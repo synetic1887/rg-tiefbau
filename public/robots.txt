@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rg-tiefbau.de/sitemap-index.xml
+Sitemap: https://www.rg-tiefbau.com/sitemap-index.xml
