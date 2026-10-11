@@ -15,7 +15,7 @@ const SITE_ORIGIN = "https://rg-tiefbau.de";
 const {
   title = `${company.name}: Hochbau, Tiefbau und Stahlbetonbau aus Butzbach`,
   description = "RG Hoch-&Tiefbau GmbH aus Butzbach. Ihr Partner für Erdbau, Tiefbau, Rohbau, Stahlbetonbau, Grundleitungen und schlüsselfertige Hochbauten. Planung und Ausführung aus einer Hand. Deutschlandweit im Einsatz, geführt von einer Geschäftsführung mit über 35 Jahren Branchenerfahrung.",
-  image = "/brand/og-card.jpg",
+  image = "/brand/og-card-2026.jpg",
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE_ORIGIN).href;
@@ -45,7 +45,7 @@ const logoAbsolute = new URL("/brand/logo.png", Astro.site ?? SITE_ORIGIN).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={absoluteImage} />
-    <meta property="og:image:alt" content={`${company.name} – Logo und Marke`} />
+    <meta property="og:image:alt" content={`${company.name} – Manuel Geis und Ulrich Rudolf beim Spatenstich`} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="de_DE" />
     <meta name="twitter:card" content="summary_large_image" />
