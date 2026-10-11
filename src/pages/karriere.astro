@@ -25,6 +25,18 @@ const jobs = [
     title: "Bauleiter (m/w/d) Hoch- und Tiefbau",
     text: "Du betreust Projekte von der Arbeitsvorbereitung bis zur Abnahme. Auch als Einstieg nach dem Studium – wir arbeiten dich ein.",
   },
+  {
+    icon: "check-circle",
+    title: "Ausbildung (m/w/d)",
+    text: "Maurer, Beton- und Stahlbetonbauer oder Tiefbaufacharbeiter. Du lernst auf echten Baustellen – von Leuten, die das seit Jahrzehnten machen.",
+  },
+];
+
+const benefits = [
+  { icon: "euro", title: "Übertarifliche Vergütung", text: "Gute Arbeit wird bei uns gut bezahlt – über Tarif." },
+  { icon: "excavator", title: "Firmenwagen", text: "Je nach Position stellen wir dir einen Firmenwagen." },
+  { icon: "shield", title: "Betriebliche Altersvorsorge", text: "Wir zahlen mit ein, damit du später mehr hast." },
+  { icon: "handshake", title: "Krankenzusatzversicherung", text: "Bessere Leistungen beim Arzt und Zahnarzt – über den Betrieb abgesichert." },
 ];
 
 const reasons = [
@@ -51,12 +63,12 @@ const mailSubject = encodeURIComponent("Bewerbung über rg-tiefbau.com");
 
 <Layout
   title="Karriere | RG Hoch-&Tiefbau GmbH"
-  description="Jobs bei der RG Hoch-&Tiefbau GmbH in Butzbach und Münster: Baumaschinenführer, Maurer, Betonbauer, Poliere und Bauleiter. Bewerbung per Anruf oder E-Mail – ohne Anschreiben."
+  description="Jobs und Ausbildung bei der RG Hoch-&Tiefbau GmbH in Butzbach und Münster: Baumaschinenführer, Maurer, Betonbauer, Poliere, Bauleiter. Übertarifliche Vergütung, Firmenwagen, Altersvorsorge. Bewerbung ohne Anschreiben."
 >
   <PageHero
     eyebrow="Karriere"
     title="Bau mit uns."
-    subtitle="Wir sind ein junges Bauunternehmen aus Butzbach und wachsen. Dafür suchen wir Leute, die anpacken – auf der Baustelle und in der Bauleitung."
+    subtitle="Wir sind ein junges Bauunternehmen aus Butzbach und wachsen. Dafür suchen wir Leute, die anpacken – auf der Baustelle, in der Bauleitung und als Azubi."
     crumbs={[
       { label: "Start", href: "/" },
       { label: "Karriere", href: "/karriere" },
@@ -95,6 +107,26 @@ const mailSubject = encodeURIComponent("Bewerbung über rg-tiefbau.com");
                 <p class="mt-2 leading-relaxed text-muted">{j.text}</p>
               </div>
             </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Was wir bieten -->
+  <section class="border-y border-line bg-sand py-16 md:py-20">
+    <div class="container-rg">
+      <h2 class="reveal section-title">Was wir bieten</h2>
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          benefits.map((b) => (
+            <div class="reveal rounded-2xl bg-white p-6 ring-1 ring-line">
+              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand text-white">
+                <Icon name={b.icon} class="h-6 w-6" stroke={1.6} />
+              </span>
+              <h3 class="mt-5 text-lg font-800 text-ink">{b.title}</h3>
+              <p class="mt-2 leading-relaxed text-muted">{b.text}</p>
+            </div>
           ))
         }
       </div>
