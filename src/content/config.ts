@@ -14,6 +14,7 @@ const news = defineCollection({
       thumbContain: z.boolean().default(false),
       project: z.string().optional(),
       draft: z.boolean().default(false),
+      pin: z.number().optional(),
       instagram: z.string().url().optional(),
     }),
 });

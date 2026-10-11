@@ -11,7 +11,13 @@ import { services, advantages, projects, partners, memberships, company } from "
 
 const latestNews = (await getCollection("news"))
   .filter((p) => !p.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .sort((a, b) => {
+    // Angepinnte Beiträge (pin: 1, 2, 3 …) zuerst, danach nach Datum
+    const pa = a.data.pin ?? Infinity;
+    const pb = b.data.pin ?? Infinity;
+    if (pa !== pb) return pa - pb;
+    return b.data.date.getTime() - a.data.date.getTime();
+  })
   .slice(0, 3);
 
 const featured = projects[0];
