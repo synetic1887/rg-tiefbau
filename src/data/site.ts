@@ -478,6 +478,28 @@ export const projects: Project[] = [
     tags: ["Fundamente", "Mauerwerk", "Kalksandstein", "Fertigteildecken", "Rohbau", "Gewerbebau"],
   },
   {
+    slug: "huettenberg-abdichtung-aussenanlagen",
+    status: "Abgeschlossen",
+    title: "Hüttenberg: Sanierung der Sockelabdichtung und neue Außenanlagen",
+    client: "Privater Bauherr",
+    location: "Hüttenberg",
+    motif: "tiefbau",
+    image: "/projekte/huettenberg/01.jpg",
+    images: [
+      "/projekte/huettenberg/01.jpg",
+      "/projekte/huettenberg/02.jpg",
+      "/projekte/huettenberg/03.jpg",
+      "/projekte/huettenberg/04.jpg",
+      "/projekte/huettenberg/05.jpg",
+      "/projekte/huettenberg/06.jpg",
+    ],
+    summary:
+      "Mangelhafte Abdichtung an einem Neubau zurückgebaut, fachgerecht neu hergestellt und die Außenanlagen komplett neu angelegt.",
+    description:
+      "An einem neu gebauten Einfamilienhaus in Hüttenberg war die Abdichtung im Sockelbereich nicht korrekt ausgeführt. Wir haben die alte Abdichtung vollständig entfernt, den Sockel neu abgedichtet und mit XPS-Perimeterdämmung geschützt. Anschließend haben wir die Außenanlagen neu gestaltet: Kiesstreifen mit Einfassung entlang der Fassade, Plattenbelag, ein Trittplattenweg und Rollrasen auf der gesamten Gartenfläche.",
+    tags: ["Abdichtung", "Sanierung", "Perimeterdämmung", "Außenanlagen", "Pflaster- und Plattenarbeiten", "Rollrasen"],
+  },
+  {
     slug: "bottrop-mauerwerk-kalksandstein",
     status: "Abgeschlossen",
     title: "Bottrop: Kalksandsteinbüro in Lagerhalle",
