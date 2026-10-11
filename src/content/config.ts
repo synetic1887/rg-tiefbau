@@ -11,6 +11,7 @@ const news = defineCollection({
       cover: z.string(),
       coverAlt: z.string().optional(),
       coverContain: z.boolean().default(false),
+      thumbContain: z.boolean().default(false),
       project: z.string().optional(),
       draft: z.boolean().default(false),
       instagram: z.string().url().optional(),
