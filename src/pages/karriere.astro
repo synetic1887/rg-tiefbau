@@ -1,0 +1,171 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Icon from "../components/Icon.astro";
+import { company } from "../data/site";
+
+const jobs = [
+  {
+    icon: "excavator",
+    title: "Baumaschinenführer (m/w/d)",
+    text: "Bagger, Radlader, Raupe. Du fährst sauber nach Höhe und Plan und behältst auf engen Baustellen die Ruhe.",
+  },
+  {
+    icon: "rebar",
+    title: "Maurer / Beton- und Stahlbetonbauer (m/w/d)",
+    text: "Schalen, bewehren, betonieren, mauern. Du kennst dich im Rohbau aus und arbeitest gern im Team.",
+  },
+  {
+    icon: "layers",
+    title: "Vorarbeiter / Polier (m/w/d)",
+    text: "Du führst eine Kolonne, liest Pläne und sorgst dafür, dass auf der Baustelle alles läuft.",
+  },
+  {
+    icon: "building",
+    title: "Bauleiter (m/w/d) Hoch- und Tiefbau",
+    text: "Du betreust Projekte von der Arbeitsvorbereitung bis zur Abnahme. Auch als Einstieg nach dem Studium – wir arbeiten dich ein.",
+  },
+];
+
+const reasons = [
+  {
+    title: "Kurze Wege",
+    text: "Die Geschäftsführer sind selbst auf der Baustelle. Fragen klärst du direkt, nicht über drei Ebenen.",
+  },
+  {
+    title: "Ordentliches Gerät",
+    text: "Unser Maschinenpark besteht aus Caterpillar-Maschinen. Wer gut arbeiten soll, braucht gutes Werkzeug.",
+  },
+  {
+    title: "Abwechslung",
+    text: "Erdbau, Grundleitungen, Rohbau, Aufstockungen – vom Einfamilienhaus bis zum Zentrallager.",
+  },
+  {
+    title: "Wir bilden dich weiter",
+    text: "Junge Bauleiter und Poliere fördern wir gezielt. Manuel Geis gibt sein Wissen auch als Dozent weiter.",
+  },
+];
+
+const mailSubject = encodeURIComponent("Bewerbung über rg-tiefbau.com");
+---
+
+<Layout
+  title="Karriere | RG Hoch-&Tiefbau GmbH"
+  description="Jobs bei der RG Hoch-&Tiefbau GmbH in Butzbach und Münster: Baumaschinenführer, Maurer, Betonbauer, Poliere und Bauleiter. Bewerbung per Anruf oder E-Mail – ohne Anschreiben."
+>
+  <PageHero
+    eyebrow="Karriere"
+    title="Bau mit uns."
+    subtitle="Wir sind ein junges Bauunternehmen aus Butzbach und wachsen. Dafür suchen wir Leute, die anpacken – auf der Baustelle und in der Bauleitung."
+    crumbs={[
+      { label: "Start", href: "/" },
+      { label: "Karriere", href: "/karriere" },
+    ]}
+  />
+
+  <!-- Wen wir suchen -->
+  <section class="container-rg py-20 md:py-28">
+    <div class="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+      <div class="reveal lg:sticky lg:top-28">
+        <h2 class="section-title">Wen wir suchen</h2>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          Für unsere Baustellen in Hessen und im Münsterland freuen wir uns über Bewerbungen
+          in diesen Bereichen. Passt nichts genau? Melde dich trotzdem.
+        </p>
+        <figure class="mt-8 overflow-hidden rounded-3xl shadow-[0_30px_60px_-35px_rgba(28,28,27,0.45)]">
+          <img
+            src="/projekte/koenigstein/03.jpg"
+            alt="RG-Banner am Gerüst auf der Baustelle in Königstein"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[16/10] w-full object-cover"
+          />
+        </figure>
+      </div>
+
+      <div class="grid gap-5">
+        {
+          jobs.map((j) => (
+            <article class="reveal flex gap-5 rounded-2xl border border-line bg-white p-6 md:p-7">
+              <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand-dark">
+                <Icon name={j.icon} class="h-6 w-6" stroke={1.5} />
+              </span>
+              <div>
+                <h3 class="text-lg font-800 text-ink">{j.title}</h3>
+                <p class="mt-2 leading-relaxed text-muted">{j.text}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Warum RG -->
+  <section class="bg-cloud py-20 md:py-28">
+    <div class="container-rg grid items-center gap-14 lg:grid-cols-2">
+      <figure class="reveal overflow-hidden rounded-3xl shadow-[0_30px_60px_-35px_rgba(28,28,27,0.45)]">
+        <img
+          src="/brand/gruender-2.jpg"
+          alt="Manuel Geis und Ulrich Rudolf auf der Baustelle"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[4/5] w-full object-cover"
+          style="object-position:center 30%;"
+        />
+      </figure>
+      <div class="reveal">
+        <h2 class="section-title">Warum bei uns?</h2>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          Wir sind kein Konzern. Bei uns zählt, was du kannst und wie du arbeitest.
+        </p>
+        <ul class="mt-8 space-y-6">
+          {
+            reasons.map((r) => (
+              <li class="flex gap-4">
+                <Icon name="check-circle" class="mt-0.5 h-6 w-6 shrink-0 text-brand" />
+                <div>
+                  <p class="font-700 text-ink">{r.title}</p>
+                  <p class="mt-1 leading-relaxed text-muted">{r.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bewerbung -->
+  <section class="container-rg py-20 md:py-28">
+    <div class="grain reveal relative overflow-hidden rounded-3xl bg-ink px-7 py-14 md:px-16 md:py-20">
+      <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand/20 blur-3xl"></div>
+      <div class="relative grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+        <div>
+          <h2 class="text-balance text-3xl font-800 text-white md:text-[2.6rem]">Bewerben geht einfach.</h2>
+          <p class="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-white/70">
+            Kein Anschreiben nötig. Ruf an oder schreib uns kurz, wer du bist, was du kannst
+            und ab wann du Zeit hast. Lebenslauf und Zeugnisse kannst du gern mitschicken,
+            wenn du sie hast. Wir melden uns.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3.5">
+          <a href={`tel:${company.phoneHref}`} class="btn btn-primary !py-4 text-base">
+            <Icon name="phone" class="h-5 w-5" />
+            {company.phone}
+          </a>
+          <a
+            href={`mailto:${company.email}?subject=${mailSubject}`}
+            class="btn !py-4 text-base !bg-white/10 !text-white hover:!bg-white/20"
+          >
+            <Icon name="mail" class="h-5 w-5" />
+            {company.email}
+          </a>
+          <p class="text-center text-sm text-white/50">
+            {company.street}, {company.zip} {company.city} · Niederlassung Münster
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

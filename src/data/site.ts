@@ -25,6 +25,7 @@ export const nav = [
   { label: "Projekte", href: "/projekte" },
   { label: "Aktuelles", href: "/aktuelles" },
   { label: "Über uns", href: "/ueber-uns" },
+  { label: "Karriere", href: "/karriere" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;
 

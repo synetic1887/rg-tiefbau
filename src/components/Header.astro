@@ -29,7 +29,7 @@ const isActive = (href: string) =>
             <a
               href={item.href}
               class:list={[
-                "relative rounded-md px-3.5 py-2 font-display text-[0.96rem] font-600 transition-colors",
+                "relative whitespace-nowrap rounded-md px-2.5 py-2 font-display text-[0.96rem] font-600 transition-colors xl:px-3.5",
                 isActive(item.href)
                   ? "text-brand-dark"
                   : "text-graphite hover:text-ink",
@@ -37,7 +37,7 @@ const isActive = (href: string) =>
             >
               {item.label}
               {isActive(item.href) && (
-                <span class="absolute inset-x-3.5 -bottom-0.5 h-0.5 rounded-full bg-brand" />
+                <span class="absolute inset-x-2.5 -bottom-0.5 h-0.5 rounded-full bg-brand xl:inset-x-3.5" />
               )}
             </a>
           ))
@@ -48,12 +48,13 @@ const isActive = (href: string) =>
       <div class="hidden items-center gap-3 lg:flex">
         <a
           href={`tel:${company.phoneHref}`}
-          class="flex items-center gap-2 font-display text-[0.95rem] font-600 text-ink transition-colors hover:text-brand-dark"
+          class="flex items-center gap-2 whitespace-nowrap font-display text-[0.95rem] font-600 text-ink transition-colors hover:text-brand-dark"
+          aria-label={`Anrufen: ${company.phone}`}
         >
           <Icon name="phone" class="h-4.5 w-4.5 text-brand" />
-          {company.phone}
+          <span class="hidden xl:inline">{company.phone}</span>
         </a>
-        <a href="/kontakt" class="btn btn-primary !px-5 !py-2.5 text-[0.92rem]">
+        <a href="/kontakt" class="btn btn-primary whitespace-nowrap !px-5 !py-2.5 text-[0.92rem]">
           Projekt anfragen
         </a>
       </div>
