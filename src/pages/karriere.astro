@@ -45,10 +45,6 @@ const reasons = [
     text: "Die Geschäftsführer sind selbst auf der Baustelle. Fragen klärst du direkt, nicht über drei Ebenen.",
   },
   {
-    title: "Ordentliches Gerät",
-    text: "Unser Maschinenpark besteht aus Caterpillar-Maschinen. Wer gut arbeiten soll, braucht gutes Werkzeug.",
-  },
-  {
     title: "Abwechslung",
     text: "Erdbau, Grundleitungen, Rohbau, Aufstockungen – vom Einfamilienhaus bis zum Zentrallager.",
   },
@@ -95,17 +91,12 @@ const mailSubject = encodeURIComponent("Bewerbung über rg-tiefbau.com");
         </figure>
       </div>
 
-      <div class="grid gap-5">
+      <div class="grid gap-5 border-t border-line pt-5">
         {
           jobs.map((j) => (
-            <article class="reveal flex gap-5 rounded-2xl border border-line bg-white p-6 md:p-7">
-              <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand-dark">
-                <Icon name={j.icon} class="h-6 w-6" stroke={1.5} />
-              </span>
-              <div>
-                <h3 class="text-lg font-800 text-ink">{j.title}</h3>
-                <p class="mt-2 leading-relaxed text-muted">{j.text}</p>
-              </div>
+            <article class="reveal border-b border-line pb-5">
+              <h3 class="text-xl font-800 text-ink">{j.title}</h3>
+              <p class="mt-2 leading-relaxed text-muted">{j.text}</p>
             </article>
           ))
         }
@@ -120,11 +111,8 @@ const mailSubject = encodeURIComponent("Bewerbung über rg-tiefbau.com");
       <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {
           benefits.map((b) => (
-            <div class="reveal rounded-2xl bg-white p-6 ring-1 ring-line">
-              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand text-white">
-                <Icon name={b.icon} class="h-6 w-6" stroke={1.6} />
-              </span>
-              <h3 class="mt-5 text-lg font-800 text-ink">{b.title}</h3>
+            <div class="reveal border-t-2 border-brand pt-5">
+              <h3 class="text-lg font-800 text-ink">{b.title}</h3>
               <p class="mt-2 leading-relaxed text-muted">{b.text}</p>
             </div>
           ))
@@ -151,11 +139,10 @@ const mailSubject = encodeURIComponent("Bewerbung über rg-tiefbau.com");
         <p class="mt-4 text-lg leading-relaxed text-muted">
           Wir sind kein Konzern. Bei uns zählt, was du kannst und wie du arbeitest.
         </p>
-        <ul class="mt-8 space-y-6">
+        <ul class="mt-8 space-y-6 border-l-2 border-brand pl-6">
           {
             reasons.map((r) => (
               <li class="flex gap-4">
-                <Icon name="check-circle" class="mt-0.5 h-6 w-6 shrink-0 text-brand" />
                 <div>
                   <p class="font-700 text-ink">{r.title}</p>
                   <p class="mt-1 leading-relaxed text-muted">{r.text}</p>

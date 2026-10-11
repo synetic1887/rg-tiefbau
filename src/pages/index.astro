@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
-import ServiceCard from "../components/ServiceCard.astro";
 import Stats from "../components/Stats.astro";
 import CtaBand from "../components/CtaBand.astro";
 import BrandPanel from "../components/BrandPanel.astro";
@@ -15,11 +14,6 @@ const latestNews = (await getCollection("news"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
-const trust = [
-  { icon: "map-pin", label: "Butzbach und Münster" },
-  { icon: "excavator", label: "Eigener Maschinenpark" },
-  { icon: "phone", label: "Inhaber direkt erreichbar" },
-];
 const featured = projects[0];
 ---
 
@@ -57,17 +51,6 @@ const featured = projects[0];
           </a>
         </div>
 
-        <!-- trust row -->
-        <div class="mt-11 flex flex-wrap gap-x-7 gap-y-3">
-          {
-            trust.map((t) => (
-              <div class="flex items-center gap-2.5 text-[0.95rem] font-600 text-graphite">
-                <Icon name={t.icon} class="h-5 w-5 text-brand" />
-                {t.label}
-              </div>
-            ))
-          }
-        </div>
       </div>
 
       <!-- Right: branded panel + floating badges -->
@@ -83,18 +66,6 @@ const featured = projects[0];
           pinIcon="excavator"
         />
 
-        <!-- floating experience badge -->
-        <div class="absolute -left-4 -top-5 hidden rounded-2xl bg-white p-4 shadow-xl ring-1 ring-line sm:block">
-          <div class="flex items-center gap-3">
-            <span class="font-display text-4xl font-900 text-brand">35<span class="text-2xl">+</span></span>
-            <span class="text-sm font-600 leading-tight text-graphite">Jahre<br />Erfahrung</span>
-          </div>
-        </div>
-        <!-- floating one-hand badge -->
-        <div class="absolute -bottom-5 -right-3 hidden rounded-2xl bg-brand px-5 py-4 text-white shadow-xl md:block">
-          <p class="font-display text-sm font-800">Ein Ansprechpartner</p>
-          <p class="text-xs text-white/80">vom Aushub bis zur Übergabe</p>
-        </div>
       </div>
     </div>
   </section>
@@ -105,9 +76,8 @@ const featured = projects[0];
       <div class="max-w-2xl">
         <h2 class="section-title">Was wir bauen</h2>
         <p class="mt-4 text-lg leading-relaxed text-muted">
-          Von Erdbau und Tiefbau über Grundleitungen und Nahwärme bis zu Rohbau,
-          Stahlbetonbau und Schlüsselfertigbau. Ein Ansprechpartner für Ihr gesamtes
-          Projekt.
+          Unsere sechs Leistungsbereiche im Überblick – Details und Beispiele
+          aus unseren Projekten unter Leistungen.
         </p>
       </div>
       <a href="/leistungen" class="link-arrow shrink-0">
@@ -116,12 +86,19 @@ const featured = projects[0];
       </a>
     </div>
 
-    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-12 grid border-t border-line sm:grid-cols-2 sm:gap-x-12">
       {
         services.map((s) => (
-          <div class="reveal h-full">
-            <ServiceCard service={s} href={`/leistungen#${s.slug}`} />
-          </div>
+          <a
+            href={`/leistungen#${s.slug}`}
+            class="reveal group flex items-baseline justify-between gap-6 border-b border-line py-6"
+          >
+            <div>
+              <h3 class="text-xl font-800 text-ink transition-colors group-hover:text-brand-dark">{s.title}</h3>
+              <p class="mt-1.5 text-[0.98rem] leading-relaxed text-muted">{s.short}</p>
+            </div>
+            <Icon name="arrow-right" class="h-5 w-5 shrink-0 text-line transition-colors group-hover:text-brand" />
+          </a>
         ))
       }
     </div>
@@ -156,21 +133,6 @@ const featured = projects[0];
           Bei uns sprechen Sie direkt mit den Inhabern. Kurze Wege, klare Absprachen –
           und was wir zusagen, halten wir.
         </p>
-        <ul class="mt-7 grid gap-3 sm:grid-cols-2">
-          {
-            [
-              "Inhaber auf der Baustelle",
-              "Angebote mit klaren Positionen",
-              "Eigener Maschinenpark",
-              "Sitz in Butzbach, Niederlassung Münster",
-            ].map((t) => (
-              <li class="flex items-center gap-3 font-600 text-anthracite">
-                <Icon name="check-circle" class="h-5.5 w-5.5 shrink-0 text-brand" />
-                {t}
-              </li>
-            ))
-          }
-        </ul>
         <a href="/ueber-uns" class="btn btn-dark mt-9 !px-7 !py-3.5">
           Mehr über uns
           <Icon name="arrow-right" class="h-5 w-5" />
@@ -230,30 +192,6 @@ const featured = projects[0];
 
   <!-- ================= STATS ================= -->
   <Stats />
-
-  <!-- ================= WARUM WIR ================= -->
-  <section class="container-rg py-20 md:py-28">
-    <div class="reveal mx-auto max-w-2xl text-center">
-      <h2 class="section-title">So arbeiten wir</h2>
-      <p class="mt-4 text-lg leading-relaxed text-muted">
-        Neu am Markt, aber nicht neu auf dem Bau.
-      </p>
-    </div>
-
-    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {
-        advantages.map((a) => (
-          <div class="reveal group relative overflow-hidden rounded-2xl border border-line bg-white p-7 transition-all hover:border-brand-tint hover:shadow-[0_20px_45px_-25px_rgba(28,28,27,0.4)]">
-            <span class="font-mono text-4xl font-600 text-brand-tint transition-colors group-hover:text-brand">
-              {a.no}
-            </span>
-            <h3 class="mt-4 text-lg font-700">{a.title}</h3>
-            <p class="mt-2.5 text-[0.97rem] leading-relaxed text-muted">{a.text}</p>
-          </div>
-        ))
-      }
-    </div>
-  </section>
 
   <!-- ================= PARTNER ================= -->
   <section class="container-rg py-20 md:py-28">

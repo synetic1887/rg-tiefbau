@@ -25,7 +25,7 @@ import { projects } from "../data/site";
     <div class="space-y-16">
       {
         projects.map((p, i) => (
-          <article class="reveal grid items-start gap-10 lg:grid-cols-2 lg:gap-14" data-project-gallery>
+          <article id={p.slug} class="reveal grid scroll-mt-28 items-start gap-10 lg:grid-cols-2 lg:gap-14" data-project-gallery>
             <div class:list={["relative", i % 2 === 1 && "lg:order-2"]}>
               <BrandPanel
                 ratio="aspect-[4/3]"

@@ -7,12 +7,6 @@ import CtaBand from "../components/CtaBand.astro";
 import BrandPanel from "../components/BrandPanel.astro";
 import { company } from "../data/site";
 
-const values = [
-  { icon: "handshake", title: "Verlässlichkeit", text: "Ein Wort, ein Handschlag. Was wir zusagen, halten wir. Termintreu und ohne Ausreden." },
-  { icon: "shield", title: "Sorgfalt", text: "Sauber nach Plan und Norm gebaut. Wir bauen jedes Projekt, als wäre es unser eigenes." },
-  { icon: "euro", title: "Klare Preise", text: "Angebote, die man nachvollziehen kann. Änderungen besprechen wir, bevor sie Geld kosten." },
-  { icon: "compass", title: "Kurze Wege", text: "Sitz in Butzbach, Niederlassung in Münster. Wenn es brennt, sind wir schnell vor Ort." },
-];
 ---
 
 <Layout
@@ -50,49 +44,18 @@ const values = [
       </div>
 
       <div class="reveal">
-        <p class="eyebrow">Unsere Geschichte</p>
-        <h2 class="section-title mt-4">Erfahrung, die man spürt.</h2>
+        <h2 class="section-title">Das R und das G.</h2>
         <p class="mt-5 text-lg leading-relaxed text-muted">
           Die {company.name} ist ein junges Unternehmen mit Sitz in {company.city}.
-          Hinter RG stehen Ulrich Rudolf und Manuel Geis – das R und das G. Zusammen
+          Hinter RG stehen Ulrich Rudolf und Manuel Geis. Zusammen
           bringen sie über {company.experience} Jahre Erfahrung auf dem Bau mit.
         </p>
-        <p class="mt-4 text-lg leading-relaxed text-muted">
-          Diese Erfahrung ist unser Fundament. Wir wissen, worauf es auf der Baustelle
-          ankommt: saubere Planung, ehrliche Kommunikation und ein Ergebnis, das hält.
-          Vom kleinen Erdaushub bis zum schlüsselfertigen Hochbau. Wir packen an.
-        </p>
-        <div class="mt-8 flex items-center gap-4 rounded-2xl border border-line bg-sand p-5">
-          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white">
-            <Icon name="check" class="h-6 w-6" />
-          </span>
+        <div class="mt-8 border-l-2 border-brand pl-5">
           <p class="font-600 text-anthracite">
             Geschäftsführer <span class="text-brand-dark">{company.managingDirector}</span>.
             Ihr direkter Ansprechpartner von der Anfrage bis zur Übergabe.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Values -->
-  <section class="bg-cloud py-20 md:py-28">
-    <div class="container-rg">
-      <div class="reveal mx-auto max-w-2xl text-center">
-        <h2 class="section-title">Was Sie von uns erwarten können</h2>
-      </div>
-      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {
-          values.map((v) => (
-            <div class="reveal rounded-2xl bg-white p-7 text-center">
-              <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-soft text-brand-dark">
-                <Icon name={v.icon} class="h-7 w-7" stroke={1.5} />
-              </span>
-              <h3 class="mt-5 text-lg font-700">{v.title}</h3>
-              <p class="mt-2.5 text-[0.96rem] leading-relaxed text-muted">{v.text}</p>
-            </div>
-          ))
-        }
       </div>
     </div>
   </section>

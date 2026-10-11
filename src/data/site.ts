@@ -47,9 +47,9 @@ export const services: Service[] = [
   {
     slug: "erdarbeiten",
     title: "Erdbau und Tiefbau",
-    short: "Aushub, Verbau und Erdbewegung für jedes Bauvorhaben.",
+    short: "Baugruben, Bodenaustausch, Verfüllen und Verdichten.",
     description:
-      "Vom Baugrubenaushub über den Bodenaustausch bis zur Verfüllung und Verdichtung. Wir schaffen die tragfähige Grundlage für Ihr Projekt mit modernem Maschinenpark und erfahrenen Maschinisten.",
+      "Baugruben ausheben, Boden austauschen, verfüllen und lagenweise verdichten – bis die Fläche die geforderten Werte im Plattendruckversuch bringt. Wo es geht, bereiten wir Boden vor Ort auf, statt ihn abzufahren.",
     bullets: [
       "Baugruben und Fundamentaushub",
       "Bodenaustausch und Verfüllung",
@@ -63,7 +63,7 @@ export const services: Service[] = [
     title: "Grundleitungen und Nahwärme",
     short: "Leitungsbau und Versorgungstrassen für Neubauprojekte.",
     description:
-      "Fachgerechte Verlegung von Grundleitungen, Hausanschlussleitungen und kompletter Nahwärmeversorgung. Wir schließen Ihren Neubau an die Versorgungstrasse an, in enger Abstimmung mit dem Generalunternehmer.",
+      "Grund- und Hausanschlussleitungen auf der Baugrubensohle, Nahwärmetrassen bis zum Übergabepunkt, Schächte und Rigolen. Die Abstimmung mit Generalunternehmer und Versorger übernehmen wir direkt.",
     bullets: [
       "Grund- und Hausanschlussleitungen",
       "Nahwärmeversorgung",
@@ -77,7 +77,7 @@ export const services: Service[] = [
     title: "Rohbau und Hochbau",
     short: "Vom Fundament bis zum tragenden Geschossbau.",
     description:
-      "Mauerwerk, tragende Konstruktionen, Decken und kompletter Geschossbau für Wohn- und Gewerbeimmobilien. Fachgerecht, termintreu und aus einer Hand.",
+      "Mauerwerk, Stahlträgereinbau, Decken und Aufstockungen – im Neubau genauso wie im Bestand, auch auf engen Grundstücken mit direkter Nachbarbebauung.",
     bullets: [
       "Mauerwerk und tragende Wände",
       "Decken und Geschossbau",
@@ -89,9 +89,9 @@ export const services: Service[] = [
   {
     slug: "schluesselfertigbau",
     title: "Schlüsselfertigbau",
-    short: "Planung und Ausführung aus einer Hand.",
+    short: "Vom Rohbau bis zur Übergabe – mit unseren Partnern für die Ausbaugewerke.",
     description:
-      "Wir übernehmen Ihr Bauvorhaben komplett. Von der ersten Planung über die Werkplanung bis zur schlüsselfertigen Übergabe. Ein Ansprechpartner, ein verantwortliches Team. Planung und Ausführung aus einer Hand.",
+      "Wenn Sie nur einen Vertragspartner wollen, übernehmen wir das ganze Projekt: den Rohbau führen wir selbst aus, die Ausbaugewerke vergeben und koordinieren wir mit festen Partnern.",
     bullets: [
       "Planung und Vorbereitung",
       "Werk- und Detailplanung",
@@ -103,9 +103,9 @@ export const services: Service[] = [
   {
     slug: "stahlbetonbau",
     title: "Stahlbetonbau",
-    short: "Bewehrung, Schalung und Betonage normkonform ausgeführt.",
+    short: "Fundamente, Bodenplatten, Wände, Stützen und Decken.",
     description:
-      "Fundamente, Decken, Stützen und Wände. Wir setzen tragende Stahlbetonkonstruktionen fachgerecht und normkonform um. Präzise Schalung, saubere Bewehrung und dichte Betonage.",
+      "Streifen- und Köcherfundamente, Bodenplatten, Stützen, Wände und Decken. Schalung und Gerüst kommen von unserem Partner PERI.",
     bullets: [
       "Fundamente und Bodenplatten",
       "Schalung und Bewehrung",
@@ -117,9 +117,9 @@ export const services: Service[] = [
   {
     slug: "industriebau",
     title: "Industrie- und Gewerbebau",
-    short: "Erdbau und Außenanlagen für Industrieobjekte.",
+    short: "Hallen, Lager und Gewerbeflächen – vom Erdbau bis zum Fundament.",
     description:
-      "Pflasterarbeiten, Fundamente, Außenanlagen und erdbaurelevante Leistungen für Industrie- und Gewerbeobjekte. Belastbar geplant und robust ausgeführt.",
+      "Fundamente, Bodenplatten und Außenflächen für Hallen, Lager und technische Anlagen – zuletzt für ein Zentrallager in Neu-Isenburg und ein Antennenfeld in Bitterfeld.",
     bullets: [
       "Fundamente und Bodenplatten",
       "Pflaster- und Außenanlagen",
@@ -132,7 +132,6 @@ export const services: Service[] = [
 
 export const stats = [
   { value: "35", suffix: "+", label: "Jahre Erfahrung in der Geschäftsführung" },
-  { value: "6", suffix: "", label: "Leistungsbereiche, ein Ansprechpartner" },
   { value: "2", suffix: "", label: "Standorte: Butzbach und Münster" },
   { value: "5000", suffix: " m³", label: "Boden in Wolbeck vor Ort aufbereitet statt abgefahren" },
 ];
@@ -181,7 +180,7 @@ export const partners: Partner[] = [
     name: "Schulze-Steinen Elektrotechnik",
     trade: "Elektrotechnik",
     description:
-      "Verlässlicher Partner für sämtliche elektrotechnische Gewerke unserer Bauvorhaben. Von der Erstinstallation bis zur kompletten Gebäudetechnik.",
+      "Elektroinstallation und Gebäudetechnik auf unseren Bauvorhaben.",
     logo: "/partner/schulze-steinen.png",
     logoBg: "dark",
     logoBgColor: "#091a2d",
@@ -197,7 +196,7 @@ export const partners: Partner[] = [
     name: "Grant Immobilien GmbH",
     trade: "Immobilien und Projektentwicklung",
     description:
-      "Unser Partner für Immobilien und Projektentwicklung. Gemeinsam realisieren wir Bauvorhaben für private und gewerbliche Auftraggeber.",
+      "Projektentwickler aus Münster. Für Grant Immobilien haben wir unter anderem die Erdarbeiten in Wolbeck ausgeführt.",
     logo: "/partner/grant4you.png",
     logoBg: "light",
     street: "Pleistermühlenweg 278",
@@ -212,7 +211,7 @@ export const partners: Partner[] = [
     name: "Triatic Bau GmbH",
     trade: "Rohbau · Lohnleistung",
     description:
-      "Verlässlicher Partner im Rohbau. Unterstützt uns bei Lohnleistungen auf unseren Baustellen mit erfahrenen Teams.",
+      "Unterstützt uns mit Rohbau-Kolonnen in Lohnleistung.",
     logo: "/partner/triatic.png",
     logoBg: "light",
     street: "Hans-Böckler-Straße 5",
@@ -225,7 +224,7 @@ export const partners: Partner[] = [
     name: "OmniProjekt GmbH",
     trade: "Rohbau · Lohnleistung",
     description:
-      "Partner für Rohbauarbeiten im Bereich Lohnleistung. Gemeinsam stemmen wir größere Bauvorhaben mit eingespielten Teams.",
+      "Rohbau-Kolonnen in Lohnleistung für größere Bauvorhaben.",
     logo: "/partner/omni.jpg",
     logoBg: "light",
     street: "Heimatstraße 18",
@@ -236,7 +235,7 @@ export const partners: Partner[] = [
     name: "PERI",
     trade: "Schalung · Gerüst",
     description:
-      "Unser Partner für Schalungs- und Gerüsttechnik. Mit PERI-Systemen arbeiten wir auf unseren Baustellen sicher, schnell und wirtschaftlich – vom Fundament bis zur Aufstockung.",
+      "Schalung und Gerüst für unsere Baustellen.",
     logo: "/partner/peri.png",
     logoBg: "light",
     website: "https://www.peri.de",
@@ -246,7 +245,7 @@ export const partners: Partner[] = [
     name: "EDA Encore Data Analytics",
     trade: "KI-Lösungen · Prozessoptimierung",
     description:
-      "Unser Dienstleister für KI-Lösungen und Prozessoptimierung in der Industrie. Entwickelt automatisierte Kalkulations- und Controlling-Systeme, mit denen wir unsere Abläufe effizient halten.",
+      "Software für Kalkulation und Controlling, die wir im eigenen Betrieb einsetzen.",
     logo: "/partner/eda.png",
     logoBg: "light",
     website: "https://encore-analytics.de",

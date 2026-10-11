@@ -113,10 +113,7 @@ const hasPhoto = !!photo;
           </span>
         )}
         {label && (
-          <div class="mt-3 flex items-center gap-3">
-            <span class={`flex h-11 w-11 items-center justify-center rounded-xl ${isDark ? "bg-white/10 text-brand" : "bg-brand-soft text-brand-dark"}`}>
-              <Icon name={pinIcon} class="h-6 w-6" stroke={1.5} />
-            </span>
+          <div class="mt-3">
             <div>
               <p class={`font-display text-lg font-800 leading-tight ${isDark ? "text-white" : "text-ink"}`}>{label}</p>
               {sublabel && <p class={`text-sm ${isDark ? "text-white/55" : "text-muted"}`}>{sublabel}</p>}
