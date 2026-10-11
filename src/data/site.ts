@@ -444,9 +444,9 @@ export const projects: Project[] = [
   {
     slug: "alsfeld-lagerhalle-erweiterung",
     status: "Laufendes Projekt",
-    title: "Alsfeld: Erweiterung Lagerhalle für B&P Projektentwicklung",
-    client: "B&P Projektentwicklung GmbH",
-    location: "Alsfeld, Karl-Zeiss-Straße",
+    title: "Alsfeld: Erweiterung Lagerhalle für W&B Projektportfolio",
+    client: "W&B Projektportfolio GmbH",
+    location: "Alsfeld, Carl-Zeiss-Straße",
     period: "September 2026 bis Dezember 2026",
     motif: "hochbau",
     image: "/projekte/alsfeld/01.jpg",
@@ -459,7 +459,7 @@ export const projects: Project[] = [
     summary:
       "Fundamentierung, Mauerwerk aus Kalksandstein und Fertigteildecken für die Erweiterung einer Lagerhalle in Alsfeld.",
     description:
-      "Für die B&P Projektentwicklung GmbH erweitern wir eine bestehende Lagerhalle in der Karl-Zeiss-Straße in Alsfeld um rund 600 m² Grundfläche. Wir übernehmen die Fundamentierung, das Mauerwerk aus Kalksandstein und den Einbau der Fertigteildecken. Rohbauleistungen aus einer Hand. Bauzeit September bis Dezember 2026.",
+      "Für die W&B Projektportfolio GmbH erweitern wir eine bestehende Lagerhalle in der Carl-Zeiss-Straße in Alsfeld um rund 600 m² Grundfläche. Wir übernehmen die Fundamentierung, das Mauerwerk aus Kalksandstein und den Einbau der Fertigteildecken. Rohbauleistungen aus einer Hand. Bauzeit September bis Dezember 2026.",
     tags: ["Fundamente", "Mauerwerk", "Kalksandstein", "Fertigteildecken", "Rohbau", "Gewerbebau"],
   },
   {

@@ -20,7 +20,7 @@ Baustelle mit direkter Nachbarbebauung. Bauzeit Juni bis November 2026.
 
 ## Alsfeld · Erweiterung Lagerhalle
 
-In der Karl-Zeiss-Straße in Alsfeld erweitern wir für die **B&P Projektentwicklung
+In der Carl-Zeiss-Straße in Alsfeld erweitern wir für die **W&B Projektportfolio
 GmbH** eine bestehende Lagerhalle um rund 600 m² Grundfläche. Fundamentierung,
 Mauerwerk aus Kalksandstein und Fertigteildecken – Rohbau aus einer Hand. Bauzeit
 September bis Dezember 2026.
