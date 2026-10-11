@@ -1,6 +1,6 @@
 ---
 title: "Open Air Kino Butzbach 2026: Wir sind dabei"
-summary: "RG Hoch- & Tiefbau unterstützt das Open Air Kino am Landgrafenschloss Butzbach. Vom 23. Juli bis 12. August 2026 wird der Schlosshof zur Freiluft-Kinokulisse."
+summary: "Die RG Hoch-&Tiefbau GmbH unterstützt das Open Air Kino am Landgrafenschloss Butzbach. Vom 23. Juli bis 12. August 2026 wird der Schlosshof zur Freiluft-Kinokulisse."
 date: 2026-06-27
 category: "Engagement"
 cover: "/aktuelles/open-air-kino/titel.jpg"

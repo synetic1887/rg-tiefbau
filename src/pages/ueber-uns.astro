@@ -5,13 +5,13 @@ import Icon from "../components/Icon.astro";
 import Stats from "../components/Stats.astro";
 import CtaBand from "../components/CtaBand.astro";
 import BrandPanel from "../components/BrandPanel.astro";
-import { company, advantages } from "../data/site";
+import { company } from "../data/site";
 
 const values = [
   { icon: "handshake", title: "Verlässlichkeit", text: "Ein Wort, ein Handschlag. Was wir zusagen, halten wir. Termintreu und ohne Ausreden." },
-  { icon: "shield", title: "Qualität", text: "Höchste Standards bei Material und Ausführung. Wir bauen, als wäre es unser eigenes Projekt." },
-  { icon: "euro", title: "Transparenz", text: "Faire Preise und nachvollziehbare Kostenaufstellungen. Keine versteckten Posten." },
-  { icon: "compass", title: "Flexibilität", text: "Hauptsitz in Butzbach, deutschlandweit einsatzbereit. Kurze Reaktionszeiten inklusive." },
+  { icon: "shield", title: "Sorgfalt", text: "Sauber nach Plan und Norm gebaut. Wir bauen jedes Projekt, als wäre es unser eigenes." },
+  { icon: "euro", title: "Klare Preise", text: "Angebote, die man nachvollziehen kann. Änderungen besprechen wir, bevor sie Geld kosten." },
+  { icon: "compass", title: "Kurze Wege", text: "Sitz in Butzbach, Niederlassung in Münster. Wenn es brennt, sind wir schnell vor Ort." },
 ];
 ---
 
@@ -20,9 +20,9 @@ const values = [
   description="RG Hoch-&Tiefbau GmbH aus Butzbach. Ein neu gegründetes Unternehmen, geführt von einer Geschäftsführung mit über 35 Jahren Branchenerfahrung."
 >
   <PageHero
-    eyebrow="Über RG Hoch-&Tiefbau GmbH"
+    eyebrow="Über uns"
     title="Neu am Markt. Nicht neu im Geschäft."
-    subtitle="Wir verbinden die Agilität eines jungen Unternehmens mit der Erfahrung einer Geschäftsführung, die seit über 35 Jahren auf dem Bau zu Hause ist."
+    subtitle="Ein junges Unternehmen aus Butzbach – gegründet von zwei Leuten, die zusammen seit über 35 Jahren auf dem Bau zu Hause sind."
     crumbs={[
       { label: "Start", href: "/" },
       { label: "Über uns", href: "/ueber-uns" },
@@ -34,11 +34,12 @@ const values = [
     <div class="grid items-center gap-14 lg:grid-cols-2">
       <div class="reveal relative">
         <BrandPanel
-          ratio="aspect-[16/11]"
-          photo="/brand/brand-deutschlandweit.jpg"
-          photoAlt="RG Hoch-&Tiefbau GmbH deutschlandweit"
-          label="RG Hoch-&Tiefbau GmbH"
-          sublabel="Rudolf · Geis"
+          ratio="aspect-[4/5]"
+          photo="/brand/gruender.jpg"
+          photoAlt="Manuel Geis und Ulrich Rudolf in RG-Warnwesten auf der Baustelle"
+          photoPosition="center 30%"
+          label="Manuel Geis & Ulrich Rudolf"
+          sublabel="Gründer von RG"
           pinIcon="building"
           class="shadow-[0_30px_60px_-35px_rgba(28,28,27,0.5)]"
         />
@@ -52,10 +53,9 @@ const values = [
         <p class="eyebrow">Unsere Geschichte</p>
         <h2 class="section-title mt-4">Erfahrung, die man spürt.</h2>
         <p class="mt-5 text-lg leading-relaxed text-muted">
-          RG Hoch-&Tiefbau GmbH ist ein neu gegründetes Unternehmen mit Sitz in
-          {company.city} im Herzen Hessens. Hinter dem Namen RG steht die Familie
-          Rudolf · Geis und eine Geschäftsführung, die über {company.experience} Jahre
-          Erfahrung im Bauwesen mitbringt.
+          Die {company.name} ist ein junges Unternehmen mit Sitz in {company.city}.
+          Hinter RG stehen Ulrich Rudolf und Manuel Geis – das R und das G. Zusammen
+          bringen sie über {company.experience} Jahre Erfahrung auf dem Bau mit.
         </p>
         <p class="mt-4 text-lg leading-relaxed text-muted">
           Diese Erfahrung ist unser Fundament. Wir wissen, worauf es auf der Baustelle
@@ -79,8 +79,7 @@ const values = [
   <section class="bg-cloud py-20 md:py-28">
     <div class="container-rg">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="eyebrow justify-center">Was uns ausmacht</p>
-        <h2 class="section-title mt-4">Werte, auf die Sie bauen können</h2>
+        <h2 class="section-title">Was Sie von uns erwarten können</h2>
       </div>
       <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {
@@ -100,25 +99,18 @@ const values = [
 
   <Stats />
 
-  <!-- Advantages reuse -->
+  <!-- Team photo -->
   <section class="container-rg py-20 md:py-28">
-    <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="eyebrow justify-center">Ihre Vorteile</p>
-      <h2 class="section-title mt-4">Darum RG Hoch-&Tiefbau GmbH</h2>
-    </div>
-    <div class="mt-14 grid gap-6 sm:grid-cols-2">
-      {
-        advantages.map((a) => (
-          <div class="reveal flex gap-5 rounded-2xl border border-line bg-white p-7">
-            <span class="font-mono text-3xl font-600 text-brand-tint">{a.no}</span>
-            <div>
-              <h3 class="text-lg font-700">{a.title}</h3>
-              <p class="mt-2 text-[0.97rem] leading-relaxed text-muted">{a.text}</p>
-            </div>
-          </div>
-        ))
-      }
-    </div>
+    <figure class="reveal overflow-hidden rounded-3xl shadow-[0_30px_70px_-45px_rgba(28,28,27,0.5)]">
+      <img
+        src="/brand/team-spatenstich.jpg"
+        alt="Manuel Geis und Ulrich Rudolf mit Partnern beim Spatenstich vor Bagger und Raupe"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[3/2] w-full object-cover"
+      />
+    </figure>
+    <p class="mt-4 text-center text-sm text-muted">Spatenstich mit Partnern – Manuel Geis (2. v. l.) und Ulrich Rudolf (3. v. l.)</p>
   </section>
 
   <div class="pb-20 md:pb-24">

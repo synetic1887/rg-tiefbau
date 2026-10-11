@@ -6,8 +6,8 @@ import { stats } from "../data/site";
     {
       stats.map((s) => (
         <div class="reveal text-center">
-          <div class="font-display text-5xl font-900 leading-none text-white md:text-6xl">
-            <span class="counter" data-target={s.value}>0</span><span class="text-brand">{s.suffix}</span>
+          <div class="whitespace-nowrap font-display text-[2.6rem] font-900 leading-none text-white sm:text-5xl md:text-6xl">
+            <span class="counter" data-target={s.value}>0</span><span class:list={["text-brand", s.suffix.trim().length > 1 && "text-[0.55em]"]}>{s.suffix}</span>
           </div>
           <p class="mx-auto mt-3 max-w-[14rem] text-sm leading-snug text-white/55">{s.label}</p>
         </div>
@@ -24,7 +24,7 @@ import { stats } from "../data/site";
     const step = (now: number) => {
       const p = Math.min((now - start) / dur, 1);
       const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = String(Math.round(eased * target));
+      el.textContent = Math.round(eased * target).toLocaleString("de-DE");
       if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);

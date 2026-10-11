@@ -8,7 +8,7 @@ interface Props {
 }
 const {
   title = "Sie planen ein Bauvorhaben?",
-  text = "Ob Grundleitungen, Rohbau, Stahlbetonbau oder schlüsselfertiger Hochbau. Wir realisieren Ihr Projekt mit über 35 Jahren Branchenerfahrung in der Geschäftsführung. Deutschlandweit.",
+  text = "Rufen Sie direkt an oder schicken Sie uns Ihre Pläne. Sie bekommen eine ehrliche Einschätzung und ein Angebot, das man nachvollziehen kann.",
 } = Astro.props;
 ---
 <section class="container-rg">
@@ -18,8 +18,7 @@ const {
     <div class="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-brand/10 blur-3xl"></div>
 
     <div class="relative mx-auto max-w-2xl">
-      <p class="eyebrow justify-center !text-brand">Ihr Projekt</p>
-      <h2 class="mt-4 text-balance text-3xl font-800 text-white md:text-[2.6rem]">{title}</h2>
+      <h2 class="text-balance text-3xl font-800 text-white md:text-[2.6rem]">{title}</h2>
       <p class="mx-auto mt-5 max-w-xl text-[1.05rem] leading-relaxed text-white/65">{text}</p>
       <div class="mt-9 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
         <a href="/kontakt" class="btn btn-primary !px-7 !py-3.5">

@@ -1,6 +1,6 @@
 ---
 title: "Neu im BVMW: Willkommensbeitrag des Mittelstandsverbands"
-summary: "Der BVMW Hessen begrüßt RG Hoch- & Tiefbau als neues Mitglied und stellt uns in einem Porträt vor – mit einem Blick auf unsere Erfahrung, unsere Leistungen und unsere Ziele für die Region."
+summary: "Der BVMW Hessen begrüßt die RG Hoch-&Tiefbau GmbH als neues Mitglied und stellt uns in einem Porträt vor – mit einem Blick auf unsere Erfahrung, unsere Leistungen und unsere Ziele für die Region."
 date: 2026-10-11
 category: "Netzwerk"
 cover: "/verbaende/bvmw.png"
@@ -15,7 +15,7 @@ Zum Einstieg hat uns der Verband in Hessen mit einem eigenen Beitrag vorgestellt
 
 ## Junges Unternehmen, lange Erfahrung
 
-RG Hoch- & Tiefbau ist ein junges Unternehmen. Hinter uns stehen aber mehr als
+Die RG Hoch-&Tiefbau GmbH ist ein junges Unternehmen. Hinter uns stehen aber mehr als
 35 Jahre Branchenerfahrung der beiden Gründer **Manuel Geis** und **Ulrich Rudolf**.
 Wir decken das komplette Spektrum im Hoch- und Tiefbau ab – vom Erdbau über den
 Rohbau bis zum schlüsselfertigen Bauen, auch bei Projekten mit besonderen

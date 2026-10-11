@@ -131,31 +131,31 @@ export const services: Service[] = [
 
 export const stats = [
   { value: "35", suffix: "+", label: "Jahre Erfahrung in der Geschäftsführung" },
-  { value: "16", suffix: "", label: "Bundesländer Einsatzgebiet" },
-  { value: "6", suffix: "", label: "Gewerke aus einer Hand" },
-  { value: "100", suffix: "%", label: "Einsatzbereitschaft" },
+  { value: "6", suffix: "", label: "Leistungsbereiche, ein Ansprechpartner" },
+  { value: "2", suffix: "", label: "Standorte: Butzbach und Münster" },
+  { value: "5000", suffix: " m³", label: "Boden in Wolbeck vor Ort aufbereitet statt abgefahren" },
 ];
 
 export const advantages = [
   {
     no: "01",
-    title: "Alles aus einer Hand",
-    text: "Vom Erdbau bis zum Rohbau, ein Ansprechpartner für Ihr gesamtes Projekt. Keine Schnittstellenverluste, klare Verantwortung.",
+    title: "Ein Ansprechpartner",
+    text: "Vom Aushub bis zur Rohdecke koordinieren wir alles selbst. Sie haben eine Telefonnummer, nicht fünf.",
   },
   {
     no: "02",
-    title: "Erfahrene Geschäftsführung",
-    text: "Über 35 Jahre geballte Branchenerfahrung in der Führungsebene, von Tag eins an. Wir wissen, worauf es auf der Baustelle ankommt.",
+    title: "Chefs auf der Baustelle",
+    text: "Manuel Geis und Ulrich Rudolf sind selbst vor Ort. Entscheidungen fallen da, wo gebaut wird – nicht erst nach drei Telefonaten.",
   },
   {
     no: "03",
-    title: "Faire und transparente Preise",
-    text: "Detaillierte Kostenaufstellungen ohne versteckte Kosten. Sie wissen jederzeit, wofür Sie zahlen.",
+    title: "Klare Angebote",
+    text: "Jede Position nachvollziehbar. Wenn sich etwas ändert, sagen wir es vorher – nicht erst mit der Schlussrechnung.",
   },
   {
     no: "04",
-    title: "Flexibel und deutschlandweit",
-    text: "Hauptsitz in Butzbach, einsatzbereit in ganz Deutschland. Kurze Reaktionszeiten und verlässliche Termintreue.",
+    title: "Butzbach und Münster",
+    text: "Zwei Standorte, kurze Wege in Hessen und im Münsterland. Für größere Projekte sind wir auch weiter unterwegs.",
   },
 ];
 

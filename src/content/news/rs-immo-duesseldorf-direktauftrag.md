@@ -27,7 +27,7 @@ Das Vorhaben erstreckt sich über **mehrere Bauabschnitte** für eine große
 Besonders freut uns dabei: Neben dem Auftrag der **Köster GmbH** kommen wir in
 Düsseldorf nun auch im **direkten Auftragsverhältnis mit der Bauherrschaft** ins
 Geschäft. Das ist ein schöner Vertrauensbeweis und ein wichtiger Schritt für die
-weitere Entwicklung von RG Hoch- & Tiefbau.
+weitere Entwicklung der RG Hoch-&Tiefbau GmbH.
 
 Unser Dank gilt der RS Immo GmbH für das entgegengebrachte Vertrauen – und ebenso
 der **Köster GmbH**, die uns diesen Auftrag partnerschaftlich vermittelt hat. Diese

@@ -18,7 +18,7 @@ Wirtschaftsstandort Münster investiert.
 Geis. Gemeinsam mit Mitgründer Ulrich Rudolf bringen wir erfahrene Bauleute mit – und
 suchen für den Standort auch neue Kräfte.
 
-<figure class="media-video"><video src="/aktuelles/wolbeck/manu-zeitlupe.mp4" poster="/aktuelles/wolbeck/manu-poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video><figcaption>RG Hoch- &amp; Tiefbau beim Ortstermin auf der Baustelle.</figcaption></figure>
+<figure class="media-video"><video src="/aktuelles/wolbeck/manu-zeitlupe.mp4" poster="/aktuelles/wolbeck/manu-poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video><figcaption>RG Hoch-&amp;Tiefbau GmbH beim Ortstermin auf der Baustelle.</figcaption></figure>
 
 ## Das Bauvorhaben
 
@@ -31,7 +31,7 @@ markanter Hallenkomplex – als Referenzobjekt von Grant Immobilien.
 - Obergeschoss mit **266 m²** Bürofläche
 - Markantes Überdach mit Pkw-Stellflächen und vorbereiteten Ladesäulen
 
-Der **Bauauftrag** ging an die RG Hoch- & Tiefbau, der **Baubeginn** ist für den
+Der **Bauauftrag** ging an die RG Hoch-&Tiefbau GmbH, der **Baubeginn** ist für den
 Spätherbst 2026 vorgesehen.
 
 ## Starke Kooperation vor Ort

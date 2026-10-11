@@ -16,9 +16,9 @@ const latestNews = (await getCollection("news"))
   .slice(0, 3);
 
 const trust = [
-  { icon: "shield", label: "Qualität und Termintreue" },
-  { icon: "layers", label: "Alles aus einer Hand" },
-  { icon: "compass", label: "Deutschlandweit im Einsatz" },
+  { icon: "map-pin", label: "Butzbach und Münster" },
+  { icon: "excavator", label: "Eigener Maschinenpark" },
+  { icon: "phone", label: "Inhaber direkt erreichbar" },
 ];
 const featured = projects[0];
 ---
@@ -43,10 +43,9 @@ const featured = projects[0];
         </h1>
         <p class="mt-6 max-w-xl text-2xl font-800 leading-snug text-ink">Wir bauen jedes Projekt, als wäre es unser eigenes.</p>
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-          RG Hoch-&Tiefbau GmbH ist Ihr verlässlicher Partner für Erdbau, Tiefbau,
-          Rohbau, Stahlbetonbau, Grundleitungen und Schlüsselfertigbau. Geführt von
-          einer Geschäftsführung mit über {company.experience} Jahren Branchenerfahrung.
-          Deutschlandweit im Einsatz.
+          Erdbau, Tiefbau, Grundleitungen, Rohbau, Stahlbetonbau und schlüsselfertiges
+          Bauen. Aus {company.city}, mit Niederlassung in Münster. Geführt von zwei Leuten,
+          die zusammen über {company.experience} Jahre auf dem Bau stehen.
         </p>
         <div class="mt-9 flex flex-col gap-3.5 sm:flex-row">
           <a href="/kontakt" class="btn btn-primary !px-7 !py-3.5 text-base">
@@ -76,12 +75,11 @@ const featured = projects[0];
         <BrandPanel
           class="shadow-[0_40px_80px_-40px_rgba(28,28,27,0.5)]"
           ratio="aspect-[16/11]"
-          photo="/brand/brand-banner.jpg"
-          photoAlt="RG Hoch-&Tiefbau GmbH Bagger im Einsatz"
-          photoPosition="center 45%"
-          status="Hochbau & Tiefbau"
-          label="Rudolf · Geis"
-          sublabel="Deutschlandweit im Einsatz"
+          photo="/brand/team-spatenstich.jpg"
+          photoAlt="Manuel Geis und Ulrich Rudolf mit Partnern beim Spatenstich vor Bagger und Raupe"
+          photoPosition="center 35%"
+          label="Spatenstich"
+          sublabel="Manuel Geis & Ulrich Rudolf"
           pinIcon="excavator"
         />
 
@@ -94,8 +92,8 @@ const featured = projects[0];
         </div>
         <!-- floating one-hand badge -->
         <div class="absolute -bottom-5 -right-3 hidden rounded-2xl bg-brand px-5 py-4 text-white shadow-xl md:block">
-          <p class="font-display text-sm font-800">6 Gewerke</p>
-          <p class="text-xs text-white/80">aus einer Hand</p>
+          <p class="font-display text-sm font-800">Ein Ansprechpartner</p>
+          <p class="text-xs text-white/80">vom Aushub bis zur Übergabe</p>
         </div>
       </div>
     </div>
@@ -105,8 +103,7 @@ const featured = projects[0];
   <section class="container-rg py-20 md:py-28">
     <div class="reveal flex flex-col items-end justify-between gap-6 md:flex-row">
       <div class="max-w-2xl">
-        <p class="eyebrow">Leistungen</p>
-        <h2 class="section-title mt-4">Alles aus einer Hand</h2>
+        <h2 class="section-title">Was wir bauen</h2>
         <p class="mt-4 text-lg leading-relaxed text-muted">
           Von Erdbau und Tiefbau über Grundleitungen und Nahwärme bis zu Rohbau,
           Stahlbetonbau und Schlüsselfertigbau. Ein Ansprechpartner für Ihr gesamtes
@@ -136,16 +133,14 @@ const featured = projects[0];
       <div class="reveal relative order-2 lg:order-1">
         <BrandPanel
           ratio="aspect-[5/4]"
-          photo="/brand/hero-skyline.jpg"
-          photoAlt="RG Hoch-&Tiefbau GmbH Skyline-Baustelle"
-          label="Hauptsitz Butzbach"
-          sublabel="Deutschlandweit im Einsatz"
-          pinIcon="map-pin"
+          photo="/brand/gruender-2.jpg"
+          photoAlt="Manuel Geis und Ulrich Rudolf auf der Baustelle"
+          photoPosition="center 30%"
           class="shadow-[0_30px_60px_-35px_rgba(28,28,27,0.4)]"
         />
         <div class="absolute -bottom-6 left-6 rounded-2xl bg-brand px-6 py-5 text-white shadow-lg">
-          <p class="font-display text-3xl font-900 leading-none">Rudolf · Geis</p>
-          <p class="mt-1 text-sm text-white/85">Geschäftsführung mit Handschlagqualität</p>
+          <p class="font-display text-2xl font-900 leading-none">Ulrich Rudolf &amp; Manuel Geis</p>
+          <p class="mt-1 text-sm text-white/85">Die Gründer – das R und das G in RG</p>
         </div>
       </div>
 
@@ -153,21 +148,21 @@ const featured = projects[0];
         <p class="eyebrow">Über RG</p>
         <h2 class="section-title mt-4">Frisch gegründet.<br />Erfahren geführt.</h2>
         <p class="mt-5 text-lg leading-relaxed text-muted">
-          RG Hoch-&Tiefbau GmbH ist ein neu gegründetes Unternehmen mit Sitz in
-          {company.city}. Unsere Geschäftsführung bringt über {company.experience} Jahre
-          Erfahrung im Bauwesen mit und kennt die Branche bis ins Detail.
+          RG steht für Rudolf und Geis. Das Unternehmen ist jung, die Leute dahinter
+          sind es nicht: Zusammen bringen Ulrich Rudolf und Manuel Geis über
+          {company.experience} Jahre Erfahrung auf dem Bau mit.
         </p>
         <p class="mt-4 text-lg leading-relaxed text-muted">
-          Wir verbinden die Agilität eines jungen Unternehmens mit der Kompetenz erfahrener
-          Profis. Verlässlich, transparent und deutschlandweit einsatzbereit.
+          Bei uns sprechen Sie direkt mit den Inhabern. Kurze Wege, klare Absprachen –
+          und was wir zusagen, halten wir.
         </p>
         <ul class="mt-7 grid gap-3 sm:grid-cols-2">
           {
             [
-              "Erfahrene Geschäftsführung",
-              "Faire & transparente Preise",
-              "Höchste Qualitätsstandards",
-              "Garantierte Termintreue",
+              "Inhaber auf der Baustelle",
+              "Angebote mit klaren Positionen",
+              "Eigener Maschinenpark",
+              "Sitz in Butzbach, Niederlassung Münster",
             ].map((t) => (
               <li class="flex items-center gap-3 font-600 text-anthracite">
                 <Icon name="check-circle" class="h-5.5 w-5.5 shrink-0 text-brand" />
@@ -188,8 +183,7 @@ const featured = projects[0];
   <section class="bg-ink py-20 md:py-28">
     <div class="container-rg">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="eyebrow justify-center !text-brand">Imagefilm</p>
-        <h2 class="section-title mt-4 text-white">Wir bauen. Sehen Sie selbst.</h2>
+        <h2 class="section-title text-white">Wir bauen. Sehen Sie selbst.</h2>
         <p class="mt-4 text-lg leading-relaxed text-white/70">
           Ein Blick auf unsere Baustellen und darauf, wie wir arbeiten.
         </p>
@@ -240,11 +234,9 @@ const featured = projects[0];
   <!-- ================= WARUM WIR ================= -->
   <section class="container-rg py-20 md:py-28">
     <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="eyebrow justify-center">Warum RG</p>
-      <h2 class="section-title mt-4">Was uns von anderen unterscheidet</h2>
+      <h2 class="section-title">So arbeiten wir</h2>
       <p class="mt-4 text-lg leading-relaxed text-muted">
-        Wir sind neu am Markt, aber alles andere als unerfahren. Über {company.experience}
-        Jahre Branchenerfahrung in der Führung machen den Unterschied.
+        Neu am Markt, aber nicht neu auf dem Bau.
       </p>
     </div>
 
@@ -266,11 +258,10 @@ const featured = projects[0];
   <!-- ================= PARTNER ================= -->
   <section class="container-rg py-20 md:py-28">
     <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="eyebrow justify-center">Starke Partner</p>
-      <h2 class="section-title mt-4">Unsere Partnerunternehmen</h2>
+      <h2 class="section-title">Unsere Partner</h2>
       <p class="mt-4 text-lg leading-relaxed text-muted">
-        Wir arbeiten Hand in Hand mit erfahrenen Partnern aus angrenzenden Gewerken.
-        So bekommen Sie alle Leistungen rund um Ihr Bauvorhaben aus einer verlässlichen Hand.
+        Für Elektro, Schalung, Gerüst und Lohnleistungen arbeiten wir mit festen Partnern,
+        die wir kennen und auf die wir uns verlassen.
       </p>
     </div>
 
@@ -336,11 +327,7 @@ const featured = projects[0];
     <!-- Verbandsmitgliedschaften -->
     <div class="reveal mt-16 border-t border-line pt-14 md:mt-20 md:pt-16">
       <div class="mx-auto max-w-2xl text-center">
-        <p class="eyebrow justify-center">Mitgliedschaften</p>
-        <h3 class="mt-4 text-2xl font-800 md:text-3xl">Wir sind Mitglied in diesen Verbänden</h3>
-        <p class="mt-3 leading-relaxed text-muted">
-          RG Hoch- &amp; Tiefbau ist in anerkannten Wirtschafts- und Bauverbänden organisiert.
-        </p>
+        <h3 class="text-2xl font-800 md:text-3xl">Mitglied in</h3>
       </div>
       <div class="mx-auto mt-10 grid max-w-5xl grid-cols-2 items-stretch gap-6 lg:grid-cols-4">
         {
@@ -360,8 +347,7 @@ const featured = projects[0];
         <div class="container-rg">
           <div class="reveal flex flex-col items-end justify-between gap-6 md:flex-row">
             <div class="max-w-2xl">
-              <p class="eyebrow">Aktuelles</p>
-              <h2 class="section-title mt-4">Frisch aus dem Bautagebuch</h2>
+              <h2 class="section-title">Frisch aus dem Bautagebuch</h2>
               <p class="mt-4 text-lg leading-relaxed text-muted">
                 Was bei uns gerade auf der Baustelle passiert. Aktuelle Einblicke,
                 neue Projekte und Referenzen.
@@ -405,7 +391,7 @@ const featured = projects[0];
           />
         </div>
         <div class="flex flex-col justify-center p-8 md:p-12">
-          <p class="eyebrow">Aktuelles Projekt</p>
+          <p class="eyebrow">Referenz</p>
           <h2 class="mt-4 text-3xl font-800 leading-tight md:text-[2.4rem]">{featured.title}</h2>
           <p class="mt-2 font-600 text-graphite">Auftraggeber: {featured.client}</p>
           <p class="mt-5 leading-relaxed text-muted">{featured.summary} {featured.description}</p>
@@ -441,7 +427,7 @@ const featured = projects[0];
     btn.addEventListener("click", () => {
       const iframe = document.createElement("iframe");
       iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-      iframe.title = "Imagefilm RG Hoch- & Tiefbau";
+      iframe.title = "Imagefilm RG Hoch-&Tiefbau GmbH";
       iframe.allow = "autoplay; encrypted-media; picture-in-picture";
       iframe.allowFullscreen = true;
       iframe.className = "absolute inset-0 h-full w-full border-0";
