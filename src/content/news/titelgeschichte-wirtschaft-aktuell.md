@@ -19,7 +19,8 @@ Elektrotechnik.
 
 ## Wie alles angefangen hat
 
-Kennengelernt haben sich Christian Grant und Manuel Geis bei einem Bauprojekt im
+Die RG Hoch-&Tiefbau GmbH wurde Ende 2025 gegründet. Kennengelernt haben sich
+Christian Grant und Manuel Geis bei einem Bauprojekt im
 Münsteraner Gewerbegebiet Loddenheide. Schnell war klar, dass sich Erfahrung und
 Netzwerke beider Seiten gut ergänzen. Aus den ersten Gesprächen ist eine
 Zusammenarbeit geworden, die inzwischen konkrete Projekte hervorbringt.
@@ -40,7 +41,8 @@ eingebaut, statt alles abzufahren. Fertigstellung ist für 2027/2028 geplant.
 - **Niederlassung Münster:** Am Werse-Campus am Pleistermühlenweg entsteht gemeinsam
   mit Grant Immobilien und Schulze-Steinen Elektrotechnik ein Verbund, der vom Hoch-
   und Tiefbau über die Elektroinstallation bis zum schlüsselfertigen Projekt alles
-  abdecken kann.
+  abdecken kann. Für den Standort Münster planen wir perspektivisch mit acht bis
+  zwölf Beschäftigten und einem Jahresumsatz von drei bis vier Millionen Euro.
 - **Weitere Projekte:** Direkt neben Wolbeck ist ein weiteres Gewerbeobjekt mit Halle
   und Büros geplant, außerdem ein Wohn- und Geschäftshaus in Amelsbüren.
 - **Regionale Partner:** Energieberater, Handwerksbetriebe und Fachunternehmen aus der
