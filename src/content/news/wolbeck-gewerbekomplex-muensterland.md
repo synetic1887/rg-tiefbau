@@ -6,7 +6,6 @@ category: "Standort"
 cover: "/aktuelles/wolbeck/presse-wolbeck.jpg"
 coverAlt: "Christian Grant, Ulrich Rudolf und Manuel Geis mit den Plänen für das Wolbeck-Projekt"
 project: "Gewerbekomplex Wolbeck"
-pin: 3
 ---
 
 Wir bauen unsere Präsenz im Münsterland aus: Unsere **Zweigniederlassung in Münster**

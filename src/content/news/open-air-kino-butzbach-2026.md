@@ -6,7 +6,7 @@ category: "Engagement"
 cover: "/aktuelles/open-air-kino/titel.jpg"
 coverAlt: "Open Air Kino am Landgrafenschloss Butzbach 2026"
 coverContain: true
-pin: 2
+pin: 3
 ---
 
 Wir sind stolz, in diesem Jahr beim **Open Air Kino in Butzbach** dabei zu sein. Vom **23. Juli bis 12. August 2026** verwandelt sich der Hof des **Landgrafenschlosses** wieder in eine stimmungsvolle Freiluft-Kinokulisse.

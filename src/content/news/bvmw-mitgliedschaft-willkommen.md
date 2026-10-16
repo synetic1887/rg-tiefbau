@@ -7,7 +7,7 @@ cover: "/verbaende/bvmw.png"
 coverAlt: "Logo BVMW – Der Mittelstand"
 coverContain: true
 thumbContain: true
-pin: 1
+pin: 2
 ---
 
 Wir sind seit Kurzem Mitglied im **BVMW – Bundesverband mittelständische Wirtschaft**.
