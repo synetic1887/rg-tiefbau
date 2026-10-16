@@ -30,7 +30,11 @@ const formatted = d.toLocaleDateString("de-DE", {
       decoding="async"
       class:list={[
         "aspect-[16/10] w-full transition-transform duration-500 group-hover:scale-105",
-        post.data.thumbContain ? "bg-white object-contain px-10 pb-6 pt-14" : "object-cover",
+        post.data.thumbContain
+          ? "bg-white object-contain px-10 pb-6 pt-14"
+          : post.data.thumbPoster
+            ? "bg-ink object-contain py-4"
+            : "object-cover",
       ]}
     />
     <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-700 uppercase tracking-wider text-brand-dark shadow backdrop-blur">

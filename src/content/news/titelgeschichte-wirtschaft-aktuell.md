@@ -6,6 +6,7 @@ category: "Presse"
 cover: "/aktuelles/wirtschaft-aktuell/titelseite.jpg"
 coverAlt: "Titelseite Wirtschaft aktuell, Oktober 2026: Manuel Geis und Ulrich Rudolf – Gemeinsam für Münster"
 coverContain: true
+thumbPoster: true
 project: "Gewerbekomplex Wolbeck"
 pin: 1
 ---
